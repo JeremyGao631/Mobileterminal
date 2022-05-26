@@ -2,7 +2,9 @@
   <div id="app">
             <div class="body-box" :class="{ 'isIOS': userAgent === 'IOS' }">
             <!-- 顶部tabBar 每个页面单独写-->
-            <tabBar title="home"/>
+            <tabBar v-if="$route.meta.barSet === 'nav'"
+                    :operate-arr="$route.meta.operateArr"
+                    :title="$route.meta.title"/>
             <!-- <van-nav-bar title="HOME">
               <template #left>
                 <van-icon :name="require('./assets/logo.png')" size="43" />

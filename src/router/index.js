@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { deepClone } from '../utils/index.js'
+const barOpt = ['none', 'nav', 'bot', 'custom']
 
 Vue.use(Router)
 const baseRoute = [
@@ -11,6 +12,8 @@ const baseRoute = [
     component: () => import('@/views/home/homeView.vue'),
     meta: {
       keepAlive: false, // 是否缓存组件
+      barSet: barOpt[1], // 0:没有bar  1顶部  2底部 默认1
+      title: 'HOME',
     }
   },
   {
@@ -20,6 +23,8 @@ const baseRoute = [
     component: () => import('@/views/home/aboutCar.vue'),
     meta: {
       keepAlive: false, // 是否缓存组件
+      barSet: barOpt[1], // 0:没有bar  1顶部  2底部 默认1
+      title: 'ABOUT',
     }
   },
   {
@@ -29,6 +34,8 @@ const baseRoute = [
     component: () => import('@/views/home/contactView.vue'),
     meta: {
       keepAlive: false,
+      barSet: barOpt[1], // 0:没有bar  1顶部  2底部 默认1
+      title: 'CONTACT',
     }
   },
   {
@@ -38,6 +45,8 @@ const baseRoute = [
     component: () => import('@/views/home/showRoom.vue'),
     meta: {
       keepAlive:false,
+      barSet: barOpt[1], // 0:没有bar  1顶部  2底部 默认1
+      title: 'ONLINE SHOWROOM',
     }
   },
   {
@@ -47,6 +56,8 @@ const baseRoute = [
     component: () => import('@/views/home/sellCar.vue'),
     meta: {
       keepAlive: false,
+      barSet: barOpt[1], // 0:没有bar  1顶部  2底部 默认1
+      title: 'SELL YOUR CAR',
     }
   },
   {
@@ -56,6 +67,7 @@ const baseRoute = [
     component: () => import('@/views/home/carDetail.vue'),
     meta: {
       keepAlive: false,
+      barSet: barOpt[1] // 0:没有bar  1顶部  2底部 默认1
     }
   },
   {
@@ -63,7 +75,8 @@ const baseRoute = [
     redirect: '/home',
     meta: {
       // auth: false, // 是否需要登录
-      // keepAlive: true // 是否缓存组件
+      keepAlive: true, // 是否缓存组件
+      barSet: barOpt[1] // 0:没有bar  1顶部  2底部 默认1
     }
   }
 ]

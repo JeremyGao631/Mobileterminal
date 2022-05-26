@@ -10,9 +10,112 @@
             </div>
             <!-- <div class="tips">{{tips}}</div> -->
         </div>
-        <div style="background">
-          <van-cell title="HOME" is-link url="/home" />
-          <van-cell title="CONTACT" is-link to="index" />
+        <div style="backgrounds">
+          <!-- guide-->
+          <div class="tops">GUIDE</div>
+          <div>
+              <div class="view">
+                <div class="cell-container">
+                    <div class="item" style="height:64px" @click="home()">
+                        <div class="show">
+                            <!-- <img class="image" src="../../assets/home/person/gzh.png" alt=""> -->
+                            <span class="text">HOME</span>
+                        </div>
+                        <div class="show">
+                            <van-icon name="arrow" size="29" color="#909090"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view">
+                <div class="cell-container">
+                    <div class="item" style="height:64px" @click="showroom()">
+                        <div class="show">
+                            <span class="text">ONLINE SHOWROOM</span>
+                        </div>
+                        <div class="show">
+                            <van-icon name="arrow" size="29" color="#909090"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="view">
+                <div class="cell-container">
+                    <div class="item" style="height:64px" @click="sell()">
+                        <div class="show">
+                            <span class="text">SELL YOUR CAR</span>
+                        </div>
+                        <div class="show">
+                            <van-icon name="arrow" size="29" color="#909090"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="view">
+                <div class="cell-container">
+                    <div class="item" style="height:64px" @click="about()">
+                        <div class="show">
+                            <span class="text">ABOUT</span>
+                        </div>
+                        <div class="show">
+                            <van-icon name="arrow" size="29" color="#909090"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="view">
+                <div class="cell-container">
+                    <div class="item" style="height:64px" @click="contact()">
+                        <div class="show">
+                            <span class="text">CONTACT</span>
+                        </div>
+                        <div class="show">
+                            <van-icon name="arrow" size="29" color="#909090"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--contact-->
+            <div class="tops">CONTACT</div>
+             <div class="view">
+                <div class="cell-container">
+                  <!-- 此处行内不影响整体-->
+                    <div class="item" style="height:64px">
+                        <div class="show">
+                            <span class="text">Tel: 0498698000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view">
+                <div class="cell-container">
+                    <div class="item" style="height:64px">
+                        <div class="show">
+                            <span class="text">Wechat: buyingcars</span>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="view">
+                <div class="cell-container">
+                    <div class="item" style="height:64px">
+                        <div class="show">
+                            <span class="text">E-mail: enquiries@autohome.com.au</span>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="view">
+                <div class="cell-container">
+                    <div class="item" style="height:64px">
+                        <div class="show">
+                            <span class="text">Addriss: 300 Parramatta Road,Burwood,NSW 2134</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottoms">Autohome AU.ALL right reserved.@Copyright 2020</div>
+          </div>
         </div>
     </div>
     
@@ -50,6 +153,7 @@
 <style lang="less" scoped>
   .jj {
       background-color: #151515;
+      min-height: 100%;
     .left {
         margin-left: 5px;
         padding-top:15px;
@@ -58,17 +162,17 @@
         align-items: center;
       .img {
         margin-left:12px;
-        width: 85px;
-        height: 50px;
+        width: 70px;
+        height: 42px;
       }
       .bottom {
-        padding-left:68px;
+        padding-left:85px;
         padding-top: 10px;
         padding-bottom: 10px;
         .bottom-logo {
           margin-right: 20px;
-          width: 30px;
-          height: 35px;
+          width: 25px;
+          height: 30px;
         }
       }
       .tips {
@@ -82,71 +186,55 @@
         line-height: 24px;
         }
     }
-    .line {
-      width: 260px;
-      height: 200px;
-      margin-top: 45px;
-      border-left: 1px solid #313030
-    }
-    .right {
-      text-align: left;
-      padding-top: 80px;
-      .guide {
-        width: 61px;
-        height: 30px;
-        font-size: 30px;
-        padding-bottom: 10px;
+     .tops {
+        padding: 35px 20px 18px 20px;
+        width: 33px;
+        height: 16px;
+        font-size: 14px;
+        text-align: left;
         font-family: DINCondensed-Bold, DINCondensed;
         font-weight: bold;
-        color: #F7941E;
-        letter-spacing: 1px;
-      }
-      .components {
-        width: 39px;
-        padding-bottom: 15px;
-        height: 20px;
-        font-size: 16px;
-        font-family: DINCondensed-Bold, DINCondensed;
-        width: 150px;
-        color: #909090;
-        line-height: 24px;
-      }
-      .component {
-        width: 39px;
-        padding-bottom: 43px;
-        height: 20px;
-        font-size: 16px;
-        font-family: DINCondensed-Bold, DINCondensed;
-        width: 150px;
-        color: #909090;
-        line-height: 24px;
-      }
-    }
-    .among {
-      text-align: left;
-      padding-left: 110px;
-      padding-top: 15px;
-      .guide {
-        width: 61px;
-        height: 30px;
-        padding-bottom: 10px;
-        font-size: 30px;
+        color: rgba(144, 144, 144, 1);
+        line-height: 19px;
+      };
+      .bottoms {
+        padding: 35px 0;
+        height: 16px;
+        font-size: 12px;
+        text-align: center;
         font-family: DINCondensed-Bold, DINCondensed;
         font-weight: bold;
-        color: #F7941E;
-        letter-spacing: 1px;
-      }
-      .components {
-        width: 39px;
-        padding-bottom: 15px;
-        height: 20px;
-        font-size: 16px;
-        font-family: DINCondensed-Bold, DINCondensed;
-        width: 300px;
-        color: #909090;
-        line-height: 24px;
-      }
-
-    }
+        color: rgba(144, 144, 144, 1);
+        line-height: 19px;
+      };
+    .view{
+            padding: 0 20px;
+            .cell-container{
+              border-bottom: 1px solid rgba(151, 151, 151, 1);
+            .item{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                .show{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .text{
+                        font-size: 13px;
+                        font-family: DINCondensed-Bold, DINCondensed;
+                        font-weight: 400;
+                        color: #909090;
+                        display: block
+                    }
+                    .arrow{
+                        width: 7px;
+                        height: 12px;
+                        display: block;
+                    }
+                }
+            }
+        }
+  }
   }
 </style>
