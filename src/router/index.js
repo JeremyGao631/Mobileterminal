@@ -1,27 +1,86 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Router from 'vue-router'
+import { deepClone } from '../utils/index.js'
 
-Vue.use(VueRouter)
-
-const routes = [
+Vue.use(Router)
+const baseRoute = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    // home页
+    path: '/home',
+    name: 'Home',
+    component: () => import('@/views/home/homeView.vue'),
+    meta: {
+      keepAlive: false, // 是否缓存组件
+    }
   },
   {
+    // about
     path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    name: 'AboutCar',
+    component: () => import('@/views/home/aboutCar.vue'),
+    meta: {
+      keepAlive: false, // 是否缓存组件
+    }
+  },
+  {
+    // contact
+    path: '/contact',
+    name: 'ContactView',
+    component: () => import('@/views/home/contactView.vue'),
+    meta: {
+      keepAlive: false,
+    }
+  },
+  {
+    // showRoom
+    path: '/showRoom',
+    name: 'ShowRoom',
+    component: () => import('@/views/home/showRoom.vue'),
+    meta: {
+      keepAlive:false,
+    }
+  },
+  {
+    // ell your car
+    path: '/sell',
+    name: 'sellCar',
+    component: () => import('@/views/home/sellCar.vue'),
+    meta: {
+      keepAlive: false,
+    }
+  },
+  {
+    // car detail
+    path: '/carDetail',
+    name: 'carDetail',
+    component: () => import('@/views/home/carDetail.vue'),
+    meta: {
+      keepAlive: false,
+    }
+  },
+  {
+    path: '*', // 未匹配到路由时重定向
+    redirect: '/home',
+    meta: {
+      // auth: false, // 是否需要登录
+      // keepAlive: true // 是否缓存组件
+    }
   }
 ]
 
-const router = new VueRouter({
-  routes
+const routes = deepClone([
+  ...baseRoute,
+])
+
+const createRouter = () => new Router({
+  routes: routes
 })
+
+const router = createRouter()
+
+export function resetRouter() {
+  // const newRouter = createRouter()
+  // router.matcher = newRouter.matcher
+}
 
 export default router
