@@ -74,7 +74,7 @@ export default {
     color: #000;
 }
  .van-nav-bar {
-    margin:10px 0px;
+    margin:10px 0 0 0;
  }
 
  /deep/ .van-nav-bar__title{
