@@ -190,22 +190,26 @@
         padding: 35px 20px 18px 20px;
         width: 33px;
         height: 16px;
-        font-size: 14px;
+        font-size: 16px;
         text-align: left;
         font-family: DINCondensed-Bold, DINCondensed;
         font-weight: bold;
         color: rgba(144, 144, 144, 1);
         line-height: 19px;
+        opacity: 0.5;
       };
       .bottoms {
-        padding: 35px 0;
+        padding: 18px 50px;
+        margin-bottom:38px;
+        width: 275px;
         height: 16px;
-        font-size: 12px;
+        font-size: 11px;
+        font-family: PingFangSC-Light, PingFang SC;
+        font-weight: 300;
+        color: #909090;
+        line-height: 16px;
         text-align: center;
-        font-family: DINCondensed-Bold, DINCondensed;
-        font-weight: bold;
-        color: rgba(144, 144, 144, 1);
-        line-height: 19px;
+        opacity: 0.6;
       };
     .view{
             padding: 0 20px;
@@ -221,11 +225,15 @@
                     flex-direction: row;
                     align-items: center;
                     .text{
-                        font-size: 13px;
+                        width: 273px;
+                        height: 16px;
+                        font-size: 16px;
                         font-family: DINCondensed-Bold, DINCondensed;
-                        font-weight: 400;
+                        font-weight: bold;
                         color: #909090;
-                        display: block
+                        line-height: 19px;
+                        display: block;
+                        text-align: left;
                     }
                     .arrow{
                         width: 7px;

@@ -5,14 +5,18 @@
         <van-icon :name="require('../assets/images/carDetail/topbar.png')" size="55" />
         <!-- <img src="./assets/logo.png" alt=""> -->
       </template>
-      <template #right>
-        <van-icon name="wap-nav" size="42" />
+      <template #right >
+        <van-icon name="wap-nav" size="42" @click="showPopup()" />
+        <van-popup v-model="show" position="right" :style="{ height: '50%', width:'40%'}" >
+          <div :class='{pageJump:i1 === index}' @click="pageJump(item,index)" v-for='(item,index) in pagelist' :key="index">
+            {{item.name}}
+          </div>
+        </van-popup>
       </template>
     </van-nav-bar>
 </template>
 <script>
 // import { defineComponent } from '@vue/composition-api'
-
 export default {
   name:'TabBar',
   props: {
@@ -23,6 +27,42 @@ export default {
   },
   data() {
     return {
+      show: false,
+      i1: 0,
+      pagelist: [
+        {
+          name: 'HOME',
+          path: '/home'
+        },
+        {
+          name: 'ONLINE SHOWROOM',
+          path: '/showRoom',
+        },
+        {
+          name: 'SELL YOUR CAR',
+          path: '/sell',
+        },
+        {
+          name: 'ABOUT',
+          path: '/about'
+        },
+        {
+          name: 'CONTACT',
+          path: '/contact'
+        },
+      ]
+    }
+  },
+  methods: {
+    showPopup() {
+      this.show = true;
+    },
+    pageJump(item,index) {
+      this.i1 = index;
+      console.log(item.path, "2222222222")
+      console.log(item.path,"111111111")
+      this.$router.push(item.path);
+      this.show = false;
 
     }
   }
@@ -33,4 +73,37 @@ export default {
     content: '\e73b';
     color: #000;
 }
+ .van-nav-bar {
+    margin:10px 0px;
+ }
+
+ /deep/ .van-nav-bar__title{
+    height: 20px;
+    font-size: 20px;
+    font-family: DINCondensed-Bold, DINCondensed;
+    font-weight: bold;
+    color: #151515;
+    line-height: 24px;
+    letter-spacing: 1px;
+ }
+
+ .van-popup {
+   margin:-155px 20px 0 0;
+   div {
+    height: 20px;
+    font-size: 20px;
+    font-family: DINCondensed-Bold, DINCondensed;
+    color: #151515;
+    line-height: 24px;
+    letter-spacing: 1px;
+    text-align: right;
+    margin: 20px 5px 10px 5px;
+    padding-bottom: 20px;
+    border-bottom:1px solid #000;
+    opacity: 0.5;
+   }
+   .pageJump{
+     opacity: 1;
+   }
+ }
 </style>

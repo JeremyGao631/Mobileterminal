@@ -4,24 +4,45 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face{
   font-family: 'PingFangSC-Semibold';
-  src: url('../../assets/css/PingFangSCSemibold.ttf') format("truetype");
+  src: url('../../assets/css/PingFangSC-Semibold.TTF') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-@font-face{
+ @font-face{
   font-family: 'PingFangSC-Regular';
-  src: url('../../assets/css/PingFang\ SC\ Regular.ttf') format("truetype");
+  src: url('../../assets/css/PingFangSC-Regular.TTF') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
 
 @font-face{
   font-family: 'PingFangSC-Light';
-  src: url('../../assets/css/PingFangSCLight.ttf') format("truetype");
+  src: url('../../assets/css/PingFangSC-Light.TTF') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
+
+@font-face{
+  font-family: 'PingFangSC-Medium';
+  src: url('../../assets/css/PingFangSC-Medium.TTF') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+} 
+@font-face{
+  font-family: 'LucidaGrande';
+  src: url('../../assets/css/LucidaGrande.TTF') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+} 
+
+@font-face{
+  font-family: 'LucidaGrandeBold';
+  src: url('../../assets/css/LucidaGrandeBold.TTF') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+} 

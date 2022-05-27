@@ -5,6 +5,7 @@ import 'amfe-flexible'
 import 'lib-flexible/flexible'
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import "@/assets/css/test.css"
 
 Vue.config.productionTip = false
 Vue.use(Vant)
