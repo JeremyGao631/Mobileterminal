@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <img class="bottom-img" src="../../assets/images/about/VisitOurShowroom.png" alt="">
+        <!-- <img class="bottom-img" src="../../assets/images/about/VisitOurShowroom.png" alt=""> -->
         <div class="bottom-title">
             <div class="title">VISIT OUR SHOWROOM</div>
             <div class="offer">Please visit our showroom in Burwood to inspect our range of vehicles and discuss your needs. Our Sales team speak English and Chinese, and we look forward to helping you with your next car sale or purchase.</div>
@@ -127,11 +127,14 @@ export default {
         }
     }
     .bottom-title {
-        position:absolute;
-        top: 1900px;
-        left:5%;
+        background-image: url('../../assets/images/about/VisitOurShowroom.png');
+        opacity: 1.2;
+        width: 100%;
+        height: 150px;
+        margin-bottom:-3px;
         .title {
             height: 45px;
+            padding-top:33px;
             font-size: 24px;
             text-align: center;
             font-family: DINCondensed-Bold, DINCondensed;
@@ -144,6 +147,7 @@ export default {
             width: 343px;
             font-size: 10px;
             text-align: center;
+            margin-left: 10px;
             font-family: PingFangSC-Regular, PingFang SC;
             font-weight: 400;
             color: #FFFFFF;
@@ -155,8 +159,9 @@ export default {
         background-color: #fff;
         .page-offer {
             padding-top: 25px;
-            width: 122px;
+            // width: 162px;
             font-size: 24px;
+            text-align: left;
             padding: 25px 10px 0 10px;
             font-family: DINCondensed-Bold, DINCondensed;
             font-weight: bold;
@@ -253,8 +258,8 @@ export default {
         .title {
             padding-top: 25px;
             padding-bottom: 15px;
-            margin-left:-6px;
-            width: 83px;
+            // width: 150px;
+            text-align: left;
             font-size: 24px;
             font-family: DINCondensed-Bold, DINCondensed;
             font-weight: bold;
@@ -270,7 +275,7 @@ export default {
             font-weight: 300;
             color: #4A4A4A;
             line-height: 18px;
-            display: inline-block;
+            // display: inline-block;
             text-align: justify;
         }
     }

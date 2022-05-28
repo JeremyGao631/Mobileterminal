@@ -188,8 +188,8 @@ export default{
         padding: 0 5px;
         margin-bottom: -85px;
         .contact-title {
-            width: 66px;
             font-size: 24px;
+            text-align: left;
             font-family: DINCondensed-Bold, DINCondensed;
             font-weight: bold;
             color: #151515;
