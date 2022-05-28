@@ -30,10 +30,12 @@
                 </div>
             </div>
         </div>
-        <!-- <img class="bottom-img" src="../../assets/images/about/VisitOurShowroom.png" alt=""> -->
-        <div class="bottom-title">
-            <div class="title">VISIT OUR SHOWROOM</div>
-            <div class="offer">Please visit our showroom in Burwood to inspect our range of vehicles and discuss your needs. Our Sales team speak English and Chinese, and we look forward to helping you with your next car sale or purchase.</div>
+        <div class="span-img">
+            <img class="bottom-img" src="../../assets/images/about/VisitOurShowroom.png" alt="">
+            <div class="bottom-title">
+                <div class="title">VISIT OUR SHOWROOM</div>
+                <div class="offer">Please visit our showroom in Burwood to inspect our range of vehicles and discuss your needs. Our Sales team speak English and Chinese, and we look forward to helping you with your next car sale or purchase.</div>
+            </div>
         </div>
     </div>
 </template>
@@ -99,10 +101,45 @@ export default {
         width: 100%;
         height: 207px;
     }
-     .bottom-img {
-        width: 100%;
-        height: 150px;
-        margin-bottom:-3px;
+
+    .span-img {
+        position: relative;
+        .bottom-img {
+            width: 100%;
+            height: 150px;
+            margin-bottom:-3px;
+        }
+        .bottom-title {
+            // background-image: url('../../assets/images/about/VisitOurShowroom.png');
+            // opacity: 1.2;
+            // width: 100%;
+            // height: 150px;
+            // margin-bottom:-3px;
+            position: absolute;
+            top:-5px;
+            left:5px;
+            .title {
+                height: 45px;
+                padding-top:33px;
+                font-size: 24px;
+                text-align: center;
+                font-family: DINCondensed-Bold, DINCondensed;
+                font-weight: bold;
+                color: #FFFFFF;
+                line-height: 50px;
+            }
+            .offer {
+                height: 56px;
+                width: 343px;
+                font-size: 10px;
+                text-align: center;
+                margin-left: 10px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #FFFFFF;
+                line-height: 14px;
+            }
+        }
     }
     .top-title {
         text-align: center;
@@ -124,34 +161,6 @@ export default {
             font-weight: 400;
             color: #909090;
             line-height: 18px;
-        }
-    }
-    .bottom-title {
-        background-image: url('../../assets/images/about/VisitOurShowroom.png');
-        opacity: 1.2;
-        width: 100%;
-        height: 150px;
-        margin-bottom:-3px;
-        .title {
-            height: 45px;
-            padding-top:33px;
-            font-size: 24px;
-            text-align: center;
-            font-family: DINCondensed-Bold, DINCondensed;
-            font-weight: bold;
-            color: #FFFFFF;
-            line-height: 50px;
-        }
-        .offer {
-            height: 56px;
-            width: 343px;
-            font-size: 10px;
-            text-align: center;
-            margin-left: 10px;
-            font-family: PingFangSC-Regular, PingFang SC;
-            font-weight: 400;
-            color: #FFFFFF;
-            line-height: 14px;
         }
     }
     .page-grid {
