@@ -109,7 +109,7 @@
                 <div class="cell-container">
                     <div class="item" style="height:64px">
                         <div class="show">
-                            <span class="text">Addriss: 300 Parramatta Road,Burwood,NSW 2134</span>
+                            <span class="text special">Addriss: 300 Parramatta Road,Burwood,NSW 2134</span>
                         </div>
                     </div>
                 </div>
@@ -200,7 +200,6 @@
       };
       .bottoms {
         padding: 18px 50px;
-        margin-bottom:38px;
         width: 275px;
         height: 16px;
         font-size: 11px;
@@ -234,6 +233,9 @@
                         line-height: 19px;
                         display: block;
                         text-align: left;
+                    }
+                    .special {
+                        white-space: nowrap;
                     }
                     .arrow{
                         width: 7px;

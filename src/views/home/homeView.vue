@@ -28,6 +28,7 @@
             <span @click="jumpshowroom()">SHOW ALL</span>
             <img src="../../assets/images/home/blackright.png" />
           </div>
+          <div class="break" />
       </div>
       <div class="textinfo">
         <span>AVAILABLE</span>
@@ -365,17 +366,18 @@ export default {
         font-weight: bold;
         color: #FFFFFF;
         line-height: 28px;
-        margin:0 14px;
+        margin:0 6%;
       }
       img {
         height: 8px;
         width: 8px;
+        padding-bottom: 1px;
       }
     }
   }
 }
 .middletittle {
-  width: 180px;
+  width: 300px;
   height: 80px;
   font-size: 24px;
   font-family: DINCondensed-Bold, DINCondensed;
@@ -392,12 +394,13 @@ export default {
   margin: 0 10px;
   .texttitle {
     margin: 0px 10px;
-    border-bottom: 1px solid #151515;
     text-align: left;
+    padding: 0;
     .btn_anniu {
       background-color: transparent;
-      border: none;
-      margin-top: 20px;
+      border: 0;
+      margin-top: 5%;
+      margin-left: -10px;
       span {
         width: 75px;
         height: 30px;
@@ -409,18 +412,19 @@ export default {
       }
     }
     .newStyle{
+      border: 2px solid #12100f;
+      border-bottom: none;
+      margin-left: -0.5%;
       span{
-        border: 2px solid #12100f;
-        border-bottom: none;
         font-weight: bold;
         font-size: 16px;
         color: #212020;
-        padding: 8px 10px ;
+        padding-left:10px;
         margin-left: -8px;
       }
     }
     .showall {
-      margin-top: 20px;
+      margin-top: 5%;
       float: right;
       font-size: 11px;
       font-family: PingFangSC-Regular, PingFang SC;
@@ -433,6 +437,10 @@ export default {
       width: 8px;
       margin-left: 8px;
     }
+  }
+  .break {
+    border: 1px solid #12100f;
+    margin-top: -1%;
   }
   .textinfo {
     width: 120px;
@@ -491,11 +499,11 @@ export default {
           line-height: 16px;
         }
         .contentcard-info {
-          font-size: 12px;
+          width: 80px;
+          height: 11px;
+          font-size: 9px;
           color: #909090;
-          line-height: 16px;
-          margin-top: 3px;
-          margin-left: 5px;
+          line-height: 11px;
           font-family:DINCondensed-Bold;
           font-weight: bold;
         }
