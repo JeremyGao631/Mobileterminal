@@ -138,7 +138,7 @@ export default{
         height: 207px;
     }
     .bottom-img {
-        width: 375px;
+        width: 100%;
         height: 128px;
         margin-bottom:-3px;
     }

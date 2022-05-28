@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <img class="top-img" src="../../assets/images/about/VisitOurShowroom.png" alt="">
+        <img class="bottom-img" src="../../assets/images/about/VisitOurShowroom.png" alt="">
         <div class="bottom-title">
             <div class="title">VISIT OUR SHOWROOM</div>
             <div class="offer">Please visit our showroom in Burwood to inspect our range of vehicles and discuss your needs. Our Sales team speak English and Chinese, and we look forward to helping you with your next car sale or purchase.</div>
@@ -99,8 +99,8 @@ export default {
         width: 100%;
         height: 207px;
     }
-    .bottom-img {
-        width: 375px;
+     .bottom-img {
+        width: 100%;
         height: 128px;
         margin-bottom:-3px;
     }
@@ -128,10 +128,10 @@ export default {
     }
     .bottom-title {
         position:absolute;
-        top: 1936px;
+        top: 1883px;
         left:6px;
         .title {
-            height: 50px;
+            height: 45px;
             font-size: 24px;
             text-align: center;
             font-family: DINCondensed-Bold, DINCondensed;
@@ -141,7 +141,7 @@ export default {
         }
         .offer {
             height: 56px;
-            width: 364px;
+            width: 343px;
             font-size: 10px;
             text-align: center;
             font-family: PingFangSC-Regular, PingFang SC;
