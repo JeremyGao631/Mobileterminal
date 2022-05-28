@@ -1,5 +1,5 @@
 <template>
-    <van-nav-bar :title="title">
+    <van-nav-bar :title="title" fixed placeholder>
       <template #left>
         <!-- <van-image width="100" height="100" :src="url" /> -->
         <van-icon :name="require('../assets/images/carDetail/topbar.png')" size="55" />
@@ -88,7 +88,7 @@ export default {
  }
 
  .van-popup {
-   margin:-155px 20px 0 0;
+   margin:-155px 10px 0 0;
    div {
     height: 20px;
     font-size: 20px;

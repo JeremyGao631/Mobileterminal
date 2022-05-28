@@ -5,14 +5,6 @@
             <tabBar v-if="$route.meta.barSet === 'nav'"
                     :operate-arr="$route.meta.operateArr"
                     :title="$route.meta.title"/>
-            <!-- <van-nav-bar title="HOME">
-              <template #left>
-                <van-icon :name="require('./assets/logo.png')" size="43" />
-            </template>
-              <template #right>
-            <van-icon name="wap-nav" size="42" style="color: #000" />
-          </template>
-            </van-nav-bar> -->
             <div class="main-content">
                 <div class="main-wrap">
                     <!-- <router-view class="main" /> -->
@@ -24,25 +16,6 @@
             </div>
             <footBar />
         </div>
-      <!-- <el-container>
-        <el-header>
-          <tabBar/>
-        </el-header>
-        <el-main>
-          <div class="main-content">
-              <div class="main-wrap"> -->
-                    <!-- <router-view class="main" /> -->
-                <!-- <keep-alive>
-                  <router-view v-if="$route.meta.keepAlive" class="main" />
-                    </keep-alive>
-                  <router-view v-if="!$route.meta.keepAlive" class="main" />
-              </div>
-            </div>
-        </el-main>
-        <el-footer>
-          <footBar />
-        </el-footer>
-      </el-container> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
