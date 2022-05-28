@@ -23,7 +23,7 @@
       </div>
       <div class="textcontent">
         <div v-show='0===number'>
-          <div class="textcard" v-for="(item,index) in information" :key="index">
+          <div class="textcard" v-for="(item,index) in information" :key="index" @click="jumpcardetail()">
             <div class="imgcard">
               <img :src="item.url" />
             </div>
@@ -45,7 +45,7 @@
           </div>
         </div>
         <div v-show='1===number'>
-          <div class="textcard" v-for="(item,index) in information1" :key="index">
+          <div class="textcard" v-for="(item,index) in information1" :key="index" @click="jumpcardetail()">
             <div class="imgcard">
               <img :src="item.url" />
             </div>
@@ -268,6 +268,9 @@ export default {
     change: function (item) {
             this.number = item; //重要处
           },
+    jumpcardetail() {
+      this.$router.push('/carDetail')
+    }
   },
 }
 </script>
