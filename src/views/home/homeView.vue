@@ -24,8 +24,10 @@
           <button class="btn_anniu" @click="change(1)" :class="{ newStyle:1===number}">
             <span>SEARCH INVENTORY</span>
           </button>
-          <span class="showall" @click="jumpshowroom()">SHOW ALL</span>
-          <img src="../../assets/images/home/blackright.png" />
+          <div class="showall">
+            <span @click="jumpshowroom()">SHOW ALL</span>
+            <img src="../../assets/images/home/blackright.png" />
+          </div>
       </div>
       <div class="textinfo">
         <span>AVAILABLE</span>
@@ -80,7 +82,36 @@
       </div>
     </div>
     <div class="middletittle">OUR SERVICE</div>
-    <div class="bottom">
+    <div class="swiper">
+      <van-swipe :autoplay="5000" indicator-color="black">
+        <van-swipe-item>
+          <div class="card">
+            <img src="../../assets/images/home/onlineshowroom.png" />
+            <div class="info">
+              <p>ONLINE SHOWROOM</p>
+              <span>SpecBase is a fully interactive online Showroom with specs, photos, and video showcase of RVs in your inventory directly on your website.</span>
+            </div>
+          </div>
+        </van-swipe-item>
+        <van-swipe-item>
+          <div class="card">
+            <img src="../../assets/images/home/sellyourcar.png" />
+            <div class="info">
+              <p>SELL YOUR CAR</p>
+              <span>SpecBase is a fully interactive online Showroom with specs, photos, and video showcase of RVs in your inventory directly on your website.</span>
+            </div>
+          </div>
+        </van-swipe-item>
+        <van-swipe-item>
+          <div class="card">
+            <img src="../../assets/images/home/visitourstore.png" />
+            <div class="info">
+              <p>VISIT OUR STORE</p>
+              <span>SpecBase is a fully interactive online Showroom with specs, photos, and video showcase of RVs in your inventory directly on your website.</span>
+            </div>
+          </div>
+        </van-swipe-item>
+      </van-swipe>
     </div>
   </div>
 </template>
@@ -389,15 +420,13 @@ export default {
       }
     }
     .showall {
-      width: 58px;
-      height: 30px;
+      margin-top: 20px;
+      float: right;
       font-size: 11px;
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
       color: #212020;
       line-height: 30px;
-      margin-left: 48px;
-      margin-top: 20px;
     }
     img {
       height: 8px;
@@ -497,6 +526,40 @@ export default {
       margin: 0 10px 0 5px;
     }
   }
+}
+
+.swiper{
+  margin: 0 10px;
+}
+
+.card{
+  width: 100%;
+  background-color: #fff;
+}
+
+.card img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.info{
+  padding: 20px 20px 30px 20px;
+}
+
+.info p{
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  font-family: DINCondensed-Bold, DINCondensed;
+  font-weight: bold;
+  color: #151515;
+}
+
+.info span{
+  color: #909090;
+  font-size: 12px;
+  font-family:PingFangSC-Regular;
+  line-height: 2;
 }
 
 </style>

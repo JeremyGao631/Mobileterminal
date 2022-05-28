@@ -86,8 +86,8 @@ export default {
     padding: 0;
   }
   .main-content {
-    flex: 1;
-    display: flex;
+    //flex: 1;
+    //display: flex;
     overflow-y: hidden;
   }
   .main-wrap {
