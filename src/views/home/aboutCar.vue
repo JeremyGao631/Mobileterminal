@@ -101,7 +101,7 @@ export default {
     }
      .bottom-img {
         width: 100%;
-        height: 128px;
+        height: 150px;
         margin-bottom:-3px;
     }
     .top-title {
@@ -128,8 +128,8 @@ export default {
     }
     .bottom-title {
         position:absolute;
-        top: 1883px;
-        left:6px;
+        top: 1900px;
+        left:5%;
         .title {
             height: 45px;
             font-size: 24px;
@@ -261,6 +261,7 @@ export default {
             color: #151515;
         }
         .story {
+            width:320px;
             height: 108px;
             padding-bottom:24px;
             text-align: left;
@@ -269,6 +270,8 @@ export default {
             font-weight: 300;
             color: #4A4A4A;
             line-height: 18px;
+            display: inline-block;
+            text-align: justify;
         }
     }
 }

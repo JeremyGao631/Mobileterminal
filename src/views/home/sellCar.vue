@@ -405,12 +405,12 @@ export default {
             span {
                 width: 73px;
                 height: 30px;
-                font-size: 16px;
+                font-size: 20px;
                 font-family: DINCondensed-Bold, DINCondensed;
                 font-weight: bold;
                 color: #FFFFFF;
                 line-height: 30px;
-                margin:0 50px 0 50px;
+                margin:0 40px 0 40px;
             }
             img {
                 height: 10px;
