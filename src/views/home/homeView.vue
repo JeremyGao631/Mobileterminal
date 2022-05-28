@@ -400,7 +400,7 @@ export default {
       background-color: transparent;
       border: 0;
       margin-top: 5%;
-      margin-left: -10px;
+      margin-left: -5px;
       span {
         width: 75px;
         height: 30px;
