@@ -171,7 +171,7 @@
         padding-bottom: 10px;
         .bottom-logo {
           margin-right: 20px;
-          width: 25px;
+          width: 30px;
           height: 30px;
         }
       }

@@ -34,52 +34,54 @@
       </div>
       <div class="textcontent">
         <div v-show='0===number'>
-          <div class="textcard" v-for="index in information" :key="index">
+          <div class="textcard" v-for="(item,index) in information" :key="index">
             <div class="imgcard">
-              <img :src="index.url" />
+              <img :src="item.url" />
             </div>
             <div class="titlecard" >
-              <span >{{index.year}} {{index.type}}</span>
+              <span >{{item.year}} {{item.type}}</span>
               <br />
-              <span >{{index.kind}}</span>
+              <span >{{item.kind}}</span>
             </div>
             <div class="contentcard">
-              <span class="contentcard-price">{{index.price}}</span>
-              <span class="contentcard-info">{{index.info}}</span>
+              <span class="contentcard-price">{{item.price}}</span>
+              <span class="contentcard-info">{{item.info}}</span>
             </div>
             <div class="break" ></div>
             <div class="detailcard" >
-              <span >{{index.distance}}</span>
-              <span >{{index.info1}}</span>
-              <span >{{index.info2}}</span>
+              <span >{{item.distance}}</span>
+              <span >{{item.info1}}</span>
+              <span >{{item.info2}}</span>
             </div>
           </div>
         </div>
         <div v-show='1===number'>
-          <div class="textcard" v-for="index in information1" :key="index">
+          <div class="textcard" v-for="(item,index) in information1" :key="index">
             <div class="imgcard">
-              <img :src="index.url" />
+              <img :src="item.url" />
             </div>
             <div class="titlecard" >
-              <span >{{index.year}} {{index.type}}</span>
+              <span >{{item.year}} {{item.type}}</span>
               <br />
-              <span >{{index.kind}}</span>
+              <span >{{item.kind}}</span>
             </div>
             <div class="contentcard">
-              <span class="contentcard-price">{{index.price}}</span>
-              <span class="contentcard-info">{{index.info}}</span>
+              <span class="contentcard-price">{{item.price}}</span>
+              <span class="contentcard-info">{{item.info}}</span>
             </div>
             <div class="break" ></div>
             <div class="detailcard" >
-              <span >{{index.distance}}</span>
-              <span >{{index.info1}}</span>
-              <span >{{index.info2}}</span>
+              <span >{{item.distance}}</span>
+              <span >{{item.info1}}</span>
+              <span >{{item.info2}}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="middletittle">OUR SERVICE</div>
+    <div class="bottom">
+    </div>
   </div>
 </template>
 
@@ -280,10 +282,10 @@ export default {
     jumpshowroom() {
       this.$router.push('/showRoom')
     },
-    change: function (index) {
-            this.number = index; //重要处
+    change: function (item) {
+            this.number = item; //重要处
           },
-  }
+  },
 }
 </script>
 
@@ -314,7 +316,7 @@ export default {
       height: 17px;
       font-size: 12px;
       font-family: PingFangSC-Light;
-      opacity: 0.9;
+      font-weight: 300;
       color: #FFFFFF;
       line-height: 17px;
     }
@@ -496,4 +498,5 @@ export default {
     }
   }
 }
+
 </style>
