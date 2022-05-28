@@ -347,6 +347,7 @@ export default {
             color: #151515;
             line-height: 30px;
             padding-top: 20px;
+            white-space: nowrap;
         }
         .contentinfo {
             width: 336px;
@@ -362,7 +363,7 @@ export default {
             width:145px;
             background-color: #151515;
             color:#FFFFFF;
-            padding: 5px 0 5px 10px;
+            padding: 10px 10px 5px 10px;
             margin-bottom: 20px;
             font-size: 20px;
             font-family: DINCondensed-Bold, DINCondensed;
@@ -402,6 +403,7 @@ export default {
             margin-bottom: 60px;
             margin-left: 85px;
             margin-right: 95px;
+            padding-top: 5px;
             span {
                 width: 73px;
                 height: 30px;
@@ -410,11 +412,12 @@ export default {
                 font-weight: bold;
                 color: #FFFFFF;
                 line-height: 30px;
-                margin:0 40px 0 40px;
+                margin:0 20px 0 40px;
             }
             img {
                 height: 10px;
                 width: 10px;
+                margin-left: 15px;
             }
         }
         .privacyinfo {

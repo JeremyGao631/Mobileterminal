@@ -339,6 +339,7 @@ export default {
   line-height: 36px;
   text-align: center;
   margin: 24px 96px 10px 96px;
+  white-space: nowrap;
 }
 
 .middlebtn {
@@ -355,7 +356,8 @@ export default {
         font-weight: bold;
         color: #151515;
         line-height: 30px;
-        margin:0 20px 0 40px;
+        margin:0 20px 0 20px;
+        white-space: nowrap;
     }
     img {
         height: 8px;
@@ -377,6 +379,7 @@ export default {
         line-height: 68px;
         text-align: left;
         margin: 0 10px;
+        white-space: nowrap;
     }
   .texttitle {
     margin: 0px 10px;
@@ -468,11 +471,11 @@ export default {
           line-height: 16px;
         }
         .contentcard-info {
-          font-size: 12px;
+          width: 80px;
+          height: 11px;
+          font-size: 9px;
           color: #909090;
-          line-height: 16px;
-          margin-top: 3px;
-          margin-left: 5px;
+          line-height: 11px;
           font-family:DINCondensed-Bold;
           font-weight: bold;
         }
