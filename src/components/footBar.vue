@@ -109,7 +109,7 @@
                 <div class="cell-container">
                     <div class="item" style="height:64px">
                         <div class="show">
-                            <span class="text special">Addriss: 300 Parramatta Road,Burwood,NSW 2134</span>
+                            <span class="text special">Address: 388 Parramatta Road,Burwood,NSW 2134</span>
                         </div>
                     </div>
                 </div>
