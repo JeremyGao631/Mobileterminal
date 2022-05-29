@@ -10,25 +10,55 @@
             </div>
         </div> -->
         <van-grid :column-num="3" class="table">
-            <van-grid-item v-for="(item,index) in information" :key="index" class="tableContent">
-                <img :src="item.url" alt="" class="imgStyle">
-                <div class="table-title">{{ item.title }}</div>
-                <div class="table-info">{{ item.info }}</div>
-                <!-- <p>{{ value.name }}</p> -->
+            <van-grid-item class="tableContent">
+                <img src="../../assets/images/contact/Phone.png" alt="" class="imgStyle">
+                <div class="table-title">Phone</div>
+                <div class="table-info">0498 698 000</div>
             </van-grid-item>
+            <van-grid-item class="tableContent">
+                <img src="../../assets/images/contact/Email.png" alt="" class="imgStyle">
+                <div class="table-title">E-mail</div>
+                <div class="table-info">enquiries@ auto-home.com.au</div>
+            </van-grid-item>
+            <van-grid-item class="tableContent" @click="showcode()">
+                <img src="../../assets/images/contact/Wechat.png" alt="" class="imgStyle">
+                <div class="table-title">Wechat</div>
+                <div class="table-info">Autohome_388</div>
+            </van-grid-item>
+            <van-popup v-model="show"  :style="{ height: '50%', width: '80%' }" >
+                <img class="qrimg" src="../../assets/images/contact/WeChatcode1.png" />
+            </van-popup>
+            <van-grid-item class="tableContent">
+                <img src="../../assets/images/contact/Address.png" alt="" class="imgStyle">
+                <div class="table-title">Address</div>
+                <div class="table-info">388 Parramatta Road，Burwood, NSW 2134</div>
+            </van-grid-item>
+            <van-grid-item class="tableContent" @click="jumpourpage()">
+                <img src="../../assets/images/contact/facebook.png" alt="" class="imgStyle">
+                <div class="table-title">Facebook</div>
+                <div class="table-info">Autohome Australia</div>
+            </van-grid-item>
+            <van-grid-item class="tableContent" @click="showcode1()">
+                <img src="../../assets/images/contact/whatsapp.png" alt="" class="imgStyle">
+                <div class="table-title">Whatsapp</div>
+                <div class="table-info">0406 118 999</div>
+            </van-grid-item>
+            <van-popup v-model="show1"  :style="{ height: '50%', width: '80%' }" >
+                <img class="qrimg" src="../../assets/images/contact/WhatsAppcode.png" />
+            </van-popup>
         </van-grid>
         <div class="contact">
             <div class="contact-title">CONTACT</div>
             <div class="contact-input">
-                <div class="name">Name*</div>
+                <div class="name">Name *</div>
                 <van-field />
-                <div class="name">Phone*</div>
+                <div class="name">Phone *</div>
                 <van-field />
-                <div class="name">Email*</div>
+                <div class="name">Email *</div>
                 <van-field />
                 <div class="name">Address</div>
                 <van-field />
-                <div class="name">Message*</div>
+                <div class="name">Message *</div>
                 <input class="message"  />
             </div>
             <div class="submit">
@@ -47,47 +77,63 @@
     </div>
 </template>
 <script>
-
 export default{
     data(){
         return {
-            information: [
-                {
-                  url: require('../../assets/images/contact/Phone.png'),
-                  title:'Phone',
-                  info: '0498 698 000'
-                },
-                {
-                  url: require('../../assets/images/contact/Email.png'),
-                  title:'E-mail',
-                  info: 'enquiries@ auto-home.com.au'
-                },
-                {
-                  url: require('../../assets/images/contact/Wechat.png'),
-                  title:'Wechat',
-                  info: 'buyingcars'
-                },
-                {
-                  url: require('../../assets/images/contact/Address.png'),
-                  title:'Address',
-                  info: '388 Parramatta Road，Burwood, NSW 2134'
-                },
-                {
-                  url: require('../../assets/images/contact/facebook.png'),
-                  title:'Facebook',
-                  info: 'Autohome Australia'
-                },
-                {
-                  url: require('../../assets/images/contact/whatsapp.png'),
-                  title:'Whatsapp',
-                  info: '0406 118 999'
-                }
-            ]
+            // information: [
+            //     {
+            //       url: require('../../assets/images/contact/Phone.png'),
+            //       title:'Phone',
+            //       info: '0498 698 000'
+            //     },
+            //     {
+            //       url: require('../../assets/images/contact/Email.png'),
+            //       title:'E-mail',
+            //       info: 'enquiries@ auto-home.com.au'
+            //     },
+            //     {
+            //       url: require('../../assets/images/contact/Wechat.png'),
+            //       title:'Wechat',
+            //       info: 'Autohome_388'
+            //     },
+            //     {
+            //       url: require('../../assets/images/contact/Address.png'),
+            //       title:'Address',
+            //       info: '388 Parramatta Road，Burwood, NSW 2134'
+            //     },
+            //     {
+            //       url: require('../../assets/images/contact/facebook.png'),
+            //       title:'Facebook',
+            //       info: 'Autohome Australia'
+            //     },
+            //     {
+            //       url: require('../../assets/images/contact/whatsapp.png'),
+            //       title:'Whatsapp',
+            //       info: '0406 118 999'
+            //     }
+            // ]
+            show: false,
+            show1: false,
         }
+    },
+    methods:{
+        showcode(){
+            this.show = true;
+        },
+        showcode1(){
+            this.show1 = true;
+        },
+        jumpourpage() {
+            window.location.href="https://www.facebook.com/Autohome-Australia-101055345438578/"
+        },
     }
 }
 </script>
 <style lang="less" scoped>
+.qrimg {
+    height: 100%;
+    width: 100%;
+}
 ::v-deep .home-container .table{
     margin-top: 12px;
     margin-left:20px;
@@ -122,7 +168,6 @@ export default{
     padding: 0 3px;
 }
 .table-title {
-    width: 48px;
     height: 16px;
     font-size: 20px;
     font-family: DINCondensed-Bold, DINCondensed;
@@ -139,6 +184,7 @@ export default{
     font-weight: 400;
     color: #151515;
     line-height: 17px;
+    margin:0 42px;
 }
 .page {
     width: 100%;
@@ -207,14 +253,14 @@ export default{
         }
         .contact-input {
             .name {
-                width: 47px;
+                width: 80px;
                 font-size: 13px;
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
                 color: #000;
             }
             .message {
-                width: 93%;
+                width: 90%;
                 margin-left: -12px;
                 margin-top: 10px;
                 height: 198px;
