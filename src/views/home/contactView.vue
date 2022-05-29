@@ -72,6 +72,16 @@ export default{
                   title:'Address',
                   info: '388 Parramatta Road，Burwood, NSW 2134'
                 },
+                {
+                  url: require('../../assets/images/contact/facebook.png'),
+                  title:'Facebook',
+                  info: 'Autohome Australia'
+                },
+                {
+                  url: require('../../assets/images/contact/whatsapp.png'),
+                  title:'Whatsapp',
+                  info: '0406 118 999'
+                }
             ]
         }
     }
