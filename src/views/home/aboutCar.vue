@@ -47,22 +47,22 @@ export default {
         return {
             information: [
                 {
-                  url: require('../../assets/images/about/CarForSale.png'),
+                  url: require('../../assets/images/about/bkCarForSale.png'),
                   title:'Car for Sale',
                   info: 'Browse the fine motor vehicles via online showroom or visit our showroom in Sydney to view an exclusive range of luxury models and sports vehicles.'
                 },
                 {
-                  url: require('../../assets/images/about/SellYourCar.png'),
+                  url: require('../../assets/images/about/bkSellYourCar.png'),
                   title:'Sell your car',
                   info: 'Our team at Autohome AU make selling your car as easy and convenient as possible.Click and simply send us your vehicle details and let our team take care of the rest.'
                 },
                 {
-                  url: require('../../assets/images/about/FinanceSolution.png'),
+                  url: require('../../assets/images/about/bkFinanceSolution.png'),
                   title:'Finance Solution',
                   info: 'We understand financing can be a hassle, so we’re here to make everything as easy as possible. Contact to us directly and let our team provide you a perfect fit.'
                 },
                 {
-                  url: require('../../assets/images/about/ServiceAndRepairs.png'),
+                  url: require('../../assets/images/about/bkServiceAndRepairs.png'),
                   title:'Service and Repairs',
                   info: 'We offer a one-stop car servicing on all makes and models, tailored to suit both your budget and vehicle. Book your service online now!'
                 },

@@ -59,11 +59,13 @@
         <div class="contact">
             <div class="contact-title">BOOK INSPECTION</div>
             <div class="contact-input">
-                <div class="name">Name</div>
+                <div class="name">Name *</div>
                 <van-field />
                 <div class="name">Phone</div>
                 <van-field />
-                <div class="name">Time</div>
+                <div class="name">Time *</div>
+                <van-field />
+                <div class="name">Email</div>
                 <van-field />
             </div>
             <div class="submit">
