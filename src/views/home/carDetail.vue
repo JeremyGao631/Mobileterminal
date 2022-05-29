@@ -242,9 +242,10 @@ export default {
             align-items: center;
             margin-left: 10px;
             .price {
-                width: 114px;
+                width: 154px;
                 height: 30px;
                 font-size: 30px;
+                text-align: left;
                 font-family: DINCondensed-Bold, DINCondensed;
                 font-weight: bold;
                 color: #151515;
@@ -252,10 +253,11 @@ export default {
                 letter-spacing: 1px;
             }
             .info {
-                width: 78px;
                 height: 11px;
+                width: 100%;
+                text-align: left;
                 font-size: 11px;
-                margin-left:2px;
+                margin-left:7px;
                 font-family: DINCondensed-Bold, DINCondensed;
                 font-weight: bold;
                 color: #909090;
