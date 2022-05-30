@@ -86,7 +86,8 @@ const routes = deepClone([
 ])
 
 const createRouter = () => new Router({
-  routes: routes
+  routes: routes,
+  scrollBehavior(to,from,saveTop){ if(saveTop){ return saveTop; }else{ return {x:0,y:0} } },
 })
 
 const router = createRouter()

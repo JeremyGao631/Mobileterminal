@@ -21,7 +21,7 @@
             <div class="story">Autohome Australia were established in 2019 and our focus is to provide a solution for all sellers and buyers. Through word of mouth and referrals from satisfied clients, our reputation has allowed us to attract both local and interstate clients. Our area of specialty is luxury and prestigious vehicles.</div>
         </div>
         <div class="page-grid">
-            <div class="page-offer">WHAT WE OFFER</div>
+            <div class="page-offer">WHY CHOOSE US</div>
             <div class="styles">
                 <div v-for="(items,index) in information1" :key="index" class="weOffers">
                     <img :src="items.url" alt="" class="imgStyles">
