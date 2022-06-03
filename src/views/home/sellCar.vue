@@ -123,7 +123,7 @@
                 <van-cell-group class="special">
                     <van-field v-model="comments"/>
                 </van-cell-group>
-                <button class="middlebtn">
+                <button class="middlebtn" @click="submit()">
                     <span>SUBMIT</span>
                     <img src="../../assets/images/home/right.png" />
                 </button>
@@ -144,6 +144,7 @@
 </template>
 
 <script>
+import { vehicle } from '@/api'
 export default {
   name: 'HomeView',
   components: {
@@ -168,7 +169,29 @@ export default {
 
     }
   },
-  methods: {}
+  methods: {
+    submit() {
+        vehicle({
+          // 缺少字段
+              name:'hu1q2',
+              phone: '127837897982',
+              email:'98920738@qq.com',
+              year: '1',
+              make: 'any',
+              model: 'any',
+              transmission: 'any',
+              odometer: '12',
+              regonumber: 'jijiiuj',
+              color: 'yellow',
+              trim: 'dsadsa',
+              logbook: 'yes',
+              photo: ' sjdisjdwjhsdjkdkjkldsbase64',
+              comments: 'daiohdjsahdj'
+            }).then( res => {
+                console.log(res, '提交成功')
+            })
+      }
+  }
 }
 </script>
 

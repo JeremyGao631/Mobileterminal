@@ -21,18 +21,18 @@
             <div class="contact-title">CONTACT</div>
             <div class="contact-input">
                 <div class="name">Name*</div>
-                <van-field />
+                <van-field v-model="form.name" />
                 <div class="name">Phone*</div>
-                <van-field />
+                <van-field v-model="form.phone" />
                 <div class="name">Email*</div>
-                <van-field />
+                <van-field v-model="form.email" />
                 <div class="name">Address</div>
-                <van-field />
+                <van-field v-model="form.address" />
                 <div class="name">Message*</div>
-                <input class="message"  />
+                <input class="message" v-model="form.message"  />
             </div>
             <div class="submit">
-                <van-button>SUBMIT</van-button>
+                <van-button @click="submit()">SUBMIT</van-button>
                 <img class="imgs" src="../../assets/images/home/right.png" alt="">
             </div>
         </div>
@@ -48,9 +48,17 @@
 </template>
 <script>
 
+import { fetch } from '@/api'
 export default{
     data(){
         return {
+            form: {
+                name: '',
+                phone: '',
+                email: '',
+                address: '',
+                message: ''
+            },
             information: [
                 {
                   url: require('../../assets/images/contact/Phone.png'),
@@ -83,6 +91,19 @@ export default{
                   info: '0406 118 999'
                 }
             ]
+        }
+    },
+    methods: {
+        submit() {
+            fetch({
+                name:'huli12',
+                phone: '13738721837',
+                email:'1232ui@qq.com',
+                message:'hshdkjahdshadkjh',
+                address:'khjnb2  lkskhkdn2  lkjlkllkjd saydh'
+            }).then( res => {
+                console.log(res, '提交成功')
+            })
         }
     }
 }

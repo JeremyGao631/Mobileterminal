@@ -60,14 +60,14 @@
             <div class="contact-title">BOOK INSPECTION</div>
             <div class="contact-input">
                 <div class="name">Name</div>
-                <van-field />
+                <van-field v-model="form.name" />
                 <div class="name">Phone</div>
-                <van-field />
+                <van-field v-model="form.phone" />
                 <div class="name">Time</div>
-                <van-field />
+                <van-field v-model="form.time" />
             </div>
             <div class="submit">
-                <van-button>SUBMIT</van-button>
+                <van-button @click="submit()">SUBMIT</van-button>
                 <img class="imgs" src="../../assets/images/home/right.png" alt="">
             </div>
         </div>
@@ -98,9 +98,15 @@
     </div>
 </template>
 <script>
+import { inspection } from '@/api'
 export default {
     data() {
         return {
+            form: {
+                name: '',
+                phone: '',
+                time: ''
+            },
             List: [
                 {
                 name: 'Make',
@@ -197,6 +203,18 @@ export default {
                 },
             ],
         }
+    },
+    methods: {
+        submit() {
+            inspection({
+                // 缺少email字段
+                        name:'huli',
+                        phone: '12738721838',
+                        time: '2022-05-20 17:30:05',
+            }).then( res => {
+                console.log(res, '提交成功')
+            })
+        },
     }
 }
 </script>
