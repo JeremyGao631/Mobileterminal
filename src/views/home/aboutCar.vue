@@ -21,7 +21,7 @@
             <div class="story">Autohome Australia were established in 2019 and our focus is to provide a solution for all sellers and buyers. Through word of mouth and referrals from satisfied clients, our reputation has allowed us to attract both local and interstate clients. Our area of specialty is luxury and prestigious vehicles.</div>
         </div>
         <div class="page-grid">
-            <div class="page-offer">WHAT WE OFFER</div>
+            <div class="page-offer">WHY CHOOSE US</div>
             <div class="styles">
                 <div v-for="(items,index) in information1" :key="index" class="weOffers">
                     <img :src="items.url" alt="" class="imgStyles">
@@ -47,22 +47,22 @@ export default {
         return {
             information: [
                 {
-                  url: require('../../assets/images/about/CarForSale.png'),
+                  url: require('../../assets/images/about/bkCarForSale.png'),
                   title:'Car for Sale',
                   info: 'Browse the fine motor vehicles via online showroom or visit our showroom in Sydney to view an exclusive range of luxury models and sports vehicles.'
                 },
                 {
-                  url: require('../../assets/images/about/SellYourCar.png'),
+                  url: require('../../assets/images/about/bkSellYourCar.png'),
                   title:'Sell your car',
                   info: 'Our team at Autohome AU make selling your car as easy and convenient as possible.Click and simply send us your vehicle details and let our team take care of the rest.'
                 },
                 {
-                  url: require('../../assets/images/about/FinanceSolution.png'),
+                  url: require('../../assets/images/about/bkFinanceSolution.png'),
                   title:'Finance Solution',
                   info: 'We understand financing can be a hassle, so we’re here to make everything as easy as possible. Contact to us directly and let our team provide you a perfect fit.'
                 },
                 {
-                  url: require('../../assets/images/about/ServiceAndRepairs.png'),
+                  url: require('../../assets/images/about/bkServiceAndRepairs.png'),
                   title:'Service and Repairs',
                   info: 'We offer a one-stop car servicing on all makes and models, tailored to suit both your budget and vehicle. Book your service online now!'
                 },

@@ -73,17 +73,13 @@
                 <van-cell-group>
                     <van-field v-model="year"   />
                 </van-cell-group>
-                <div class="inputtitle">Make *</div>
+                <div class="inputtitle">Make</div>
                 <van-cell-group>
-                    <van-field v-model="make"   placeholder="Make:Any">
-                        <img slot="right-icon" src="../../assets/images/sellyourcar/Right.png" />
-                    </van-field>
+                    <van-field v-model="make" />
                 </van-cell-group>
-                <div class="inputtitle">Model *</div>
+                <div class="inputtitle">Model</div>
                 <van-cell-group>
-                    <van-field v-model="model"   placeholder="Model:Any">
-                        <img slot="right-icon" src="../../assets/images/sellyourcar/Right.png" />
-                    </van-field>
+                    <van-field v-model="model" />
                 </van-cell-group>
                 <div class="inputtitle">Transmission *</div>
                 <van-cell-group>
@@ -95,27 +91,29 @@
                 <van-cell-group>
                     <van-field v-model="odometer"   />
                 </van-cell-group>
-                <div class="inputtitle">Rego number</div>
+                <!-- <div class="inputtitle">Rego number</div>
                 <van-cell-group>
                     <van-field v-model="regonumber"/>
-                </van-cell-group>
+                </van-cell-group> -->
                 <div class="inputtitle">Color</div>
                 <van-cell-group>
                     <van-field v-model="color"/>
                 </van-cell-group>
-                <div class="inputtitle">Trim</div>
+                <div class="inputtitle">Trim color</div>
                 <van-cell-group>
-                    <van-field v-model="trim"/>
+                    <van-field v-model="trimcolor"/>
                 </van-cell-group>
                 <div class="inputtitle">Logbook</div>
                 <van-cell-group>
-                    <van-field v-model="logbook" placeholder="Logbook" >
+                    <van-field v-model="logbook" placeholder="Logbook" @click-right-icon="dropdown()">
                         <img slot="right-icon" src="../../assets/images/sellyourcar/Right.png" />
                     </van-field>
                 </van-cell-group>
-                <div class="inputtitle">Photo Upload</div>
+                <!-- <van-dropdown-menu>
+                    <van-dropdown-item v-model="logbook" :options="option1" />
+                </van-dropdown-menu>
+                <div class="inputtitle">Photo Upload</div> -->
                 <van-uploader v-model="file"  multiple />
-
                 <div class="smalltitle">
                     COMMENTS
                 </div>
@@ -131,13 +129,12 @@
                 <div class="smalltitle">
                     PRIVACY
                 </div>
-                <span class="privacyinfo">Your contact details are being collected by Autohome AU to enable us to record the details of the vehicle you are interested in and to consider the purchase of your trade-in vehicle. We may disclose your personal information to third parties to check whether and how, your vehicle is encumbered.</span>
-                <br />
-                <span class="privacyinfo">From time to time, Autohome AU would like to contact you and to let you know about our products and services, including special offers.</span>
-                <br />
-                <span class="privacyinfo">If you do not want us to do so, please let us know by contacting us. You can let us know at any time if you no longer wish to be contacted for these purposes. Your consent will remain current until you advise us otherwise.</span>
-                <br />
-                <span class="privacyinfo">If you do not provide us with your personal information, we may not be able to consider any offer made by you.</span>
+                <span class="privacyinfo">Your contact details are being collected by Autohome AU to enable us to record the details of the
+vehicle you are interested in and to consider the purchase of your trade-in vehicle. We may disclose
+your personal information to third parties to check whether and how, your vehicle is encumbered.</span>
+                <span class="privacyinfo">· From time to time, Autohome AU would like to contact you and to let you know about our products and services, including special offers.</span>
+                <span class="privacyinfo">· If you do not want us to do so, please let us know by contacting us. You can let us know at any time if you no longer wish to be contacted for these purposes. Your consent will remain current until you advise us otherwise.</span>
+                <span class="privacyinfo">· If you do not provide us with your personal information, we may not be able to consider any offer made by you.</span>
             </div>
         </div>
     </div>
@@ -153,6 +150,11 @@ export default {
     return{
         file: [
       ],
+      option1: [
+        { text: 'full dealer service history', value: 0 },
+        { text: 'Partialy dealer service history', value: 1 },
+        { text: 'No service Logbook', value: 2 },
+      ],
       name: '',
       mobile: '',
       email: '',
@@ -161,9 +163,9 @@ export default {
       model: '',
       transmission: '',
       odometer: '',
-      regonumber: '',
+    //   regonumber: '',
       color: '',
-      trim: '',
+      trimcolor: '',
       logbook: '',
       comments: '',
 
@@ -190,6 +192,9 @@ export default {
             }).then( res => {
                 console.log(res, '提交成功')
             })
+    },
+      dropdown() {
+
       }
   }
 }
@@ -450,9 +455,11 @@ export default {
             font-weight: 300;
             color: #4A4A4A;
             line-height: 18px;
-            padding-bottom: 30px;
             display: inline-block;
             text-align: justify;
+        }
+        .privacyinfo:nth-last-child(1){
+           padding-bottom: 30px;
         }
     }
 }

@@ -19,7 +19,7 @@
         <div class="detail">
             <div class="littleshow">
                 <div class="showleft">
-                    <img src="../../assets/images/carDetail/rili.png" />
+                    <img src="../../assets/images/carDetail/odometer.png" />
                     <div class="showlefttext">
                         <span class="texttop">34719</span>
                         <span class="texttopright"> kms</span>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="showleft">
-                    <img src="../../assets/images/carDetail/shandian.png" />
+                    <img src="../../assets/images/carDetail/transmission.png" />
                     <div class="showlefttext">
                         <span class="texttop">Auto</span>
                         <br />
