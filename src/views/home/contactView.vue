@@ -128,11 +128,11 @@ export default{
     methods: {
         submit() {
             fetch({
-                name:'huli12',
-                phone: '13738721837',
-                email:'1232ui@qq.com',
-                message:'hshdkjahdshadkjh',
-                address:'khjnb2  lkskhkdn2  lkjlkllkjd saydh'
+                    name:this.form.name,
+                    phone: this.form.phone,
+                    email:this.form.email,
+                    message:this.form.message,
+                    address:this.form.address
             }).then( res => {
                 console.log(res, '提交成功')
             })

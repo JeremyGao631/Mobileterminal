@@ -104,6 +104,7 @@ export default {
         return {
             form: {
                 name: '',
+                email: '',
                 phone: '',
                 time: ''
             },
@@ -208,9 +209,10 @@ export default {
         submit() {
             inspection({
                 // 缺少email字段
-                        name:'huli',
-                        phone: '12738721838',
-                        time: '2022-05-20 17:30:05',
+                        name:this.form.name,
+                        phone: this.form.phone,
+                        // email:this.form.email,
+                        time: this.form.time,
             }).then( res => {
                 console.log(res, '提交成功')
             })
