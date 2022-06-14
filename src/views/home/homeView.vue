@@ -28,7 +28,7 @@
             <span @click="jumpshowroom()">SHOW ALL</span>
             <img src="../../assets/images/home/blackright.png" />
           </div>
-          <div class="break" />
+          <!-- <div class="break" /> -->
       </div>
       <div class="textinfo">
         <span>AVAILABLE</span>
@@ -389,18 +389,19 @@ export default {
 }
 
 .middle {
-  width: 355px;
+  // width: 355px;
   background: #FFFFFF;
   margin: 0 10px;
   .texttitle {
     margin: 0px 10px;
     text-align: left;
-    padding: 0;
+    border-bottom:2px solid #12100f;
+    // padding-bottom: 5px;
     .btn_anniu {
       background-color: transparent;
       border: 0;
       margin-top: 5%;
-      margin-left: -5px;
+      // margin-left: -5px;
       span {
         width: 75px;
         height: 30px;
@@ -414,7 +415,7 @@ export default {
     .newStyle{
       border: 2px solid #12100f;
       border-bottom: none;
-      margin-left: -0.5%;
+      // margin-left: -0.5%;
       span{
         font-weight: bold;
         font-size: 16px;

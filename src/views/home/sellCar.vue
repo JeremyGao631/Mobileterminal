@@ -117,7 +117,7 @@
                 <div class="smalltitle">
                     COMMENTS
                 </div>
-                <div class="inputtitle">COMMENTS</div>
+                <!-- <div class="inputtitle">COMMENTS</div> -->
                 <van-cell-group class="special">
                     <van-field v-model="comments"/>
                 </van-cell-group>
@@ -183,7 +183,6 @@ export default {
               model: this.model,
               transmission: this.transmission,
               odometer: this.odometer,
-              regonumber: 'this.regonumber',
               color: this.color,
               trim: this.trimcolor,
               logbook: this.logbook,

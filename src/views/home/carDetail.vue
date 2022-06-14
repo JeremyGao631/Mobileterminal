@@ -285,9 +285,10 @@ export default {
             }
         }
         .title-bottom {
-            width: 227px;
+            // width: 227px;
+            text-align: left;
             height: 50px;
-            font-size: 16px;
+            font-size: 19px;
             margin-left: 4px;
             font-family: PingFangSC-Regular, PingFang SC;
             font-weight: 400;

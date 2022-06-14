@@ -104,6 +104,7 @@ export default {
 
     .span-img {
         position: relative;
+        margin-bottom: -2px;
         .bottom-img {
             width: 100%;
             height: 150px;

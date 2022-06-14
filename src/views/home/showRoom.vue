@@ -419,10 +419,12 @@ export default {
       margin-right:20px;
     }
     .imgspecial {
-        height: 15px;
-        width: 15px;
+        height: 18px;
+        position:relative;
+        top:3px;
+        width: 14px;
         padding-bottom: 0;
-        margin-right: 5px;
+        margin-right: 4px;
         margin-left: 20px;
     }
     .showallspecial {
