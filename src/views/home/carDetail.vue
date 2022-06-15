@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="showleft">
-                    <img src="../../assets/images/carDetail/rili.png" />
+                    <img src="../../assets/images/carDetail/rili.jpg" />
                     <div class="showlefttext">
                         <span class="texttop">2016</span>
                         <br />
@@ -254,9 +254,9 @@ export default {
             }
         }
     .title {
-        margin:10px;
-        padding-top:11px;
+        margin:15px 10px 10px 10px;
         background-color: #fff;
+        padding-top: 21px;
         .title-top {
             display: flex;
             align-items: center;
@@ -289,7 +289,7 @@ export default {
             text-align: left;
             height: 50px;
             font-size: 19px;
-            margin-left: 4px;
+            margin-left: 10px;
             font-family: PingFangSC-Regular, PingFang SC;
             font-weight: 400;
             color: #212020;
@@ -373,6 +373,7 @@ export default {
                 font-family: DINCondensed-Bold, DINCondensed;
                 font-weight: bold;
                 color: #151515;
+                margin-left: 8px;
             }
             .comment-span{
                 // width: 336px;
@@ -383,6 +384,7 @@ export default {
                 font-weight: 300;
                 color: #909090;
                 line-height: 18px;
+                margin-left: 8px;
             }
         }
         .list {
@@ -435,6 +437,7 @@ export default {
             font-weight: bold;
             color: #151515;
             line-height: 80px;
+            margin-left: 8px;
         }
         .contact-input {
             .name {
@@ -443,6 +446,8 @@ export default {
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
                 color: #000;
+                text-align: left;
+                margin-left: 8px;
             }
             .message {
                 width: 93%;
@@ -453,6 +458,9 @@ export default {
                 color: #000;
                 border: 1px solid #151515;
             }
+            /deep/ .van-cell {
+                padding: 5px 20px 20px 20px;
+            }
         }
         .submit {
             .van-button--normal {
@@ -461,34 +469,36 @@ export default {
                 font-size: 16px;
                 background-color: #000;
                 color: #fff;
-                width: 167px;
+                width: 147px;
                 height: 47px;
+                font-family: DINCondensed-Bold, DINCondensed;
             }
             .imgs {
                 width: 15px;
                 position: relative;
-                left: -25px;
+                left: -20px;
                 top:7px;
             }
         } 
     }
     .bottom {
         background-color: #fff;
-        margin: 10px;
+        margin: 10px 10px 40px 10px;
         padding: 0 5px;
         .bottom-title {
-            height: 70px;
             text-align: left;
             font-size: 24px;
             font-family: DINCondensed-Bold, DINCondensed;
             font-weight: bold;
             color: #151515;
-            line-height: 80px;
+            line-height: 60px;
+            margin-left: 8px;
         }
         .textcontent {
         overflow: hidden;
         margin-top:10px;
         height: 225px;
+        margin-left: 8px;
         .textcard {
             float:left;
             margin-right:30px;

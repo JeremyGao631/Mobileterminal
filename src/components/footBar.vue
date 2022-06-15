@@ -187,7 +187,7 @@
         }
     }
      .tops {
-        padding: 35px 20px 18px 20px;
+        padding: 35px 20px 10px 20px;
         width: 33px;
         height: 16px;
         font-size: 16px;
@@ -200,7 +200,6 @@
       };
       .bottoms {
         padding: 18px 50px;
-        width: 275px;
         height: 16px;
         font-size: 11px;
         font-family: PingFangSC-Light, PingFang SC;
@@ -209,6 +208,7 @@
         line-height: 16px;
         text-align: center;
         opacity: 0.6;
+        white-space: nowrap
       };
     .view{
             padding: 0 20px;

@@ -73,8 +73,9 @@ export default {
     content: '\e73b';
     color: #000;
 }
- .van-nav-bar {
-    margin:10px 0 0 0;
+ /deep/ .van-nav-bar {
+    padding:10px 0 10px 0;
+    background-color: #F4F6F8;
  }
 
  /deep/ .van-nav-bar__title{

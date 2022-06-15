@@ -2,17 +2,17 @@
   <div class="homeview">
     <div class="lunbo">
       <div class="lunbotext">
+        <span class="lunbotextinfo">Excellent-performance</span>
+        <br />
         <span class="lunbotexttitle">
           DISTINCTIVE <br />
           QUALITY
         </span>
-        <br />
-        <span class="lunbotextinfo">Excellent-performance</span>
-        <br />
+        <!-- <br />
         <button @click="jumpcontact()">
           <span>BOOK SERVICE</span>
           <img src="../../assets/images/home/right.png" />
-        </button>
+        </button> -->
       </div>
     </div>
     <div class="middletittle">FEATURED COLLECTIONS</div>
@@ -28,7 +28,7 @@
             <span @click="jumpshowroom()">SHOW ALL</span>
             <img src="../../assets/images/home/blackright.png" />
           </div>
-          <!-- <div class="break" /> -->
+          <div class="break" />
       </div>
       <div class="textinfo">
         <span>AVAILABLE</span>
@@ -87,7 +87,7 @@
       <van-swipe :autoplay="5000" indicator-color="black">
         <van-swipe-item>
           <div class="card">
-            <img src="../../assets/images/home/onlineshowroom.png" />
+            <img src="../../assets/images/home/JVS00034-4.jpg" />
             <div class="info">
               <p>ONLINE SHOWROOM</p>
               <span>SpecBase is a fully interactive online Showroom with specs, photos, and video showcase of RVs in your inventory directly on your website.</span>
@@ -96,7 +96,7 @@
         </van-swipe-item>
         <van-swipe-item>
           <div class="card">
-            <img src="../../assets/images/home/sellyourcar.png" />
+            <img src="../../assets/images/home/JVS00345-4.jpg" />
             <div class="info">
               <p>SELL YOUR CAR</p>
               <span>SpecBase is a fully interactive online Showroom with specs, photos, and video showcase of RVs in your inventory directly on your website.</span>
@@ -105,7 +105,7 @@
         </van-swipe-item>
         <van-swipe-item>
           <div class="card">
-            <img src="../../assets/images/home/visitourstore.png" />
+            <img src="../../assets/images/home/JVS00366-Edit-3.jpg" />
             <div class="info">
               <p>VISIT OUR STORE</p>
               <span>SpecBase is a fully interactive online Showroom with specs, photos, and video showcase of RVs in your inventory directly on your website.</span>
@@ -308,9 +308,9 @@ export default {
     }
   },
   methods: {
-    jumpcontact() {
-      this.$router.push('/contact')
-    },
+    // jumpcontact() {
+    //   this.$router.push('/contact')
+    // },
     jumpshowroom() {
       this.$router.push('/showRoom')
     },
@@ -328,7 +328,7 @@ export default {
 .lunbo {
   height: 207px;
   width: 100%;
-  background-image: url(../../assets/images/home/lunbo.png);
+  background-image: url(../../assets/images/home/JVS00151-Edit-4.jpg);
   background-size:cover;
   margin-top: -20px;
   .lunbotext {
@@ -337,11 +337,11 @@ export default {
     .lunbotexttitle {
       width: 160px;
       height: 60px;
-      font-size: 30px;
+      font-size: 24px;
       font-family: DINCondensed-Bold, DINCondensed;
       font-weight: bold;
       color: #FFFFFF;
-      line-height: 36px;
+      line-height: 24px;
     }
     .lunbotextinfo {
       width: 127px;
@@ -350,40 +350,40 @@ export default {
       font-family: PingFangSC-Light;
       font-weight: 300;
       color: #FFFFFF;
-      line-height: 17px;
+      line-height: 30px;
     }
-    button {
-      width: 116px;
-      height: 29px;
-      border: 1px solid #FFFFFF;
-      margin-top: 28px;
-      background-color: transparent;
-      span {
-        width: 64px;
-        height: 65px;
-        font-size: 14px;
-        font-family: DINCondensed-Bold, DINCondensed;
-        font-weight: bold;
-        color: #FFFFFF;
-        line-height: 28px;
-        margin:0 6%;
-      }
-      img {
-        height: 8px;
-        width: 8px;
-        padding-bottom: 1px;
-      }
-    }
+    // button {
+    //   width: 116px;
+    //   height: 29px;
+    //   border: 1px solid #FFFFFF;
+    //   margin-top: 28px;
+    //   background-color: transparent;
+    //   span {
+    //     width: 64px;
+    //     height: 65px;
+    //     font-size: 14px;
+    //     font-family: DINCondensed-Bold, DINCondensed;
+    //     font-weight: bold;
+    //     color: #FFFFFF;
+    //     line-height: 28px;
+    //     margin:0 6%;
+    //   }
+    //   img {
+    //     height: 8px;
+    //     width: 8px;
+    //     padding-bottom: 1px;
+    //   }
+    // }
   }
 }
 .middletittle {
   width: 300px;
-  height: 80px;
-  font-size: 24px;
+  font-size: 30px;
   font-family: DINCondensed-Bold, DINCondensed;
   font-weight: bold;
   color: #151515;
-  line-height: 80px;
+  padding-top: 40px;
+  padding-bottom: 20px;
   margin-left: 20px;
   text-align: left;
 }
@@ -395,13 +395,10 @@ export default {
   .texttitle {
     margin: 0px 10px;
     text-align: left;
-    border-bottom:2px solid #12100f;
-    // padding-bottom: 5px;
     .btn_anniu {
       background-color: transparent;
       border: 0;
       margin-top: 5%;
-      // margin-left: -5px;
       span {
         width: 75px;
         height: 30px;
@@ -415,7 +412,6 @@ export default {
     .newStyle{
       border: 2px solid #12100f;
       border-bottom: none;
-      // margin-left: -0.5%;
       span{
         font-weight: bold;
         font-size: 16px;
@@ -441,7 +437,8 @@ export default {
   }
   .break {
     border: 1px solid #12100f;
-    margin-top: -1%;
+    margin-top: -2px;
+    margin-left: 2px;
   }
   .textinfo {
     width: 120px;
@@ -451,7 +448,7 @@ export default {
     font-weight: 400;
     color: #909090;
     line-height: 30px;
-    margin: 20px 120px;
+    margin: 20px 120px 10px 120px;
     .textinfosepcial {
       font-family: PingFangSC-Semibold;
       font-weight: bold;
@@ -512,19 +509,20 @@ export default {
       .break {
         border-bottom: 1px solid #979797;
         opacity:0.1;
+        margin-right: 7px;
       }
       .detailcard {
         padding-top:10px;
+        padding-right: 10px;
         display: flex;
         align-items: center;
-        justify-content: left;
+        justify-content: space-between;
         span {
           font-size: 11px;
           font-family:PingFangSC-Regular;
           color: #909090;
           line-height: 10px;
           white-space: nowrap;
-          margin-right: 15px;
         }
       }
     }
@@ -558,7 +556,7 @@ export default {
 
 .info p{
   margin: 0 0 15px 0;
-  font-size: 18px;
+  font-size: 24px;
   font-family: DINCondensed-Bold, DINCondensed;
   font-weight: bold;
   color: #151515;
