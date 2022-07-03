@@ -118,6 +118,7 @@
 </template>
 
 <script>
+import { describtion } from '@/api'
 export default {
   name: 'HomeView',
   components: {
@@ -307,9 +308,33 @@ export default {
       ]
     }
   },
+  created() {
+    this.desc()
+    this.services()
+  },
   methods: {
     jumpcontact() {
       this.$router.push('/contact')
+    },
+    // 轮播图
+    desc() {
+      describtion({
+        current: '1',
+        pageSize: '10',
+        title: 'FIRST'
+      }).then(res => {
+        console.log(res, 'home-res')
+      })
+    },
+    // our services
+    services() {
+      describtion({
+        current: '1',
+        pageSize: '10',
+        title: 'OUR SERVICES'
+      }).then(ser => {
+        console.log('home-ser',ser)
+      })
     },
     jumpshowroom() {
       this.$router.push('/showRoom')

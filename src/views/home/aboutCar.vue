@@ -41,6 +41,7 @@
 </template>
 <script>
 
+import {describtion} from '@/api'
 export default {
     name: 'aboutCar',
     data() {
@@ -89,6 +90,20 @@ export default {
                   info: 'Our employees share a deep passion for cars.'
                 },
             ]
+        }
+    },
+    created() {
+        this.about()
+    },
+    methods: {
+        about() {
+            describtion({
+                current: '1',
+                pageSize: '10',
+                title: 'ABOUT'
+            }).then(about => {
+                console.log('about',about)
+            })
         }
     }
 }

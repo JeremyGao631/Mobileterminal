@@ -122,16 +122,56 @@
 </template>
 
 <script>
+  import { describtion } from '@/api'
   export default {
     name:'footBar',
     props: {
     },
     data() {
       return {
-        tips: 'Autohome AU.ALL right reserved. @Copyright 2020'
+        tips: 'Autohome AU.ALL right reserved. @Copyright 2020',
+        lefts: [],
+        rights: [],
       };
     },
+    created() {
+        this.left()
+        this.right()
+    },
     methods: {
+     left() {
+        this.lefts = []
+      describtion({
+        current: '1',
+        pageSize: '10',
+        title: 'FOOTER-LEFT'
+      }).then(res => {
+        res.data.records.forEach(ele => {
+            const items = {
+                describtion: ele.describtion,
+                targeUrl: ele.targeUrl
+            }
+            this.lefts.push(items)
+        })
+        console.log(this.lefts, '1')
+      })
+    },
+    right() {
+      this.rights = []
+      describtion({
+        current: '1',
+        pageSize: '10',
+        title: 'FOOTER-RIGHT'
+      }).then(res => {
+        res.data.records.forEach(ele => {
+            const item = {
+                describtion: ele.describtion
+            }
+            this.rights.push(item)
+        })
+        console.log(this.rights, '2')
+      })
+    },
       home() {
         this.$router.push('/home')
       },

@@ -211,7 +211,7 @@ export default {
                 // 缺少email字段
                         name:this.form.name,
                         phone: this.form.phone,
-                        // email:this.form.email,
+                        email:this.form.email,
                         time: this.form.time,
             }).then( res => {
                 console.log(res, '提交成功')

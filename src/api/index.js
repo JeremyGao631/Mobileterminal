@@ -24,3 +24,12 @@ export function vehicle(data) {
     data
   })
 }
+// 请求后台页面数据
+export function describtion(data) {
+  return request({
+    loading: data.loading || true,
+    url: 'http://106.14.72.252/api/describtion/page',
+    method: 'post',
+    data
+  })
+}
