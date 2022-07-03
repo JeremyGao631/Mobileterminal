@@ -313,7 +313,6 @@ export default {
     this.services()
   },
   methods: {
-<<<<<<< HEAD
     jumpcontact() {
       this.$router.push('/contact')
     },
@@ -337,11 +336,9 @@ export default {
         console.log('home-ser',ser)
       })
     },
-=======
     // jumpcontact() {
     //   this.$router.push('/contact')
     // },
->>>>>>> 6746d115423be479f679159163dbdef9771a7e7a
     jumpshowroom() {
       this.$router.push('/showRoom')
     },
