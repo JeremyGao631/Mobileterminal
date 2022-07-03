@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <img class="top-img" src="../../assets/images/contact/ContactUsNow.png" alt="">
+        <img class="top-img" src="../../assets/images/contact/JVS00138-Edit-4.jpg" alt="">
         <div class="top-title">CONTACT US NOW</div>
         <!-- <div class="item">
             <div v-for="(item, idx) in information" :key="idx" class="tab">
@@ -18,7 +18,7 @@
             <van-grid-item class="tableContent">
                 <img src="../../assets/images/contact/Email.png" alt="" class="imgStyle">
                 <div class="table-title">E-mail</div>
-                <div class="table-info">enquiries@ auto-home.com.au</div>
+                <div class="table-info">enquiries@ <br />auto-home.com.au</div>
             </van-grid-item>
             <van-grid-item class="tableContent" @click="showcode()">
                 <img src="../../assets/images/contact/Wechat.png" alt="" class="imgStyle">
@@ -66,14 +66,14 @@
                 <img class="imgs" src="../../assets/images/home/right.png" alt="">
             </div>
         </div>
-        <div class="location">
+        <!-- <div class="location">
             <img class="border" src="../../assets/images/contact/LocationIconBackground.png" alt="">
             <div class="top">
                 <img class="logo" src="../../assets/images/contact/LocationIcon.png" alt="">
                 <div class="tips">388 Parramatta Road，Burwood, NSW 2134</div>
             </div>
-        </div>
-        <img class="bottom-img" src="../../assets/images/contact/LocationBackground.png" alt="">
+        </div> -->
+        <img class="bottom-img" src="../../assets/images/contact/ditu.png" alt="">
     </div>
 </template>
 <script>
@@ -166,10 +166,10 @@ export default{
     height: 96px;
 }
 ::v-deep  .imgStyle{
-    margin-top:-8px;
-    margin-bottom:20px;
-    width: 50px;
-    height: 50px;
+    margin-bottom:30px;
+    margin-top: 10px;
+    width: 36px;
+    height: 36px;
 }
 /deep/ .van-grid-item {
     padding: 10px;
@@ -216,48 +216,49 @@ export default{
     .bottom-img {
         width: 100%;
         height: 128px;
-        margin-bottom:-3px;
+        margin-bottom:-8px;
+        margin-top: 125px;
     }
     .top-title {
-        height: 30px;
         font-size: 30px;
-        text-align: center;
-        margin: 20px 0;
         font-family: DINCondensed-Bold, DINCondensed;
         font-weight: bold;
         color: #151515;
-        line-height: 36px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        text-align: center;
+        margin: 0 auto;
     }
-    .location {
-    position: relative;
-    top: 102px;
-    left: -10px;
-    .border {
-        width: 256px;
-        // height: 210px;
-    }
-    .top {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        position: absolute;
-        left:110px;
-        top: 26px;
-        .logo {
-            width: 39px;
-            margin-top:7px;
-            margin-right: 10px;
-            }
-        .tips {
-            width: 136px;
-            padding-top:10px;
-            text-align: left;
-            font-size: 11px;
-            font-family: PingFangSC-Regular, PingFang SC;
-            color: #FFFDFD;
-            }
-        }
-    }
+    // .location {
+    // position: relative;
+    // top: 102px;
+    // left: -10px;
+    // .border {
+    //     width: 256px;
+    //     // height: 210px;
+    // }
+    // .top {
+    //     display: flex;
+    //     align-items: center;
+    //     flex-direction: row;
+    //     position: absolute;
+    //     left:110px;
+    //     top: 26px;
+    //     .logo {
+    //         width: 39px;
+    //         margin-top:7px;
+    //         margin-right: 10px;
+    //         }
+    //     .tips {
+    //         width: 136px;
+    //         padding-top:10px;
+    //         text-align: left;
+    //         font-size: 11px;
+    //         font-family: PingFangSC-Regular, PingFang SC;
+    //         color: #FFFDFD;
+    //         }
+    //     }
+    // }
     .contact {
         background-color: #fff;
         margin: 15px;
@@ -270,14 +271,17 @@ export default{
             font-weight: bold;
             color: #151515;
             line-height: 90px;
+            margin-left: 8px;
         }
         .contact-input {
             .name {
-                width: 80px;
+                width: 47px;
                 font-size: 13px;
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
                 color: #000;
+                text-align: left;
+                margin-left: 8px;
             }
             .message {
                 width: 90%;
@@ -288,6 +292,9 @@ export default{
                 color: #000;
                 border: 1px solid #151515;
             }
+            /deep/ .van-cell {
+                padding: 5px 20px 20px 20px;
+            }
         }
         .submit {
             .van-button--normal {
@@ -296,13 +303,14 @@ export default{
                 font-size: 16px;
                 background-color: #000;
                 color: #fff;
-                width: 167px;
+                width: 147px;
                 height: 47px;
+                font-family: DINCondensed-Bold, DINCondensed;
             }
             .imgs {
                 width: 15px;
                 position: relative;
-                left: -25px;
+                left: -20px;
                 top:7px;
             }
         } 

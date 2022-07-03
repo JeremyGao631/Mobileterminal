@@ -1,9 +1,9 @@
 <template>
     <div class="page">
-        <img class="top-img" src="../../assets/images/about/OurMission.png" alt="">
+        <img class="top-img" src="../../assets/images/about/JVS00341-4.jpg" alt="">
         <div class="top-title">
             <div class="title">OUR MISSION</div>
-            <div class="offer">Offer our customers exceptional quality and excellent value with our integrity and enthusiasm.</div>
+            <!-- <div class="offer">Offer our customers exceptional quality and excellent value with our integrity and enthusiasm.</div> -->
         </div>
         <div class="page-grid">
             <div class="page-offer">WHAT WE OFFER</div>
@@ -159,14 +159,15 @@ export default {
     }
     .top-title {
         text-align: center;
-        margin-top:20px;
         .title {
-            height: 30px;
             font-size: 30px;
             font-family: DINCondensed-Bold, DINCondensed;
             font-weight: bold;
             color: #151515;
-            line-height: 36px;
+            padding-top: 40px;
+            padding-bottom: 20px;
+            text-align: center;
+            margin: 0 auto;
         }
         .offer {
             margin: 5px 0 15px 40px ;
@@ -180,7 +181,7 @@ export default {
         }
     }
     .page-grid {
-        margin:15px 10px;
+        margin:0px 10px 40px 10px;
         background-color: #fff;
         .page-offer {
             padding-top: 25px;
@@ -235,7 +236,6 @@ export default {
             }
         }
         .styles {
-            padding-bottom:25px;
             display: flex;
             flex-wrap: wrap;
             margin-right:5px;

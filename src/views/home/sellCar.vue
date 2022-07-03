@@ -2,9 +2,9 @@
     <div class="sellcar" >
         <div class="lunbo" />
         <div class="tittle">SELL YOUR CAR</div>
-        <div class="titletext">The easiest way to sell your car,
+        <!-- <div class="titletext">The easiest way to sell your car,
     hassle free and stress free
-        </div>
+        </div> -->
         <div class="middle">
             <div class="middlecontent">
                 <img class="imgleft" src="../../assets/images/sellyourcar/BringInYourCar.png" />
@@ -111,8 +111,8 @@
                 </van-cell-group>
                 <!-- <van-dropdown-menu>
                     <van-dropdown-item v-model="logbook" :options="option1" />
-                </van-dropdown-menu>
-                <div class="inputtitle">Photo Upload</div> -->
+                </van-dropdown-menu> -->
+                <div class="inputtitle">Photo Upload</div>
                 <van-uploader v-model="file"  multiple />
                 <div class="smalltitle">
                     COMMENTS
@@ -121,10 +121,10 @@
                 <van-cell-group class="special">
                     <van-field v-model="comments"/>
                 </van-cell-group>
-                <button class="middlebtn" @click="submit()">
-                    <span>SUBMIT</span>
-                    <img src="../../assets/images/home/right.png" />
-                </button>
+                <div class="submit">
+                    <van-button @click="submit()">SUBMIT</van-button>
+                    <img class="imgs" src="../../assets/images/home/right.png" alt="">
+                </div>
 
                 <div class="smalltitle">
                     PRIVACY
@@ -206,7 +206,7 @@ export default {
 .lunbo {
   height: 207px;
   width: 100%;
-  background-image: url(../../assets/images/sellyourcar/SellYourCar.png);
+  background-image: url(../../assets/images/sellyourcar/JVS00048-5.jpg);
   background-size:cover;
   margin-top: -20px;
   .lunbotext {
@@ -254,15 +254,14 @@ export default {
   }
 }
 .tittle {
-  width: 184px;
-  height: 30px;
   font-size: 30px;
   font-family: DINCondensed-Bold, DINCondensed;
   font-weight: bold;
   color: #151515;
-  line-height: 36px;
+  padding-top: 40px;
+  padding-bottom: 20px;
   text-align: center;
-  margin: 24px 96px 10px 96px;
+  margin: 0 auto;
 }
 
 .titletext {
@@ -278,7 +277,7 @@ export default {
 
 .middle {
     background-color: #FFFFFF;
-    margin: 20px 10px;
+    margin: 0px 10px 20px 10px;
     .middlecontent {
         margin: 0 50px 20px 10px;
         padding-top: 16px;
@@ -403,7 +402,6 @@ export default {
             font-family: PingFangSC-Regular, PingFang SC;
             font-weight: 400;
             line-height: 30px;
-            margin-bottom: 5px;
         }
         .van-cell-group {
             border: 2px solid #151515;
@@ -414,7 +412,7 @@ export default {
             }
         }
         .van-uploader {
-            margin-bottom: 30px;
+            margin-bottom: 36px;
         }
         .special {
             /deep/ .van-field__control {
@@ -422,29 +420,23 @@ export default {
                 width: 304px;
             }
         }
-        .middlebtn {
-            width: 167px;
-            height: 47px;
-            background-color: #151515;
-            border: 2px solid;
-            margin-bottom: 60px;
-            margin-left: 85px;
-            margin-right: 95px;
-            padding-top: 5px;
-            span {
-                width: 73px;
-                height: 30px;
-                font-size: 20px;
+        .submit {
+            text-align: center;
+            margin:0 auto;
+            .van-button--normal {
+                margin-bottom: 60px;
+                font-size: 16px;
+                background-color: #000;
+                color: #fff;
+                width: 147px;
+                height: 47px;
                 font-family: DINCondensed-Bold, DINCondensed;
-                font-weight: bold;
-                color: #FFFFFF;
-                line-height: 30px;
-                margin:0 20px 0 40px;
             }
-            img {
-                height: 10px;
-                width: 10px;
-                margin-left: 15px;
+            .imgs {
+                width: 15px;
+                position: relative;
+                left: -20px;
+                top:7px;
             }
         }
         .privacyinfo {
@@ -459,6 +451,9 @@ export default {
         }
         .privacyinfo:nth-last-child(1){
            padding-bottom: 30px;
+        }
+        /deep/ .van-field__control::placeholder{
+            color: black;
         }
     }
 }

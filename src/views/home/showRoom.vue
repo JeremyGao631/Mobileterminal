@@ -2,10 +2,10 @@
   <div class="showroom">
     <div class="lunbo" />
     <div class="tittle">ONLINE SHOWROOM</div>
-    <button class="middlebtn" @click="jumpcontact()">
+    <!-- <button class="middlebtn" @click="jumpcontact()">
         <span>BOOK SERVICE</span>
         <img src="../../assets/images/home/blackright.png" />
-    </button>
+    </button> -->
     <div class="middle">
       <div class="middletittle">START A NEW SEARCH</div>
       <div class="texttitle">
@@ -262,9 +262,9 @@ export default {
     }
   },
   methods: {
-    jumpcontact() {
-      this.$router.push('/contact')
-    },
+    // jumpcontact() {
+    //   this.$router.push('/contact')
+    // },
     change: function (item) {
             this.number = item; //重要处
           },
@@ -282,7 +282,7 @@ export default {
 .lunbo {
   height: 207px;
   width: 100%;
-  background-image: url(../../assets/images/onlineshowroom/OnlineShowroom.png);
+  background-image: url(../../assets/images/home/JVS00034-4.jpg);
   background-size:cover;
   margin-top: -20px;
   .lunbotext {
@@ -330,15 +330,14 @@ export default {
   }
 }
 .tittle {
-  width: 184px;
-  height: 30px;
   font-size: 30px;
   font-family: DINCondensed-Bold, DINCondensed;
   font-weight: bold;
   color: #151515;
-  line-height: 36px;
+  padding-top: 40px;
+  padding-bottom: 20px;
   text-align: center;
-  margin: 24px 96px 10px 96px;
+  margin: 0 auto;
   white-space: nowrap;
 }
 
@@ -433,7 +432,7 @@ export default {
   }
   .textcontent {
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 20px;
     .textcard {
       float:left;
       width: calc(50% - 15px);
@@ -485,19 +484,20 @@ export default {
       .break {
         border-bottom: 1px solid #979797;
         opacity:0.1;
+        margin-right: 7px;
       }
       .detailcard {
         padding-top:10px;
+        padding-right: 10px;
         display: flex;
         align-items: center;
-        justify-content: left;
+        justify-content: space-between;
         span {
           font-size: 11px;
           font-family:PingFangSC-Regular;
           color: #909090;
           line-height: 10px;
           white-space: nowrap;
-          margin-right: 15px;
         }
       }
     }
