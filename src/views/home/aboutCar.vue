@@ -9,9 +9,9 @@
             <div class="page-offer">WHAT WE OFFER</div>
             <div class="style">
                 <div v-for="(items,index) in information" :key="index" class="weOffer">
-                    <img :src="items.url" alt="" class="imgStyle">
-                    <div class="title">{{ items.title }}</div>
-                    <div class="information">{{ items.info }}</div>
+                    <img :src="items.targeUrl" alt="" class="imgStyle">
+                    <div class="title">{{ items.secondtitle }}</div>
+                    <div class="information">{{ items.describtion }}</div>
                 </div>
             </div>
         </div>
@@ -46,28 +46,7 @@ export default {
     name: 'aboutCar',
     data() {
         return {
-            information: [
-                {
-                  url: require('../../assets/images/about/bkCarForSale.png'),
-                  title:'Car for Sale',
-                  info: 'Browse the fine motor vehicles via online showroom or visit our showroom in Sydney to view an exclusive range of luxury models and sports vehicles.'
-                },
-                {
-                  url: require('../../assets/images/about/bkSellYourCar.png'),
-                  title:'Sell your car',
-                  info: 'Our team at Autohome AU make selling your car as easy and convenient as possible.Click and simply send us your vehicle details and let our team take care of the rest.'
-                },
-                {
-                  url: require('../../assets/images/about/bkFinanceSolution.png'),
-                  title:'Finance Solution',
-                  info: 'We understand financing can be a hassle, so we’re here to make everything as easy as possible. Contact to us directly and let our team provide you a perfect fit.'
-                },
-                {
-                  url: require('../../assets/images/about/bkServiceAndRepairs.png'),
-                  title:'Service and Repairs',
-                  info: 'We offer a one-stop car servicing on all makes and models, tailored to suit both your budget and vehicle. Book your service online now!'
-                },
-            ],
+            information: [],
             information1: [
                 {
                   url: require('../../assets/images/about/ExceptionalQuality.png'),
@@ -93,16 +72,23 @@ export default {
         }
     },
     created() {
-        this.about()
+        this.aboutData()
     },
     methods: {
-        about() {
+        aboutData() {
             describtion({
                 current: '1',
                 pageSize: '10',
                 title: 'ABOUT'
-            }).then(about => {
-                console.log('about',about)
+            }).then(res => {
+                res.data.records.forEach(ele => {
+                    const item = {
+                    targeUrl: ele.targeUrl,
+                    secondtitle: ele.secondtitle,
+                    describtion: ele.describtion
+                    }
+                this.information.push(item)
+                })
             })
         }
     }

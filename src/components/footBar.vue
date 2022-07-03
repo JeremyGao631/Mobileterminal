@@ -1,12 +1,15 @@
 <template>
     <div class="jj">
         <div class="left">
-            <img class="img" src="../assets/images/components/BottomBar.png" alt="">
+            <img class="img" :src="firstImg" alt="">
             <div class="bottom">
-              <img class="bottom-logo" src="../assets/images/components/facebook.png" alt="">
+              <div  v-for="(item, idx) in lefts" :key="idx">
+                <img class="bottom-logo" :src="item.targeUrl" alt="">
+              </div>
+              <!-- <img class="bottom-logo" src="../assets/images/components/facebook.png" alt="">
               <img class="bottom-logo" src="../assets/images/components/twitter.png" alt="">
               <img class="bottom-logo" src="../assets/images/components/instagram.png" alt="">
-              <img class="bottom-logo" src="../assets/images/components/Youtube.png" alt="">
+              <img class="bottom-logo" src="../assets/images/components/Youtube.png" alt=""> -->
             </div>
             <!-- <div class="tips">{{tips}}</div> -->
         </div>
@@ -77,17 +80,19 @@
             </div>
             <!--contact-->
             <div class="tops">CONTACT</div>
-             <div class="view">
-                <div class="cell-container">
-                  <!-- 此处行内不影响整体-->
-                    <div class="item" style="height:64px">
-                        <div class="show">
-                            <span class="text">Tel: 0498698000</span>
-                        </div>
-                    </div>
+            <div  v-for="(item,idx) in rights" :key="idx">
+                <div class="view">
+                  <div class="cell-container">
+                    <!-- 此处行内不影响整体-->
+                      <div class="item" style="height:64px">
+                          <div class="show">
+                              <span class="text">{{ item.describtion }}</span>
+                          </div>
+                      </div>
+                  </div>
                 </div>
             </div>
-            <div class="view">
+            <!-- <div class="view">
                 <div class="cell-container">
                     <div class="item" style="height:64px">
                         <div class="show">
@@ -113,8 +118,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="bottoms">Autohome AU.ALL right reserved.@Copyright 2020</div>
+            </div> -->
+            <div class="bottoms">{{ tip }}</div>
           </div>
         </div>
     </div>
@@ -129,9 +134,11 @@
     },
     data() {
       return {
+        tip:'',
         tips: 'Autohome AU.ALL right reserved. @Copyright 2020',
         lefts: [],
         rights: [],
+        firstImg: ''
       };
     },
     created() {
@@ -139,20 +146,25 @@
         this.right()
     },
     methods: {
-     left() {
+      left() {
         this.lefts = []
-      describtion({
-        current: '1',
-        pageSize: '10',
-        title: 'FOOTER-LEFT'
-      }).then(res => {
-        res.data.records.forEach(ele => {
-            const items = {
-                describtion: ele.describtion,
+        describtion({
+          current: '1',
+          pageSize: '10',
+          title: 'FOOTER-LEFT'
+        }).then(res => {
+          this.tip = `${res.data.records[5].describtion}${res.data.records[6].describtion}`
+          this.firstImg = res.data.records[0].targeUrl
+          res.data.records.forEach(ele => {
+            if (ele.targeUrl != null && ele.sort != 1) {
+              const items = {
+                // describtion: ele.describtion,
                 targeUrl: ele.targeUrl
-            }
+              }
             this.lefts.push(items)
-        })
+            }
+
+          })
         console.log(this.lefts, '1')
       })
     },
@@ -163,11 +175,15 @@
         pageSize: '10',
         title: 'FOOTER-RIGHT'
       }).then(res => {
+        this.content = res.data.records[0].describtion
         res.data.records.forEach(ele => {
-            const item = {
+          if (ele.sort != 1) {
+              const item = {
                 describtion: ele.describtion
-            }
+              }
             this.rights.push(item)
+          }
+
         })
         console.log(this.rights, '2')
       })
@@ -207,6 +223,7 @@
       }
       .bottom {
         padding-left:85px;
+        display:flex;
         padding-top: 10px;
         padding-bottom: 10px;
         .bottom-logo {

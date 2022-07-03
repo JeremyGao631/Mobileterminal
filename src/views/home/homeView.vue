@@ -1,20 +1,25 @@
 <template>
   <div class="homeview">
-    <div class="lunbo">
-      <div class="lunbotext">
-        <span class="lunbotextinfo">Excellent-performance</span>
-        <br />
-        <span class="lunbotexttitle">
-          DISTINCTIVE <br />
-          QUALITY
-        </span>
-        <!-- <br />
-        <button @click="jumpcontact()">
-          <span>BOOK SERVICE</span>
-          <img src="../../assets/images/home/right.png" />
-        </button> -->
-      </div>
-    </div>
+    <van-swipe :autoplay="5000" indicator-color="black">
+      <van-swipe-item v-for="(item,index) in itemList" :key="index">
+        <div class="lunbo">
+          <img :src="item.targeUrl"  alt="暂无图片" class="img1" />
+          <div class="lunbotext">
+            <span class="lunbotextinfo">{{item.secondtitle}}</span>
+            <br />
+            <span class="lunbotexttitle">
+              {{item.span}} <br />
+              {{item.span1}}
+            </span>
+          <!-- <br />
+          <button @click="jumpcontact()">
+            <span>BOOK SERVICE</span>
+            <img src="../../assets/images/home/right.png" />
+          </button> -->
+          </div>
+        </div>
+      </van-swipe-item>
+    </van-swipe>
     <div class="middletittle">FEATURED COLLECTIONS</div>
     <div class="middle">
       <div class="texttitle">
@@ -85,16 +90,16 @@
     <div class="middletittle">OUR SERVICE</div>
     <div class="swiper">
       <van-swipe :autoplay="5000" indicator-color="black">
-        <van-swipe-item>
+        <van-swipe-item v-for="(item,index) in service" :key="index">
           <div class="card">
-            <img src="../../assets/images/home/JVS00034-4.jpg" />
+            <img :src="item.targeUrl" />
             <div class="info">
-              <p>ONLINE SHOWROOM</p>
-              <span>SpecBase is a fully interactive online Showroom with specs, photos, and video showcase of RVs in your inventory directly on your website.</span>
+              <p>{{ item.secondtitle }}</p>
+              <span>{{ item.describtion }}</span>
             </div>
           </div>
         </van-swipe-item>
-        <van-swipe-item>
+        <!-- <van-swipe-item>
           <div class="card">
             <img src="../../assets/images/home/JVS00345-4.jpg" />
             <div class="info">
@@ -111,7 +116,7 @@
               <span>SpecBase is a fully interactive online Showroom with specs, photos, and video showcase of RVs in your inventory directly on your website.</span>
             </div>
           </div>
-        </van-swipe-item>
+        </van-swipe-item> -->
       </van-swipe>
     </div>
   </div>
@@ -305,7 +310,9 @@ export default {
                   info1: 'Diesel',
                   info2: 'Auto'
                 }
-      ]
+      ],
+      service: [],
+      itemList: []
     }
   },
   created() {
@@ -323,7 +330,19 @@ export default {
         pageSize: '10',
         title: 'FIRST'
       }).then(res => {
-        console.log(res, 'home-res')
+        console.log(res, '1212')
+        res.data.records.forEach(ele => {
+          const arr = ele.describtion.split('-')
+          const item = {
+            targeUrl: ele.targeUrl,
+            span: arr[0],
+            span1: arr[1],
+            secondtitle: ele.secondtitle,
+            describtion: ele.describtion
+          }
+          this.itemList.push(item)
+        })
+        console.log('01',this.itemList )
       })
     },
     // our services
@@ -332,8 +351,16 @@ export default {
         current: '1',
         pageSize: '10',
         title: 'OUR SERVICES'
-      }).then(ser => {
-        console.log('home-ser',ser)
+      }).then(services => {
+        services.data.records.forEach(ele => {
+          const item = {
+            targeUrl: ele.targeUrl,
+            secondtitle: ele.secondtitle,
+            describtion: ele.describtion
+          }
+          this.service.push(item)
+        })
+        console.log(this.service, '1212')
       })
     },
     // jumpcontact() {
@@ -356,11 +383,16 @@ export default {
 .lunbo {
   height: 207px;
   width: 100%;
-  background-image: url(../../assets/images/home/JVS00151-Edit-4.jpg);
+  // background-image: url(../../assets/images/home/JVS00151-Edit-4.jpg);
   background-size:cover;
   margin-top: -20px;
+  .img1 {
+    width: 100%;
+  }
   .lunbotext {
     text-align:left;
+    position: absolute;
+    top: -17px;
     padding:38px 0 0 42px;
     .lunbotexttitle {
       width: 160px;
