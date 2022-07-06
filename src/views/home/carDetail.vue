@@ -62,9 +62,11 @@
                 <div class="name">Name</div>
                 <van-field v-model="form.name" />
                 <div class="name">Phone</div>
-                <van-field v-model="form.phone" />
+                <van-field maxlength="10" v-model="form.phone" />
                 <div class="name">Time</div>
-                <van-field v-model="form.time" />
+                <van-field v-model="form.time" readonly @click="showTime = true" />
+                <!-- <van-cell class :value="date" @click="show = true" /> -->
+                <van-calendar v-model="showTime" confirm-text="sure" @confirm="onConfirm" />
             </div>
             <div class="submit">
                 <van-button @click="submit()">SUBMIT</van-button>
@@ -98,10 +100,12 @@
     </div>
 </template>
 <script>
+import { Toast } from 'vant'
 import { inspection } from '@/api'
 export default {
     data() {
         return {
+            showTime: false, // 时间控件
             form: {
                 name: '',
                 email: '',
@@ -207,6 +211,9 @@ export default {
     },
     methods: {
         submit() {
+            if (this.form.name === '' || this.form.phone === '' || this.form.time === '') {
+                Toast('请检查页面信息是否填写完整')
+            } else {
             inspection({
                 // 缺少email字段
                         name:this.form.name,
@@ -215,8 +222,20 @@ export default {
                         time: this.form.time,
             }).then( res => {
                 console.log(res, '提交成功')
+                if (res.code === 0) {
+                    Toast('提交成功')
+                }
             })
+            }
+
         },
+        onConfirm(value) {
+            const formatDate = (date) => `${date.getFullYear()}${date.getMonth() + 1}/${date.getDate()}`;
+            console.log(this)
+            this.showTime = false 
+            // eslint-disable-next-line no-undef
+            this.form.time = formatDate(value)
+        }
     }
 }
 </script>

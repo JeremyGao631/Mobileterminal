@@ -5,7 +5,7 @@ export function fetch(data) {
     loading: data.loading || true,
     // url: 'http://106.14.72.252/contact/save',
         // url: 'http://106.14.72.252/contact/save',
-    url: 'http://106.14.73.29:8081/contact/save', // 本地调试
+    url: 'http://3.24.93.132:8081/contact/save', // 本地调试
     method: 'post',
     data
   })
@@ -15,7 +15,7 @@ export function inspection(data) {
     loading: data.loading || true,
     // url: 'http://106.14.72.252/inspection/save',
     // url: 'http://106.14.72.252/inspection/save',
-    url: 'http://106.14.73.29:8081/inspection/save',// 本地调试
+    url: 'http://3.24.93.132:8081/inspection/save',// 本地调试
     method: 'post',
     data
   })
@@ -25,7 +25,7 @@ export function vehicle(data) {
     loading: data.loading || true,
     // url: 'http://106.14.72.252/vehicle/save',
         // url: 'http://106.14.72.252/vehicle/save',
-    url: 'http://106.14.73.29:8081/vehicle/save',// 本地调试
+    url: 'http://3.24.93.132:8081/vehicle/save',// 本地调试
     method: 'post',
     data
   })
@@ -36,7 +36,7 @@ export function describtion(data) {
     loading: data.loading || true,
     // url: 'http://106.14.72.252/api/describtion/page',
         // url: 'http://106.14.72.252/api/describtion/page',
-    url: 'http://106.14.73.29:8081/api/describtion/page',// 本地调试
+    url: 'http://3.24.93.132:8081/api/describtion/page',// 本地调试
     method: 'post',
     data
   })

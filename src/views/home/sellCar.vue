@@ -59,11 +59,11 @@
                 </van-cell-group>
                 <div class="inputtitle">Mobile *</div>
                 <van-cell-group>
-                    <van-field v-model="mobile"   />
+                    <van-field maxlength="10" v-model="mobile"   />
                 </van-cell-group>
                 <div class="inputtitle">Email</div>
                 <van-cell-group style="margin-bottom: 40px;">
-                    <van-field v-model="email"/>
+                    <van-field @blur="emals" v-model="email"/>
                 </van-cell-group>
 
                 <div class="smalltitle">
@@ -141,6 +141,7 @@ your personal information to third parties to check whether and how, your vehicl
 </template>
 
 <script>
+import {Toast} from 'vant'
 import { vehicle } from '@/api'
 export default {
   name: 'HomeView',
@@ -171,10 +172,16 @@ export default {
 
     }
   },
+  watch: {
+  },
   methods: {
     submit() {
-        vehicle({
-          // 缺少字段
+        if (this.name === '' || this.mobile === '' || this.Year === '' || this.transmission === '' || this.odometer === '') {
+            Toast('请检查信息是否填写完整')
+            return
+        } else {
+            vehicle({
+                // 缺少字段
               name:this.name,
               phone: this.mobile,
               email:this.email,
@@ -190,7 +197,18 @@ export default {
               comments: this.comments
             }).then( res => {
                 console.log(res, '提交成功')
+                if(res.code === 0) {
+                    Toast('您的信息已提交完成')
+                }
             })
+        }
+    },
+    emals() {
+        var emailText = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+        var istrue = emailText.test(this.email)
+        if(!istrue) {
+            Toast('请填写正确的邮箱格式')
+        }
     },
       dropdown() {
 
@@ -365,7 +383,7 @@ export default {
         margin: 0px 10px;
         text-align: left;
         .contenttitle {
-            width: 213px;
+            width: 100%;
             height: 30px;
             font-size: 24px;
             font-family: DINCondensed-Bold, DINCondensed;
@@ -425,7 +443,7 @@ export default {
             margin:0 auto;
             .van-button--normal {
                 margin-bottom: 60px;
-                font-size: 16px;
+                font-size: 18px;
                 background-color: #000;
                 color: #fff;
                 width: 147px;

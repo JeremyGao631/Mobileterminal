@@ -53,9 +53,9 @@
                 <div class="name">Name*</div>
                 <van-field v-model="form.name" />
                 <div class="name">Phone*</div>
-                <van-field v-model="form.phone" />
+                <van-field maxlength="10" v-model="form.phone" />
                 <div class="name">Email*</div>
-                <van-field v-model="form.email" />
+                <van-field @blur="emails" v-model="form.email" />
                 <div class="name">Address</div>
                 <van-field v-model="form.address" />
                 <div class="name">Message*</div>
@@ -78,6 +78,7 @@
 </template>
 <script>
 
+import { Toast } from 'vant'
 import { fetch } from '@/api'
 export default{
     data(){
@@ -127,15 +128,30 @@ export default{
     },
     methods: {
         submit() {
-            fetch({
-                    name:this.form.name,
-                    phone: this.form.phone,
-                    email:this.form.email,
-                    message:this.form.message,
-                    address:this.form.address
-            }).then( res => {
-                console.log(res, '提交成功')
-            })
+            if (this.form.name === '' || this.form.phone === '' || this.form.email === '' || this.form.message === '') {
+                Toast('请仔细检查页面信息是否完整')
+            } else {
+                fetch({
+                        name:this.form.name,
+                        phone: this.form.phone,
+                        email:this.form.email,
+                        message:this.form.message,
+                        address:this.form.address
+                }).then( res => {
+                    console.log(res, '提交成功')
+                    if(res.code === 0) {
+                        Toast('提交成功')
+                    }
+                })
+            }
+
+        },
+        emails() {
+            var emailText = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+            var istrue = emailText.test(this.form.email)
+            if(!istrue) {
+                Toast('请填写正确的邮箱格式')
+            }
         },
         showcode(){
             this.show = true;
@@ -300,7 +316,7 @@ export default{
             .van-button--normal {
                 margin-top:25px;
                 margin-bottom:25px;
-                font-size: 16px;
+                font-size: 18px;
                 background-color: #000;
                 color: #fff;
                 width: 147px;

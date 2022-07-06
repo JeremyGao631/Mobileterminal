@@ -26,9 +26,9 @@
           <button class="btn_anniu" @click="change(0)" :class="{ newStyle:0===number}">
             <span>NEW ARRIVALS</span>
           </button>
-          <button class="btn_anniu" @click="change(1)" :class="{ newStyle:1===number}">
+          <!-- <button class="btn_anniu" @click="change(1)" :class="{ newStyle:1===number}">
             <span>SEARCH INVENTORY</span>
-          </button>
+          </button> -->
           <div class="showall">
             <span @click="jumpshowroom()">SHOW ALL</span>
             <img src="../../assets/images/home/blackright.png" />
@@ -401,7 +401,7 @@ export default {
       font-family: DINCondensed-Bold, DINCondensed;
       font-weight: bold;
       color: #FFFFFF;
-      line-height: 24px;
+      line-height: 28px;
     }
     .lunbotextinfo {
       width: 127px;
@@ -496,7 +496,7 @@ export default {
     }
   }
   .break {
-    border: 1px solid #12100f;
+    border-bottom: 2px solid #12100f;
     margin-top: -2px;
     margin-left: 2px;
   }
