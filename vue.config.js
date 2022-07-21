@@ -8,8 +8,10 @@ module.exports = defineConfig({
   productionSourceMap: false,
   devServer: {
     hot: true,
+    allowedHosts: ['mobile.auto-home.com.au'],
     // eslint-disable-next-line no-undef
     open: false,
+    port: '8080',
 
     compress: true,
     proxy: {

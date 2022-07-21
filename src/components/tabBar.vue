@@ -2,7 +2,7 @@
     <van-nav-bar :title="title" fixed placeholder>
       <template #left>
         <!-- <van-image width="100" height="100" :src="url" /> -->
-        <van-icon :name="require('../assets/images/carDetail/topbar.png')" size="55" />
+        <van-icon :name="require('../assets/images/carDetail/topbar.png')" size="55"  @click="toHome()"/>
         <!-- <img src="./assets/logo.png" alt=""> -->
       </template>
       <template #right >
@@ -56,6 +56,9 @@ export default {
   methods: {
     showPopup() {
       this.show = true;
+    },
+    toHome() {
+      this.$router.push('/home')
     },
     pageJump(item,index) {
       this.i1 = index;

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-            <div class="body-box" :class="{ 'isIOS': userAgent === 'IOS' }">
+            <div class="body-box">
             <!-- 顶部tabBar 每个页面单独写-->
             <tabBar v-if="$route.meta.barSet === 'nav'"
                     :operate-arr="$route.meta.operateArr"

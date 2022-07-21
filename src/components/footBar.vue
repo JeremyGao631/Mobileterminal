@@ -3,9 +3,19 @@
         <div class="left">
             <img class="img" :src="firstImg" alt="">
             <div class="bottom">
-              <div  v-for="(item, idx) in lefts" :key="idx">
+              <a href="https://www.facebook.com/Autohome-Australia-112046877077530" target="_blank">
+                <img class="bottom-logo" :src="lefts[0].targeUrl" alt="">
+              </a>
+              <a href="https://twitter.com/AutoHome19" target="_blank">
+                <img class="bottom-logo" :src="lefts[1].targeUrl" alt="">
+              </a>
+              <a href="https://www.instagram.com/autohome_au/" target="_blank">
+                <img class="bottom-logo" :src="lefts[2].targeUrl" alt="">
+              </a>
+              <!-- <img class="bottom-logo" :src="lefts[3].targeUrl" alt=""> -->
+              <!-- <div  v-for="(item, idx) in lefts" :key="idx">
                 <img class="bottom-logo" :src="item.targeUrl" alt="">
-              </div>
+              </div> -->
               <!-- <img class="bottom-logo" src="../assets/images/components/facebook.png" alt="">
               <img class="bottom-logo" src="../assets/images/components/twitter.png" alt="">
               <img class="bottom-logo" src="../assets/images/components/instagram.png" alt="">

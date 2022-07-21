@@ -23,9 +23,9 @@
     <div class="middletittle">FEATURED COLLECTIONS</div>
     <div class="middle">
       <div class="texttitle">
-          <button class="btn_anniu" @click="change(0)" :class="{ newStyle:0===number}">
-            <span>NEW ARRIVALS</span>
-          </button>
+          <van-button class="btn_anniu" @click="change(0)" :class="{ newStyle:0===number}">
+            NEW ARRIVALS
+          </van-button>
           <!-- <button class="btn_anniu" @click="change(1)" :class="{ newStyle:1===number}">
             <span>SEARCH INVENTORY</span>
           </button> -->
@@ -42,46 +42,24 @@
       </div>
       <div class="textcontent">
         <div v-show='0===number'>
-          <div class="textcard" v-for="(item,index) in information" :key="index">
+          <div class="textcard" v-for="(item,index) in information" :key="index" @click="jumpcardetail(item)">
             <div class="imgcard">
-              <img :src="item.url" />
+              <img :src="item.photo[0]" />
             </div>
             <div class="titlecard" >
-              <span >{{item.year}} {{item.type}}</span>
+              <span >{{item.year}} {{item.fueltype}}</span>
               <br />
-              <span >{{item.kind}}</span>
+              <span >{{item.make}}</span>
             </div>
             <div class="contentcard">
-              <span class="contentcard-price">{{item.price}}</span>
-              <span class="contentcard-info">{{item.info}}</span>
+              <span class="contentcard-price">${{item.price}}</span>
+              <span class="contentcard-info">Excl . Gov's Charges</span>
             </div>
             <div class="break" ></div>
             <div class="detailcard" >
-              <span >{{item.distance}}</span>
-              <span >{{item.info1}}</span>
-              <span >{{item.info2}}</span>
-            </div>
-          </div>
-        </div>
-        <div v-show='1===number'>
-          <div class="textcard" v-for="(item,index) in information1" :key="index">
-            <div class="imgcard">
-              <img :src="item.url" />
-            </div>
-            <div class="titlecard" >
-              <span >{{item.year}} {{item.type}}</span>
-              <br />
-              <span >{{item.kind}}</span>
-            </div>
-            <div class="contentcard">
-              <span class="contentcard-price">{{item.price}}</span>
-              <span class="contentcard-info">{{item.info}}</span>
-            </div>
-            <div class="break" ></div>
-            <div class="detailcard" >
-              <span >{{item.distance}}</span>
-              <span >{{item.info1}}</span>
-              <span >{{item.info2}}</span>
+              <span >{{item.odometer}}kms</span>
+              <span >{{item.body}}</span>
+              <span >{{item.color}}</span>
             </div>
           </div>
         </div>
@@ -124,6 +102,7 @@
 
 <script>
 import { describtion } from '@/api'
+import { car } from '@/api'
 export default {
   name: 'HomeView',
   components: {
@@ -132,184 +111,6 @@ export default {
     return{
      number: 0 ,
      information: [
-                {
-                  url: require('../../assets/images/home/1.jpg'),
-                  year:'2019',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/2.jpg'),
-                  year:'2019',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/3.jpg'),
-                  year:'2019',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/4.jpg'),
-                  year:'2019',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/5.jpg'),
-                  year:'2019',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/6.jpg'),
-                  year:'2019',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/7.jpg'),
-                  year:'2019',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/8.png'),
-                  year:'2019',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                }
-      ],
-      information1: [
-                {
-                  url: require('../../assets/images/home/1.jpg'),
-                  year:'1111',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/2.jpg'),
-                  year:'2222',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/3.jpg'),
-                  year:'3333',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/4.jpg'),
-                  year:'4444',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/5.jpg'),
-                  year:'5555',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/6.jpg'),
-                  year:'6666',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/7.jpg'),
-                  year:'7777',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/8.png'),
-                  year:'8888',
-                  type: 'MERCEDES-BENZC63S',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295 kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                }
       ],
       service: [],
       itemList: []
@@ -318,10 +119,68 @@ export default {
   created() {
     this.desc()
     this.services()
+    this.allCar()
   },
   methods: {
     jumpcontact() {
       this.$router.push('/contact')
+    },
+    jumpcardetail(item) {
+      this.$router.push({path:'/carDetail', query: {item: item}})
+    },
+    // 车辆信息
+    allCar() {
+      car({
+        current: '1',
+        pageSize: '8',
+        make: '',
+        yearStart: '',
+        yearEnd: '',
+        priceStart: '',
+        priceEnd: '',
+        orderByPrice: '1',
+        orderByYear: '1'
+      }).then(car => {
+        // this.information = car.data.records
+        this.information = []
+        car.data.records.forEach(ele => {
+            const item = {
+                year: ele.year,
+                fueltype: ele.fueltype,
+                make: ele.make,
+                price: ele.price,
+                odometer: ele.odometer,
+                body: ele.body,
+                model: ele.model,
+                geartype: ele.geartype,
+                enginesize: ele.enginesize,
+                cylinders: ele.cylinders,
+                doornum: ele.doornum,
+                color: ele.color,
+                photo: ele.photo.split(',')
+            }
+            this.information.push(item)
+        })
+        console.log(this.information, 'car')
+        const makesList = []
+        car.data.records.forEach(ele => {
+          const makes = ele.make
+          if(makesList.indexOf(makes) === -1) {
+            makesList.push(makes)
+            // this.makeList.push(item)
+          }
+        })
+        // const lengths = makesList.length
+        // for(i === lengths,)
+          console.log('10',makesList.length)
+          for(var i = 0; i < makesList.length; i++) {
+            const item = {
+              mak: makesList[i]
+            }
+            this.makeList.push(item)
+          }
+          console.log('0',this.makeList)
+      })
     },
     // 轮播图
     desc() {
@@ -377,17 +236,21 @@ export default {
 </script>
 
 <style lang="less" scoped>
+/deep/.van-button__content {
+  width: 100%;
+}
 .homeview {
   margin-bottom: 50px;
 }
 .lunbo {
-  height: 207px;
+  height: 230px;
   width: 100%;
   // background-image: url(../../assets/images/home/JVS00151-Edit-4.jpg);
   background-size:cover;
   margin-top: -20px;
   .img1 {
     width: 100%;
+    height: 230px;
   }
   .lunbotext {
     text-align:left;
@@ -438,12 +301,12 @@ export default {
 }
 .middletittle {
   width: 300px;
-  font-size: 30px;
+  font-size: 25px;
   font-family: DINCondensed-Bold, DINCondensed;
   font-weight: bold;
   color: #151515;
-  padding-top: 40px;
-  padding-bottom: 20px;
+  padding-top: 45px;
+  padding-bottom: 13px;
   margin-left: 20px;
   text-align: left;
 }
@@ -458,10 +321,11 @@ export default {
     .btn_anniu {
       background-color: transparent;
       border: 0;
-      margin-top: 5%;
+      padding: 2px 10px;
+      margin-top: 3%;
       span {
         width: 75px;
-        height: 30px;
+        // height: 30px;
         font-size: 16px;
         font-family: DINCondensed-Bold, DINCondensed;
         font-weight: bold;     
@@ -470,14 +334,15 @@ export default {
       }
     }
     .newStyle{
-      border: 2px solid #12100f;
+      border: solid #12100f;
       border-bottom: none;
       span{
+        width: 100%;
         font-weight: bold;
         font-size: 16px;
         color: #212020;
-        padding-left:10px;
-        margin-left: -8px;
+        // padding-left:10px;
+        // margin-left: -8px;
       }
     }
     .showall {
@@ -491,7 +356,8 @@ export default {
     }
     img {
       height: 8px;
-      width: 8px;
+      width: 6px;
+      // filter: blur(-5px);
       margin-left: 8px;
     }
   }
@@ -508,7 +374,7 @@ export default {
     font-weight: 400;
     color: #909090;
     line-height: 30px;
-    margin: 20px 120px 10px 120px;
+    margin: 1px 120px 1px 120px;
     .textinfosepcial {
       font-family: PingFangSC-Semibold;
       font-weight: bold;
@@ -537,27 +403,28 @@ export default {
         margin-top: 5px;
         span {
           font-family: DINCondensed-Bold;
-          margin-left: 3px;
+          // margin-left: 3px;
           font-weight:bold;
-          font-size: 16px;
+          font-size: 14px;
           color: #212020;
           line-height: 16px;
         }
       }
       .contentcard {
         padding-bottom: 10px;
+        padding-right:5px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         .contentcard-price {
           font-family:DINCondensed-Bold;
           font-weight:bold;
-          font-size: 16px;
+          font-size: 14px;
           color: #212020;
           line-height: 16px;
         }
         .contentcard-info {
-          width: 80px;
+          // width: 80px;
           height: 11px;
           font-size: 9px;
           color: #909090;
@@ -572,13 +439,14 @@ export default {
         margin-right: 7px;
       }
       .detailcard {
-        padding-top:10px;
-        padding-right: 10px;
+        padding-top: 10px;
+        // padding-left: 4px;
+        padding-right: 3px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         span {
-          font-size: 11px;
+          font-size: 10px;
           font-family:PingFangSC-Regular;
           color: #909090;
           line-height: 10px;

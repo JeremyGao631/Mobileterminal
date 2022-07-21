@@ -20,14 +20,16 @@
                 <div class="table-title">E-mail</div>
                 <div class="table-info">enquiries@ <br />auto-home.com.au</div>
             </van-grid-item>
-            <van-grid-item class="tableContent" @click="showcode()">
-                <img src="../../assets/images/contact/Wechat.png" alt="" class="imgStyle">
-                <div class="table-title">Wechat</div>
-                <div class="table-info">Autohome_388</div>
+            <van-grid-item class="tableContent">
+                <img v-if="show === true" @click="showcode3()" class="qrimg" src="../../assets/images/contact/WeChatcode1.png" />
+                <div v-else @click="showcode()">
+                    <img src="../../assets/images/contact/Wechat.png" alt="" class="imgStyle">
+                    <div class="table-title">Wechat</div>
+                    <div class="table-info">Autohome_388</div>
+                </div>
             </van-grid-item>
-            <van-popup v-model="show"  :style="{ height: '50%', width: '80%' }" >
-                <img class="qrimg" src="../../assets/images/contact/WeChatcode1.png" />
-            </van-popup>
+            <!-- <van-popup v-model="show"  :style="{ height: '50%', width: '80%' }" >
+            </van-popup> -->
             <van-grid-item class="tableContent">
                 <img src="../../assets/images/contact/Address.png" alt="" class="imgStyle">
                 <div class="table-title">Address</div>
@@ -38,14 +40,17 @@
                 <div class="table-title">Facebook</div>
                 <div class="table-info">Autohome Australia</div>
             </van-grid-item>
-            <van-grid-item class="tableContent" @click="showcode1()">
-                <img src="../../assets/images/contact/whatsapp.png" alt="" class="imgStyle">
-                <div class="table-title">Whatsapp</div>
-                <div class="table-info">0406 118 999</div>
+            <van-grid-item class="tableContent">
+                <img v-if="show1 === true" @click="showcode2()" class="qrimg" src="../../assets/images/contact/WhatsAppcode.png" />
+                <div v-else @click="showcode1()">
+                    <img src="../../assets/images/contact/whatsapp.png" alt="" class="imgStyle">
+                    <div class="table-title">Whatsapp</div>
+                    <div class="table-info">0406 118 999</div>
+                </div>
             </van-grid-item>
-            <van-popup v-model="show1"  :style="{ height: '50%', width: '80%' }" >
+            <!-- <van-popup v-model="show1"  :style="{ height: '50%', width: '80%' }" >
                 <img class="qrimg" src="../../assets/images/contact/WhatsAppcode.png" />
-            </van-popup>
+            </van-popup> -->
         </van-grid>
         <div class="contact">
             <div class="contact-title">CONTACT</div>
@@ -56,14 +61,14 @@
                 <van-field maxlength="10" v-model="form.phone" />
                 <div class="name">Email*</div>
                 <van-field @blur="emails" v-model="form.email" />
-                <div class="name">Address</div>
+                <div class="name">Postcode*</div>
                 <van-field v-model="form.address" />
                 <div class="name">Message*</div>
                 <input class="message" v-model="form.message"  />
             </div>
             <div class="submit">
                 <van-button @click="submit()">SUBMIT</van-button>
-                <img class="imgs" src="../../assets/images/home/right.png" alt="">
+                <!-- <img class="imgs" src="../../assets/images/home/right.png" alt="">甲方 -->
             </div>
         </div>
         <!-- <div class="location">
@@ -129,7 +134,7 @@ export default{
     methods: {
         submit() {
             if (this.form.name === '' || this.form.phone === '' || this.form.email === '' || this.form.message === '') {
-                Toast('请仔细检查页面信息是否完整')
+                Toast('Please check whether the page information is complete!')
             } else {
                 fetch({
                         name:this.form.name,
@@ -140,7 +145,7 @@ export default{
                 }).then( res => {
                     console.log(res, '提交成功')
                     if(res.code === 0) {
-                        Toast('提交成功')
+                        Toast('Your information has been submitted!')
                     }
                 })
             }
@@ -150,14 +155,20 @@ export default{
             var emailText = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
             var istrue = emailText.test(this.form.email)
             if(!istrue) {
-                Toast('请填写正确的邮箱格式')
+                Toast('Please fill in the correct email format!')
             }
         },
         showcode(){
             this.show = true;
         },
+        showcode3(){
+            this.show = false;
+        },
         showcode1(){
             this.show1 = true;
+        },
+        showcode2(){
+            this.show1 = false;
         },
         jumpourpage() {
             window.location.href="https://www.facebook.com/Autohome-Australia-101055345438578/"
@@ -180,6 +191,9 @@ export default{
 ::v-deep .home-container .table .tableContent{
     width: 105px;
     height: 96px;
+}
+::v-deep .van-hairline::after {
+    border: none;
 }
 ::v-deep  .imgStyle{
     margin-bottom:30px;
@@ -231,9 +245,9 @@ export default{
     }
     .bottom-img {
         width: 100%;
-        height: 128px;
+        height: 158px;
         margin-bottom:-8px;
-        margin-top: 125px;
+        margin-top: 100px;
     }
     .top-title {
         font-size: 30px;
@@ -283,6 +297,8 @@ export default{
         .contact-title {
             font-size: 24px;
             text-align: left;
+            padding-top: 23px;
+            padding-bottom: -5px;
             font-family: DINCondensed-Bold, DINCondensed;
             font-weight: bold;
             color: #151515;
@@ -300,8 +316,8 @@ export default{
                 margin-left: 8px;
             }
             .message {
-                width: 90%;
-                margin-left: -12px;
+                width: 94%;
+                // margin-left: -12px;
                 margin-top: 10px;
                 height: 198px;
                 font-size: 14px;
@@ -309,7 +325,7 @@ export default{
                 border: 1px solid #151515;
             }
             /deep/ .van-cell {
-                padding: 5px 20px 20px 20px;
+                padding: 5px 7px 20px 20px;
             }
         }
         .submit {
@@ -320,6 +336,7 @@ export default{
                 background-color: #000;
                 color: #fff;
                 width: 147px;
+                padding-top: 2px;
                 height: 47px;
                 font-family: DINCondensed-Bold, DINCondensed;
             }

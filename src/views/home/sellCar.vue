@@ -47,10 +47,10 @@
             <div class="usercontent">
                 <div class="contenttitle">CONTACT US TO GET STARTED</div>
                 <div class="contentinfo">
-                    The team at Autohome AU make selling your car as easy and convenient as possible.<br />
+                    The team at Autohome AU make selling your car as easy and convenient as possible.
                     Simply send us your vehicle details using the form below and let our team take care of the rest. <br />Contact us now.
                 </div>
-                <div class="smalltitle">
+                <div class="smalltitle1">
                     PERSONAL DETAILS
                 </div>
                 <div class="inputtitle">Name *</div>
@@ -67,7 +67,7 @@
                 </van-cell-group>
 
                 <div class="smalltitle">
-                    MY VENICLE DETAILS
+                        MY VENICLE DETAILS
                 </div>
                 <div class="inputtitle">Year *</div>
                 <van-cell-group>
@@ -83,9 +83,14 @@
                 </van-cell-group>
                 <div class="inputtitle">Transmission *</div>
                 <van-cell-group>
-                    <van-field v-model="transmission"   placeholder="Transmission:Any">
-                        <img slot="right-icon" src="../../assets/images/sellyourcar/Right.png" />
+                    <van-field v-model="transmission" placeholder="Any" @click="tran"  @blur="shows()" readonly >
+                        <img slot="right-icon" @click="tran" src="../../assets/images/sellyourcar/Right.png"/>
                     </van-field>
+                    <div  v-for="(item,idx) in options" :key="idx" class="logs"  >
+                        <div v-if="showSels">
+                            <div class="log" @click="trans(item)">{{item.label}}</div>
+                        </div>
+                    </div>
                 </van-cell-group>
                 <div class="inputtitle">Odometer *</div>
                 <van-cell-group>
@@ -104,11 +109,19 @@
                     <van-field v-model="trimcolor"/>
                 </van-cell-group>
                 <div class="inputtitle">Logbook</div>
-                <van-cell-group>
-                    <van-field v-model="logbook" placeholder="Logbook" @click-right-icon="dropdown()">
-                        <img slot="right-icon" src="../../assets/images/sellyourcar/Right.png" />
-                    </van-field>
+                    <div @blur="shower" >
+                        <van-cell-group>
+                        <van-field v-model="logbook" readonly @click="dropdown()" placeholder="Logbook" autofocus>
+                            <img slot="right-icon" src="../../assets/images/sellyourcar/Right.png" @click="dropdown()"/>
+                        </van-field>
+                    <div v-if="showSel"  class="logs">
+                        <div v-for="(item,idx) in logbooks" :key="idx">
+                            <div @click="selLogbook(item)" class="log">{{item.label}}</div>
+                        </div>
+                    </div>
                 </van-cell-group>
+                    </div>
+                
                 <!-- <van-dropdown-menu>
                     <van-dropdown-item v-model="logbook" :options="option1" />
                 </van-dropdown-menu> -->
@@ -123,7 +136,7 @@
                 </van-cell-group>
                 <div class="submit">
                     <van-button @click="submit()">SUBMIT</van-button>
-                    <img class="imgs" src="../../assets/images/home/right.png" alt="">
+                    <!-- <img class="imgs" src="../../assets/images/home/right.png" alt="">甲方要求 -->
                 </div>
 
                 <div class="smalltitle">
@@ -151,6 +164,8 @@ export default {
     return{
         file: [
       ],
+      showSel: false,
+      showSels: false,
       option1: [
         { text: 'full dealer service history', value: 0 },
         { text: 'Partialy dealer service history', value: 1 },
@@ -168,6 +183,34 @@ export default {
       color: '',
       trimcolor: '',
       logbook: '',
+      logbooks: [
+            {
+            value:'1',
+            label:'Full dealer service history'
+            },
+            {
+            value:'2',
+            label:'Partialy dealer service history'
+            },
+            {
+            value:'3',
+            label:'No service Logbook'
+            }
+        ],
+        options: [
+              {
+                value:'1',
+                label:'Any'
+              },
+              {
+                value:'2',
+                label:'auto'
+              },
+              {
+                value:'3',
+                label:'manual'
+              }
+            ],
       comments: '',
 
     }
@@ -177,7 +220,7 @@ export default {
   methods: {
     submit() {
         if (this.name === '' || this.mobile === '' || this.Year === '' || this.transmission === '' || this.odometer === '') {
-            Toast('请检查信息是否填写完整')
+            Toast('Please check whether the page information is complete!')
             return
         } else {
             vehicle({
@@ -198,7 +241,7 @@ export default {
             }).then( res => {
                 console.log(res, '提交成功')
                 if(res.code === 0) {
-                    Toast('您的信息已提交完成')
+                    Toast('Your information has been submitted!')
                 }
             })
         }
@@ -207,11 +250,32 @@ export default {
         var emailText = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
         var istrue = emailText.test(this.email)
         if(!istrue) {
-            Toast('请填写正确的邮箱格式')
+            Toast('Please fill in the correct email format!')
         }
     },
       dropdown() {
-
+        this.showSel = true
+      },
+      dropdowns() {
+        this.showSel = false
+      },
+      selLogbook(item) {
+        this.showSel = false
+        this.logbook = item.label
+        console.log('12',item.label)
+      },
+      trans(item) {
+        this.showSels = false
+        this.transmission = item.label
+      },
+      tran() {
+        this.showSels = true
+      },
+      shows() {
+        this.showSels = false
+      },
+      shower() {
+        this.showSel = false
       }
   }
 }
@@ -375,6 +439,27 @@ export default {
         }
     }
 }
+.logs {
+    margin-left: 15px;
+    // margin-bottom: 10px;
+    .log {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        margin-top:2px;
+        margin-bottom:8px;
+        font-family: PingFangSC-Light, PingFang SC;
+        font-weight: 300;
+        min-width: 0;
+        font-size: 14px;
+        color: #323233;
+        line-height: inherit;
+        text-align: left;
+        background-color: transparent;
+        border: 0;
+        resize: none;
+    }
+}
 
 .user {
     background-color: #FFFFFF;
@@ -394,7 +479,7 @@ export default {
             white-space: nowrap;
         }
         .contentinfo {
-            width: 336px;
+            // width: 336px;
             height: 90px;
             font-size: 13px;
             font-family: PingFangSC-Light, PingFang SC;
@@ -404,11 +489,23 @@ export default {
             margin: 10px 0;
         }
         .smalltitle {
-            width:145px;
+            width:158px;
             background-color: #151515;
             color:#FFFFFF;
             padding: 10px 10px 5px 10px;
             margin-bottom: 20px;
+            margin-top: 10px;
+            font-size: 20px;
+            font-family: DINCondensed-Bold, DINCondensed;
+            font-weight: bold;
+        }
+        .smalltitle1 {
+            width:158px;
+            background-color: #151515;
+            color:#FFFFFF;
+            padding: 10px 10px 5px 10px;
+            margin-bottom: 20px;
+            margin-top: 30px;
             font-size: 20px;
             font-family: DINCondensed-Bold, DINCondensed;
             font-weight: bold;
@@ -446,6 +543,7 @@ export default {
                 font-size: 18px;
                 background-color: #000;
                 color: #fff;
+                padding-top: 3px;
                 width: 147px;
                 height: 47px;
                 font-family: DINCondensed-Bold, DINCondensed;
@@ -458,7 +556,7 @@ export default {
             }
         }
         .privacyinfo {
-            width: 315px;
+            // width: 315px;
             font-size: 13px;
             font-family: PingFangSC-Light, PingFang SC;
             font-weight: 300;

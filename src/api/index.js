@@ -30,6 +30,16 @@ export function vehicle(data) {
     data
   })
 }
+export function car(data) {
+  return request({
+    loading: data.loading || true,
+    // url: 'http://106.14.72.252/vehicle/save',
+        // url: 'http://106.14.72.252/vehicle/save',
+    url: 'http://3.24.93.132:8081/api/car/page',// 本地调试
+    method: 'post',
+    data
+  })
+}
 // 请求后台页面数据
 export function describtion(data) {
   return request({

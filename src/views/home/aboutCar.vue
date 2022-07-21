@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <img class="top-img" src="../../assets/images/about/JVS00341-4.jpg" alt="">
+        <img class="top-img" src="../../assets/images/about/our-story.jpg" alt="">
         <div class="top-title">
             <div class="title">OUR MISSION</div>
             <!-- <div class="offer">Offer our customers exceptional quality and excellent value with our integrity and enthusiasm.</div> -->
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="span-img">
-            <img class="bottom-img" src="../../assets/images/about/VisitOurShowroom.png" alt="">
+            <img class="bottom-img" src="../../assets/images/home/JVS00366-Edit-3-copy.jpg" alt="">
             <div class="bottom-title">
                 <div class="title">VISIT OUR SHOWROOM</div>
                 <div class="offer">Please visit our showroom in Burwood to inspect our range of vehicles and discuss your needs. Our Sales team speak English and Chinese, and we look forward to helping you with your next car sale or purchase.</div>
@@ -108,7 +108,7 @@ export default {
         margin-bottom: -2px;
         .bottom-img {
             width: 100%;
-            height: 150px;
+            height: 158px;
             margin-bottom:-3px;
         }
         .bottom-title {
@@ -167,7 +167,8 @@ export default {
         }
     }
     .page-grid {
-        margin:0px 10px 40px 10px;
+        margin:15px 10px 0 10px;
+        padding-left:8px;
         background-color: #fff;
         .page-offer {
             padding-top: 25px;
@@ -180,16 +181,18 @@ export default {
             color: #151515;
         }
         .style {
+            padding-top:10px;
+            padding-left:3px;
             padding-bottom:25px;
             display: flex;
             flex-wrap: wrap;
-            margin-right:5px;
-            justify-content: center;
+            // margin-right:5px;
+            justify-content: space-around;
             .weOffer {
                 display: flex;
                 margin-top: 20px;
-                margin-right: 9px;
-                padding-left:13px;
+                // margin-right: 14px;
+                // padding-left:10px;
                 flex-direction: column;
                 align-items: flex-start;
                 .imgStyle {
@@ -211,7 +214,7 @@ export default {
                 .information {
                     width: 153px;
                     height: 99px;
-                    text-align: left;
+                    text-align: justify;
                     font-size: 9px;
                     margin-bottom: 10px;
                     font-family: PingFangSC-Regular, PingFang SC;
@@ -224,13 +227,13 @@ export default {
         .styles {
             display: flex;
             flex-wrap: wrap;
-            margin-right:5px;
+            margin-left: 10px;
             justify-content: center;
             .weOffers {
                 display: flex;
                 margin-top: 22px;
-                margin-right: 16px;
-                padding-left: 14px;
+                margin-right: 15px;
+                padding-left: 4px;
                 flex-direction: column;
                 align-items: flex-start;
 
@@ -264,8 +267,8 @@ export default {
     }
     .ourStory {
         background-color: #fff;
-        margin: 15px 10px 25px 10px;
-        padding: 0 10px;
+        margin: 0 10px 15px 10px;
+        padding: 10px;
         .title {
             padding-top: 25px;
             padding-bottom: 15px;
@@ -277,7 +280,7 @@ export default {
             color: #151515;
         }
         .story {
-            width:320px;
+            // width:320px;
             height: 108px;
             padding-bottom:24px;
             text-align: left;

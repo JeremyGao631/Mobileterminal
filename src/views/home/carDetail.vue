@@ -1,27 +1,32 @@
 <template>
     <div class="page">
-        <img class="top-img" :src="this.$route.query.url" alt="">
+        <img class="top-img" :src="firstPhoto" alt="">
         <div class="smallimg">
-            <img src="../../assets/images/home/2.jpg" />
-            <img src="../../assets/images/home/3.jpg" />
-            <img src="../../assets/images/home/4.jpg" />
-            <img src="../../assets/images/home/5.jpg" />
-            <img src="../../assets/images/home/6.jpg" />
-            <img src="../../assets/images/home/7.jpg" />
+            <!-- <img :src="informations.photo[1]" />
+            <img :src="informations.photo[2]" />
+            <img :src="informations.photo[3]" />
+            <img :src="informations.photo[4]" />
+            <img :src="informations.photo[5]" />
+            <img :src="informations.photo[6]" /> -->
+            <van-swipe :width="65" :autoplay="200000000" loop :show-indicators= false>
+                <van-swipe-item v-for="(item,idx) in photos" :key="idx">
+                    <img :src="item.img" alt="" @click="choosePhoto(item)">
+                </van-swipe-item>
+            </van-swipe>
         </div>
         <div class="title">
             <div class="title-top">
-                <div class="price">{{ this.$route.query.price }}</div>
-                <span class="info">{{ this.$route.query.info }}</span>
+                <div class="price"><span class="span1">$</span>{{ price }}</div>
+                <span class="info">Excl . Gov's Charges</span>
             </div>
-            <div class="title-bottom">2016 Mercedes-Benz CLA45</div>
+            <div class="title-bottom">{{ informations.year }} {{ informations.fueltype }}</div>
         </div>
         <div class="detail">
             <div class="littleshow">
                 <div class="showleft">
                     <img src="../../assets/images/carDetail/odometer.png" />
                     <div class="showlefttext">
-                        <span class="texttop">34719</span>
+                        <span class="texttop">{{ informations.odometer }}</span>
                         <span class="texttopright"> kms</span>
                         <br />
                         <span class="textbottom">Odometer</span>
@@ -30,7 +35,7 @@
                 <div class="showleft">
                     <img src="../../assets/images/carDetail/transmission.png" />
                     <div class="showlefttext">
-                        <span class="texttop">Auto</span>
+                        <span class="texttop">{{ informations.body }}</span>
                         <br />
                         <span class="textbottom">Transmission</span>
                     </div>
@@ -38,7 +43,7 @@
                 <div class="showleft">
                     <img src="../../assets/images/carDetail/rili.jpg" />
                     <div class="showlefttext">
-                        <span class="texttop">2016</span>
+                        <span class="texttop">{{ informations.year }}</span>
                         <br />
                         <span class="textbottom">Year</span>
                     </div>
@@ -70,26 +75,26 @@
             </div>
             <div class="submit">
                 <van-button @click="submit()">SUBMIT</van-button>
-                <img class="imgs" src="../../assets/images/home/right.png" alt="">
+                <!-- <img class="imgs" src="../../assets/images/home/right.png" alt=""> 甲方要求删除 -->
             </div>
         </div>
         <div class="bottom">
             <div class="bottom-title">SIMILAR VEHICLES</div>
-            <van-swipe :loop="true" :width="155" :autoplay="2000">
-                <van-swipe-item v-for="(item, index) in information1" :key="index">
+            <van-swipe :loop="true" :width="162" :autoplay="2000">
+                <van-swipe-item v-for="(item, index) in information1" :key="index" @click="jumpcardetail(item)">
                                 <div class="textcontent">
                 <div class="textcard">
-                    <img class="img" :src="item.url" />
-                    <div class="year">{{item.year}}</div><br />
-                    <div class="year">{{item.kind}}</div>
+                    <img class="img" :src="item.photo[0]" />
+                    <div class="year">{{item.year}} {{item.fueltype}}</div><br />
+                    <div class="year">{{item.make}}</div>
                     <div class="contentcard">
-                        <span class="contentcard-price">{{item.price}}</span>
-                        <span class="contentcard-info">{{item.info}}</span>
+                        <span class="contentcard-price">${{item.price}}</span>
+                        <span class="contentcard-info">Excl . Gov's Charges</span>
                     </div>
                     <div class="detailcard" >
-                        <span >{{item.distance}}</span>
-                        <div class="span1" >{{item.info1}}</div>
-                        <span >{{item.info2}}</span>
+                        <span >{{item.odometer}}kms</span>
+                        <div class="span1" >{{item.body}}</div>
+                        <span >{{item.color}}</span>
                     </div>
                 </div>
             </div>
@@ -102,117 +107,135 @@
 <script>
 import { Toast } from 'vant'
 import { inspection } from '@/api'
+import { car } from '@/api'
+import { Locale } from 'vant';
+// 引入英文语言包
+import enUS from 'vant/es/locale/lang/en-US';
+
+Locale.use('en-US', enUS);
 export default {
     data() {
         return {
             showTime: false, // 时间控件
+            price: '',
+            // informations: {},
             form: {
                 name: '',
                 email: '',
                 phone: '',
                 time: ''
             },
-            List: [
-                {
-                name: 'Make',
-                result: 'Mercedes-Benz'
-                },
-                {
-                name: 'Model',
-                result: 'CLA Class'
-                },
-                {
-                name: 'Body Type',
-                result: 'Coupe'
-                },
-                {
-                name: 'Colour',
-                result: 'Grey'
-                },
-                {
-                name: 'Engine Size',
-                result: '2.0'
-                },
-                {
-                name: 'Fuel Type',
-                result: 'Petrol'
-                },
-                {
-                name: 'Cylinders',
-                result: '4'
-                },
-                {
-                name: 'Doors',
-                result: '4'
-                },
-                {
-                name: 'Seats',
-                result: 'Seats'
-                },
-            ],
+            List: [],
             information1: [
-                {
-                  url: require('../../assets/images/home/1.jpg'),
-                  year:'2019 MERCEDES-BENZC63S',
-                //   type: 'MERCEDES-BENZ',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/1.jpg'),
-                  year:'2019 MERCEDES-BENZC63S',
-                //   type: 'MERCEDES-BENZ',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/1.jpg'),
-                  year:'2019 MERCEDES-BENZC63S',
-                //   type: 'MERCEDES-BENZ',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/1.jpg'),
-                  year:'2019 MERCEDES-BENZC63S',
-                //   type: 'MERCEDES-BENZ',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
-                {
-                  url: require('../../assets/images/home/1.jpg'),
-                  year:'2019 MERCEDES-BENZC63S',
-                //   type: 'MERCEDES-BENZ',
-                  kind: 'AMG',
-                  price: '$149000.00',
-                  info: "Excl . Gov's Charges",
-                  distance: '126295kms',
-                  info1: 'Diesel',
-                  info2: 'Auto'
-                },
             ],
+            photo: {}, // 前一页面的图片参数
+            photos: [],
+            firstPhoto: '', // 第一张图片
+            informations: []
+
         }
     },
+    created() {
+        this.informations = this.$route.query.item
+        this.price = this.informations.price
+        this.firstPhoto = this.$route.query.item.photo[0]
+        console.log('123', this.price)
+        this.init()
+        this.allCar()
+        this.setPhoto()
+    },
     methods: {
+        setPhoto() {
+            this.photo = this.$route.query.item.photo
+            this.photos = []
+            for(var i = 0; i<=this.photo.length; i++ ) {
+                const img = {
+                    img: this.photo[i]
+                }
+                this.photos.push(img)
+            }
+            console.log(this.photos, '1212')
+        },
+        // 图片点击事件
+        choosePhoto(item){
+            this.firstPhoto = item.img
+        },
+        init() {
+            this.List = [
+                {
+                    name: 'Make',
+                    result: this.informations.make
+                },
+                {
+                    name: 'Model',
+                    result: this.informations.model
+                },{
+                    name: 'Body Type',
+                    result: this.informations.geartype
+                },{
+                    name: 'Color',
+                    result: this.informations.color
+                },{
+                    name: 'Engine Size',
+                    result: this.informations.enginesize
+                },{
+                    name: 'Fuel Type',
+                    result: this.informations.fueltype
+                },{
+                    name: 'Cylinders',
+                    result: this.informations.cylinders
+                },{
+                    name: 'Doors',
+                    result: this.informations.doornum
+                },{
+                    name: 'Seats',
+                    result: this.informations.body
+                },
+                ]
+        },
+        jumpcardetail(item) {
+            // this.$router.push({path:'/carDetail', query: {item: item}})
+            this.informations = item
+        },
+        allCar() {
+            car({
+                current: '1',
+                pageSize: '500',
+                make: '',
+                yearStart: '',
+                yearEnd: '',
+                priceStart: '',
+                priceEnd: '',
+                orderByPrice: '1',
+                orderByYear: '1'
+            }).then(car => {
+                // this.information1 = car.data.records
+                this.information1 = []
+                car.data.records.forEach(ele => {
+                    const item = {
+                        year: ele.year,
+                        fueltype: ele.fueltype,
+                        make: ele.make,
+                        price: ele.price,
+                        odometer: ele.odometer,
+                        body: ele.body,
+                        model: ele.model,
+                        geartype: ele.geartype,
+                        enginesize: ele.enginesize,
+                        cylinders: ele.cylinders,
+                        doornum: ele.doornum,
+                        color: ele.color,
+                        photo: ele.photo.split(',')
+                    }
+                    this.information1.push(item)
+                })
+                console.log(this.information1, 'car')
+
+            })
+            },
         submit() {
             if (this.form.name === '' || this.form.phone === '' || this.form.time === '') {
-                Toast('请检查页面信息是否填写完整')
+                Toast('Please check whether the page information is complete!')
             } else {
             inspection({
                 // 缺少email字段
@@ -223,7 +246,7 @@ export default {
             }).then( res => {
                 console.log(res, '提交成功')
                 if (res.code === 0) {
-                    Toast('提交成功')
+                    Toast('Your information has been submitted!')
                 }
             })
             }
@@ -241,6 +264,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
+// 日期
+/deep/.van-calendar__popup.van-popup--bottom, .van-calendar__popup.van-popup--top {
+    height: 64%;
+}
 /deep/.van-field__body {
     border: 1px solid #151515;
     margin-left: -13px;
@@ -290,6 +317,9 @@ export default {
                 color: #151515;
                 line-height: 24px;
                 letter-spacing: 1px;
+                .span1 {
+                    font-size: 21px;
+                }
             }
             .info {
                 height: 11px;
@@ -323,6 +353,7 @@ export default {
         .littleshow {
           background-color: white;
           width:100%;
+          padding:0 -2px;
           height:80px;
           margin-top: 10px;
           display: flex;
@@ -332,9 +363,9 @@ export default {
             height: 25px;
             img {
               float:left;
-              width: 24px;
+              width: 20px;
               border:1px dashed black;
-              margin-right:5px;
+            //   margin-right:5px;
               padding:5px;
             }
             .showlefttext {
@@ -387,7 +418,8 @@ export default {
             .comment-title {
                 // width: 98px;
                 text-align: left;
-                padding: 20px 0;
+                padding-top:24px;
+                padding-bottom:10px;
                 font-size: 16px;
                 font-family: DINCondensed-Bold, DINCondensed;
                 font-weight: bold;
@@ -478,7 +510,7 @@ export default {
                 border: 1px solid #151515;
             }
             /deep/ .van-cell {
-                padding: 5px 20px 20px 20px;
+                padding: 5px 8px 20px 20px;
             }
         }
         .submit {
@@ -486,6 +518,7 @@ export default {
                 margin-top:25px;
                 margin-bottom:25px;
                 font-size: 16px;
+                padding-top: 2px;
                 background-color: #000;
                 color: #fff;
                 width: 147px;
