@@ -64,7 +64,14 @@
                 <div class="name">Postcode*</div>
                 <van-field v-model="form.address" />
                 <div class="name">Message*</div>
-                <input class="message" v-model="form.message"  />
+                <!-- <input class="message" v-model="form.message"  type="textaea"/> -->
+                <van-cell-group class="special">
+                    <van-field 
+                        v-model="form.message"
+                        type="textarea"
+                        class="specialfield"
+                    />
+                </van-cell-group>
             </div>
             <div class="submit">
                 <van-button @click="submit()">SUBMIT</van-button>
@@ -217,6 +224,9 @@ export default{
     height: 35px;
     padding: 0 3px;
 }
+/deep/ .van-field__control::placeholder{
+            color: black;
+        }
 .table-title {
     height: 16px;
     font-size: 20px;
@@ -315,17 +325,34 @@ export default{
                 text-align: left;
                 margin-left: 8px;
             }
-            .message {
-                width: 94%;
-                // margin-left: -12px;
-                margin-top: 10px;
-                height: 198px;
-                font-size: 14px;
-                color: #000;
-                border: 1px solid #151515;
-            }
+            // .message {
+            //     width: 94%;
+            //     // margin-left: -12px;
+            //     margin-top: 10px;
+            //     height: 198px;
+            //     padding-bottom:174px;
+            //     box-sizing: border-box;
+            //     font-size: 14px;
+            //     color: #000;
+            //     border: 1px solid #151515;
+            // }
             /deep/ .van-cell {
                 padding: 5px 7px 20px 20px;
+            }
+            .van-cell-group {
+            border: 1px solid #151515;
+            margin: 8px 8px 0 8px;
+            
+            }
+            .special{
+                /deep/ .van-field__control {
+                    height: 184px;
+                    width: 288px;
+                }
+                /deep/ .van-field__body {
+                    border: 0;
+                    height: 184px;
+                }
             }
         }
         .submit {

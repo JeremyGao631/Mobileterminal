@@ -66,7 +66,7 @@ export default {
                 {
                   url: require('../../assets/images/about/StrongEnthusiasm.png'),
                   title:'Strong Enthusiasm',
-                  info: 'Our employees share a deep passion for cars.'
+                  info: 'Our employees share a deep passion for cars. Many have worked extensively within the industry and profess expertise across many makes and models.'
                 },
             ]
         }
@@ -186,7 +186,7 @@ export default {
             padding-bottom:25px;
             display: flex;
             flex-wrap: wrap;
-            // margin-right:5px;
+            margin-bottom: 15px;
             justify-content: space-around;
             .weOffer {
                 display: flex;
@@ -229,6 +229,8 @@ export default {
             flex-wrap: wrap;
             margin-left: 10px;
             justify-content: center;
+            margin-bottom: 15px;
+            padding-bottom: 25px;
             .weOffers {
                 display: flex;
                 margin-top: 22px;
@@ -267,7 +269,7 @@ export default {
     }
     .ourStory {
         background-color: #fff;
-        margin: 0 10px 15px 10px;
+        margin: 15px 10px 15px 10px;
         padding: 10px;
         .title {
             padding-top: 25px;

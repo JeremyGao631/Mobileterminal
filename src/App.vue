@@ -62,6 +62,7 @@ export default {
     //flex: 1;
     //display: flex;
     overflow-y: hidden;
+    overflow-x: hidden;
   }
   .main-wrap {
     flex: 1;

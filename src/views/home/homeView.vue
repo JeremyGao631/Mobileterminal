@@ -68,7 +68,7 @@
     <div class="middletittle">OUR SERVICE</div>
     <div class="swiper">
       <van-swipe :autoplay="5000" indicator-color="black">
-        <van-swipe-item v-for="(item,index) in service" :key="index">
+        <van-swipe-item v-for="(item,index) in service" :key="index" @click="jumppage(index)">
           <div class="card">
             <img :src="item.targeUrl" />
             <div class="info">
@@ -231,6 +231,16 @@ export default {
     change: function (item) {
             this.number = item; //重要处
           },
+
+    jumppage(index){
+      if(index == 0){
+        this.$router.push('/showRoom')
+      }else if(index == 1){
+        this.$router.push('/sell')
+      }else {
+        this.$router.push('/about')
+      }
+    },
   },
 }
 </script>
@@ -301,9 +311,9 @@ export default {
 }
 .middletittle {
   width: 300px;
-  font-size: 25px;
+  font-size: 24px;
   font-family: DINCondensed-Bold, DINCondensed;
-  font-weight: bold;
+  // font-weight: bold;
   color: #151515;
   padding-top: 45px;
   padding-bottom: 13px;

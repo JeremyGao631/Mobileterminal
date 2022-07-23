@@ -25,7 +25,7 @@
                     <div class="middletext">
                         <span class="middletexttitle">Get your instant offer</span>
                         <br />
-                        <span class="middletextinfo">To provide you an honest and fair offer, our appraisers here at Autohome AU Auto Traders thoroughly inspect the condition of your car and compare it against current market data.</span>
+                        <span class="middletextinfo">To provide you an honest and fair offer, our appraisers here at Autohome AU thoroughly inspect the condition of your car and compare it against current market data.</span>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     <div class="middletext">
                         <span class="middletexttitle">Get cash payment</span>
                         <br />
-                        <span class="middletextinfo">we will pay cash or electroic transfer on the same day on completion of vehicle transfer.</span>
+                        <span class="middletextinfo">we will pay cash or electronic transfer on the same day on completion of vehicle transfer.</span>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,10 @@
                 </div>
                 <!-- <div class="inputtitle">COMMENTS</div> -->
                 <van-cell-group class="special">
-                    <van-field v-model="comments"/>
+                    <van-field 
+                        v-model="comments"
+                        type="textarea"
+                    />
                 </van-cell-group>
                 <div class="submit">
                     <van-button @click="submit()">SUBMIT</van-button>
