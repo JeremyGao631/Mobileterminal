@@ -148,7 +148,6 @@ export default {
         .title {
             font-size: 30px;
             font-family: DINCondensed-Bold, DINCondensed;
-            font-weight: bold;
             color: #151515;
             padding-top: 40px;
             padding-bottom: 20px;
@@ -177,7 +176,6 @@ export default {
             text-align: left;
             padding: 25px 10px 0 10px;
             font-family: DINCondensed-Bold, DINCondensed;
-            font-weight: bold;
             color: #151515;
         }
         .style {
@@ -207,7 +205,6 @@ export default {
                     margin-bottom: 15px;
                     text-align: left;
                     font-family: DINCondensed-Bold, DINCondensed;
-                    font-weight: bold;
                     color: #212020;
                     line-height: 16px;
                 }
@@ -249,7 +246,6 @@ export default {
                     margin-bottom: 15px;
                     text-align: left;
                     font-family: DINCondensed-Bold, DINCondensed;
-                    font-weight: bold;
                     color: #212020;
                     line-height: 16px;
                 }
@@ -278,7 +274,6 @@ export default {
             text-align: left;
             font-size: 24px;
             font-family: DINCondensed-Bold, DINCondensed;
-            font-weight: bold;
             color: #151515;
         }
         .story {

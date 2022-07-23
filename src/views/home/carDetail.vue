@@ -553,18 +553,18 @@ export default {
         margin-left: 8px;
         .textcard {
             float:left;
-            margin-right:30px;
+            margin-right:10px;
             width: 134px;
             img {
                 height: 89px;
-                width: 134px;
+                width: 154px;
                 object-fit: cover;
                 margin-bottom: 10px;
             }
             .year {
                 width: 154px;
                 text-align: left;
-                font-size: 16px;
+                font-size: 14px;
                 margin-bottom:-12px;
                 font-family: DINCondensed-Bold, DINCondensed;
                 font-weight: bold;
@@ -601,30 +601,29 @@ export default {
           }
           .detailcard {
             padding-top:10px;
-            margin-left: -2px;
             display: flex;
-            text-align: left;
+            // text-align: left;
+            // align-items: center;
+            // justify-content: left;
             align-items: center;
-            justify-content: left;
+            justify-content: space-between;
             span {
-                width: 54px;
-                height: 13px;
                 font-size: 9px;
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
                 color: #909090;
                 line-height: 13px;
+                white-space: nowrap;
             }
             .span1 {
-                width: 54px;
-                height: 13px;
                 font-size: 9px;
-                padding-left: 13px;
-                padding-right:8px;
+                padding-left: 12px;
+                padding-right:7px;
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
                 color: #909090;
                 line-height: 13px;
+                white-space: nowrap;
             }
           }
         }

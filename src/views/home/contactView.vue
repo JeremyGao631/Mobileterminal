@@ -231,7 +231,6 @@ export default{
     height: 16px;
     font-size: 20px;
     font-family: DINCondensed-Bold, DINCondensed;
-    font-weight: bold;
     color: #212020;
     line-height: 16px;
     margin-bottom: 10px;
@@ -262,7 +261,6 @@ export default{
     .top-title {
         font-size: 30px;
         font-family: DINCondensed-Bold, DINCondensed;
-        font-weight: bold;
         color: #151515;
         padding-top: 40px;
         padding-bottom: 20px;
@@ -310,7 +308,6 @@ export default{
             padding-top: 23px;
             padding-bottom: -5px;
             font-family: DINCondensed-Bold, DINCondensed;
-            font-weight: bold;
             color: #151515;
             line-height: 90px;
             margin-left: 8px;

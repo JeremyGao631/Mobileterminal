@@ -322,37 +322,29 @@ export default {
 }
 
 .middle {
-  // width: 355px;
   background: #FFFFFF;
   margin: 0 10px;
   .texttitle {
-    margin: 0px 10px;
+    margin: 0 10px;
     text-align: left;
     .btn_anniu {
       background-color: transparent;
       border: 0;
-      padding: 2px 10px;
-      margin-top: 3%;
+      margin-top: 5%;
       span {
-        width: 75px;
-        // height: 30px;
         font-size: 16px;
         font-family: DINCondensed-Bold, DINCondensed;
-        font-weight: bold;     
         color: #909090;
-        line-height: 30px;
       }
     }
     .newStyle{
-      border: solid #12100f;
+      padding-top: 5px;
+      height: 40px;
+      border: 2px solid #12100f;
       border-bottom: none;
       span{
-        width: 100%;
-        font-weight: bold;
         font-size: 16px;
         color: #212020;
-        // padding-left:10px;
-        // margin-left: -8px;
       }
     }
     .showall {
@@ -362,19 +354,16 @@ export default {
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
       color: #212020;
-      line-height: 30px;
+      line-height: 40px;
     }
     img {
       height: 8px;
-      width: 6px;
-      // filter: blur(-5px);
+      width: 8px;
       margin-left: 8px;
     }
   }
   .break {
     border-bottom: 2px solid #12100f;
-    margin-top: -2px;
-    margin-left: 2px;
   }
   .textinfo {
     width: 120px;
@@ -384,7 +373,7 @@ export default {
     font-weight: 400;
     color: #909090;
     line-height: 30px;
-    margin: 1px 120px 1px 120px;
+    margin: 20px 120px 10px 120px;
     .textinfosepcial {
       font-family: PingFangSC-Semibold;
       font-weight: bold;
@@ -413,7 +402,6 @@ export default {
         margin-top: 5px;
         span {
           font-family: DINCondensed-Bold;
-          // margin-left: 3px;
           font-weight:bold;
           font-size: 14px;
           color: #212020;
@@ -422,7 +410,7 @@ export default {
       }
       .contentcard {
         padding-bottom: 10px;
-        padding-right:5px;
+        padding-right: 3px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -434,7 +422,6 @@ export default {
           line-height: 16px;
         }
         .contentcard-info {
-          // width: 80px;
           height: 11px;
           font-size: 9px;
           color: #909090;
@@ -450,13 +437,12 @@ export default {
       }
       .detailcard {
         padding-top: 10px;
-        // padding-left: 4px;
         padding-right: 3px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         span {
-          font-size: 10px;
+          font-size: 11px;
           font-family:PingFangSC-Regular;
           color: #909090;
           line-height: 10px;

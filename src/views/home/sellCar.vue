@@ -207,11 +207,11 @@ export default {
               },
               {
                 value:'2',
-                label:'auto'
+                label:'Auto'
               },
               {
                 value:'3',
-                label:'manual'
+                label:'Manual'
               }
             ],
       comments: '',
@@ -341,7 +341,6 @@ export default {
 .tittle {
   font-size: 30px;
   font-family: DINCondensed-Bold, DINCondensed;
-  font-weight: bold;
   color: #151515;
   padding-top: 40px;
   padding-bottom: 20px;
@@ -386,7 +385,6 @@ export default {
                 .middletexttitle {
                     font-size: 20px;
                     font-family: DINCondensed-Bold, DINCondensed;
-                    font-weight: bold;
                     color: #212020;
                     line-height: 22px;
                     text-align: left;
@@ -425,7 +423,6 @@ export default {
                 .middletexttitle {
                     font-size: 20px;
                     font-family: DINCondensed-Bold, DINCondensed;
-                    font-weight: bold;
                     color: #212020;
                     line-height: 22px;
                     text-align: left;
@@ -475,7 +472,6 @@ export default {
             height: 30px;
             font-size: 24px;
             font-family: DINCondensed-Bold, DINCondensed;
-            font-weight: bold;
             color: #151515;
             line-height: 30px;
             padding-top: 20px;

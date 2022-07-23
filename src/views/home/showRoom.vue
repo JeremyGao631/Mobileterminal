@@ -620,7 +620,6 @@ export default {
 .tittle {
   font-size: 30px;
   font-family: DINCondensed-Bold, DINCondensed;
-  font-weight: bold;
   color: #151515;
   padding-top: 40px;
   padding-bottom: 20px;
@@ -665,7 +664,6 @@ export default {
           height: 50px;
           font-size: 24px;
           font-family: DINCondensed-Bold, DINCondensed;
-          font-weight: bold;
           color: #151515;
           line-height: 68px;
           text-align: left;
