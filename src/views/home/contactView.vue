@@ -55,7 +55,7 @@
         <div class="contact">
             <div class="contact-title">CONTACT</div>
             <div class="contact-input">
-                <div class="name">Name*</div>
+                <!-- <div class="name">Name*</div>
                 <van-field v-model="form.name" />
                 <div class="name">Phone*</div>
                 <van-field maxlength="10" v-model="form.phone" />
@@ -64,12 +64,34 @@
                 <div class="name">Postcode*</div>
                 <van-field v-model="form.address" />
                 <div class="name">Message*</div>
-                <!-- <input class="message" v-model="form.message"  type="textaea"/> -->
                 <van-cell-group class="special">
                     <van-field 
                         v-model="form.message"
                         type="textarea"
                         class="specialfield"
+                    />
+                </van-cell-group> -->
+                <div class="inputtitle">Name*</div>
+                <van-cell-group>
+                    <van-field v-model="form.name"/>
+                </van-cell-group>
+                <div class="inputtitle">Phone*</div>
+                <van-cell-group>
+                    <van-field v-model="form.phone"/>
+                </van-cell-group>
+                <div class="inputtitle">Email*</div>
+                <van-cell-group>
+                    <van-field @blur="emails" v-model="form.email" />
+                </van-cell-group>
+                <div class="inputtitle">Postcode*</div>
+                <van-cell-group>
+                    <van-field v-model="form.address"/>
+                </van-cell-group>
+                <div class="inputtitle">Message*</div>
+                <van-cell-group class="special">
+                    <van-field 
+                        v-model="form.message"
+                        type="textarea"
                     />
                 </van-cell-group>
             </div>
@@ -218,15 +240,15 @@ export default{
 /deep/.van-grid {
     margin-left: 16px;
 }
-/deep/.van-field__body {
-    border: 1px solid #151515;
-    margin-left: -13px;
-    height: 35px;
-    padding: 0 3px;
-}
-/deep/ .van-field__control::placeholder{
-            color: black;
-        }
+// /deep/.van-field__body {
+//     border: 1px solid #151515;
+//     margin-left: -13px;
+//     height: 35px;
+//     padding: 0 3px;
+// }
+// /deep/ .van-field__control::placeholder{
+//             color: black;
+//         }
 .table-title {
     height: 16px;
     font-size: 20px;
@@ -322,33 +344,26 @@ export default{
                 text-align: left;
                 margin-left: 8px;
             }
-            // .message {
-            //     width: 94%;
-            //     // margin-left: -12px;
-            //     margin-top: 10px;
-            //     height: 198px;
-            //     padding-bottom:174px;
-            //     box-sizing: border-box;
-            //     font-size: 14px;
-            //     color: #000;
-            //     border: 1px solid #151515;
-            // }
-            /deep/ .van-cell {
-                padding: 5px 7px 20px 20px;
+            .inputtitle {
+            width: 100px;
+            height: 30px;
+            font-size: 13px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            line-height: 30px;
             }
             .van-cell-group {
-            border: 1px solid #151515;
-            margin: 8px 8px 0 8px;
-            
+                border: 2px solid #151515;
+                margin-bottom: 20px;
+                img {
+                    width: 11px;
+                    height: 13px;
+                }
             }
-            .special{
+            .special {
                 /deep/ .van-field__control {
                     height: 184px;
-                    width: 288px;
-                }
-                /deep/ .van-field__body {
-                    border: 0;
-                    height: 184px;
+                    width: 304px;
                 }
             }
         }
