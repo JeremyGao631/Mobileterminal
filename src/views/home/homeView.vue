@@ -148,7 +148,7 @@ export default {
                 year: ele.year,
                 fueltype: ele.fueltype,
                 make: ele.make,
-                price: ele.price,
+                price: ele.priceDesc,
                 odometer: ele.odometer,
                 body: ele.body,
                 model: ele.model,
