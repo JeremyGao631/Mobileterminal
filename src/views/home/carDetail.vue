@@ -19,7 +19,7 @@
                 <div class="price"><span class="span1">$</span>{{ price }}</div>
                 <span class="info">Excl . Gov's Charges</span>
             </div>
-            <div class="title-bottom">{{ informations.year }} {{ informations.fueltype }}</div>
+            <div class="title-bottom">{{ informations.year }} {{ informations.make }} {{ informations.model }}</div>
         </div>
         <div class="detail">
             <div class="littleshow">
@@ -35,7 +35,7 @@
                 <div class="showleft">
                     <img src="../../assets/images/carDetail/transmission.png" />
                     <div class="showlefttext">
-                        <span class="texttop">{{ informations.body }}</span>
+                        <span class="texttop">{{ informations.geartype }}</span>
                         <br />
                         <span class="textbottom">Transmission</span>
                     </div>
@@ -82,19 +82,19 @@
             <div class="bottom-title">SIMILAR VEHICLES</div>
             <van-swipe :loop="true" :width="162" :autoplay="2000">
                 <van-swipe-item v-for="(item, index) in information1" :key="index" @click="jumpcardetail(item)">
-                                <div class="textcontent">
+                <div class="textcontent">
                 <div class="textcard">
                     <img class="img" :src="item.photo[0]" />
-                    <div class="year">{{item.year}} {{item.fueltype}}</div><br />
-                    <div class="year">{{item.make}}</div>
+                    <div class="year">{{item.year}} {{item.make}} {{item.model}}</div><br />
                     <div class="contentcard">
                         <span class="contentcard-price">${{item.price}}</span>
                         <span class="contentcard-info">Excl . Gov's Charges</span>
                     </div>
                     <div class="detailcard" >
-                        <span >{{item.odometer}}kms</span>
-                        <div class="span1" >{{item.body}}</div>
-                        <span >{{item.color}}</span>
+                        <span >{{item.odometer}}</span>
+                        <!-- <span >{{item.body}}</span> -->
+                        <span>{{item.fueltype.substring(0,6)}}</span>
+                        <span >{{item.geartype}}</span>
                     </div>
                 </div>
             </div>
@@ -137,6 +137,7 @@ export default {
     },
     created() {
         this.informations = this.$route.query.item
+        console.log(this.information,"1111111111111")
         this.price = this.informations.price
         this.firstPhoto = this.$route.query.item.photo[0]
         console.log('123', this.price)
@@ -177,7 +178,7 @@ export default {
                     result: this.informations.color
                 },{
                     name: 'Engine Size',
-                    result: this.informations.enginesize
+                    result: (this.informations.enginesize / 1000).toFixed(1)
                 },{
                     name: 'Fuel Type',
                     result: this.informations.fueltype
@@ -188,14 +189,14 @@ export default {
                     name: 'Doors',
                     result: this.informations.doornum
                 },{
-                    name: 'Seats',
-                    result: this.informations.body
+                    name: 'Drive',
+                    result: this.informations.drive
                 },
                 ]
         },
         jumpcardetail(item) {
-            // this.$router.push({path:'/carDetail', query: {item: item}})
-            this.informations = item
+            this.$router.push({path:'/carDetail', query: {item: item}})
+            // this.informations = item
         },
         allCar() {
             car({
@@ -372,7 +373,7 @@ export default {
               float:left;
               position: relative;
               top:-37px;
-              left:42px;
+              left:35px;
               height:100%;
               text-align: left;
               letter-spacing: 1px;
@@ -404,7 +405,7 @@ export default {
             }
           }
           .showleft:nth-child(1) {
-            margin:0 25px 0 0;
+            margin:0 15px 0 10px;
           }
           .showleft:nth-child(2) {
             margin:0 10px 0 10px;
@@ -444,7 +445,7 @@ export default {
           .listresult {
             .listname {
               float:left;
-              width:170px;
+              width:150px;
               font-size: 13px;
               font-family: PingFangSC-Medium, PingFang SC;
               color: #000;
@@ -455,7 +456,6 @@ export default {
               padding-left: 10px;
             }
             .result {
-              width:calc(100% - 240px;);
               float:left;
               font-size: 13px;
               font-family: PingFangSC-Medium, PingFang SC;
@@ -573,7 +573,7 @@ export default {
             }
 
             .contentcard {
-                margin-top:22px;
+                margin-top:10px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -608,7 +608,7 @@ export default {
             align-items: center;
             justify-content: space-between;
             span {
-                font-size: 9px;
+                font-size: 6px;
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
                 color: #909090;

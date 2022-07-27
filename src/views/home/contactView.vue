@@ -351,6 +351,8 @@ export default{
             font-family: PingFangSC-Regular, PingFang SC;
             font-weight: 400;
             line-height: 30px;
+            text-align: left;
+            padding-left: 10px;
             }
             .van-cell-group {
                 border: 2px solid #151515;

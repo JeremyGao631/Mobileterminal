@@ -47,9 +47,7 @@
               <img :src="item.photo[0]" />
             </div>
             <div class="titlecard" >
-              <span >{{item.year}} {{item.fueltype}}</span>
-              <br />
-              <span >{{item.make}}</span>
+              <span >{{item.year}} {{item.make}} {{item.model}}</span>
             </div>
             <div class="contentcard">
               <span class="contentcard-price">${{item.price}}</span>
@@ -58,8 +56,9 @@
             <div class="break" ></div>
             <div class="detailcard" >
               <span >{{item.odometer}}kms</span>
-              <span >{{item.body}}</span>
-              <span >{{item.color}}</span>
+              <!-- <span >{{item.body}}</span> -->
+              <span>{{item.fueltype.substring(0,6)}}</span>
+              <span >{{item.geartype}}</span>
             </div>
           </div>
         </div>
@@ -335,6 +334,7 @@ export default {
         font-size: 16px;
         font-family: DINCondensed-Bold, DINCondensed;
         color: #909090;
+        padding-bottom: 3px;
       }
     }
     .newStyle{
@@ -373,7 +373,7 @@ export default {
     font-weight: 400;
     color: #909090;
     line-height: 30px;
-    margin: 20px 120px 10px 120px;
+    margin: 10px 120px 10px 120px;
     .textinfosepcial {
       font-family: PingFangSC-Semibold;
       font-weight: bold;
@@ -482,7 +482,6 @@ export default {
   margin: 0 0 15px 0;
   font-size: 24px;
   font-family: DINCondensed-Bold, DINCondensed;
-  font-weight: bold;
   color: #151515;
 }
 

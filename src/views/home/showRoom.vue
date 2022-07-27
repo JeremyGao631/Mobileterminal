@@ -38,9 +38,7 @@
               <img :src="item.photo[0]" />
             </div>
             <div class="titlecard" >
-              <span >{{item.year}} {{item.fueltype}}</span>
-              <br />
-              <span >{{item.make}}</span>
+              <span >{{item.year}} {{item.make}} {{item.model}}</span>
             </div>
             <div class="contentcard">
               <span class="contentcard-price">${{item.price}}</span>
@@ -49,90 +47,79 @@
             <div class="break" ></div>
             <div class="detailcard" >
               <span >{{item.odometer}}kms</span>
-              <span >{{item.body}}</span>
-              <span >{{item.color}}</span>
-            </div>
-          </div>
-        </div>
-        <div v-show='1===number'>
-          <div class="textcard" v-for="(item,index) in information1" :key="index" @click="jumpcardetail(item)">
-            <div class="imgcard">
-              <img :src="item.url" />
-            </div>
-            <div class="titlecard" >
-              <span >{{item.year}} {{item.type}}</span>
-              <br />
-              <span >{{item.kind}}</span>
-            </div>
-            <div class="contentcard">
-              <span class="contentcard-price">${{item.price}}</span>
-              <span class="contentcard-info">{{item.info}}</span>
-            </div>
-            <div class="break" ></div>
-            <div class="detailcard" >
-              <span >{{item.distance}}</span>
-              <span >{{item.info1}}</span>
-              <span >{{item.info2}}</span>
+              <!-- <span >{{item.body}}</span> -->
+              <span>{{item.fueltype.substring(0,6)}}</span>
+              <span >{{item.geartype}}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <van-popup v-model="showPopup" position="left" closeable :style="{ height: '100%', width: '95%'}">
+    <van-popup v-model="showPopup" position="left" closeable :style="{ height: '100%', width: '80%'}">
       <div class="popup-top">
         <div class="select1">
-          <van-radio-group v-model="make">
+          <!-- <van-checkbox-group v-model="make"> -->
             <div class="make">
               <span class="span1">Make</span>
               <span v-if="showMake" @click="make1(1)" class="span2">—</span>
               <span v-else @click="make1(2)" style="font-size: 25px;">+</span>
             </div>
             <div v-if="showMake">
-              <div v-for="(item, idx) in makeList" :key="idx">
-                <van-radio :name="idx" @click="sleMak(item)" shape="square">{{ item.mak }}</van-radio>
-              </div>
-              <van-radio :name="makeList.length" @click="sleMaks()" shape="square">Not selected</van-radio>
+              <van-checkbox-group v-for="(item, idx) in makeList.slice(0,3)" v-model= "checked" :key="idx">
+                <van-checkbox :name="idx" @click="sleMak(item)">{{ item.mak }}</van-checkbox><br />
+              </van-checkbox-group>
+              <!-- <van-radio :name="makeList.length" @click="sleMaks()" shape="square">Not selected</van-radio> -->
             </div>
-          </van-radio-group>
+            <div v-if="showMake && showView">
+              <van-checkbox-group v-for="(item, idx) in makeList.slice(3)" v-model= "checked1" :key="idx">
+                <van-checkbox :name="idx" @click="sleMak(item)">{{ item.mak }}</van-checkbox><br />
+              </van-checkbox-group>
+              <!-- <van-radio :name="makeList.length" @click="sleMaks()" shape="square">Not selected</van-radio> -->
+            </div>
+          <!-- </van-checkbox-group> -->
         </div>
         <div class="view">
           <span class="span">VIEW ALL</span>
-          <van-icon v-if="showView" @click="showArrow" name="arrow" color="#000" size="12" />
-          <van-icon v-else name="arrow-down" @click="showArrow1" color="#000" size="12" />
+          <van-icon v-if="showView" @click="showArrow" name="arrow-up" color="#000" size="12" style="padding-bottom: 3px;" />
+          <van-icon v-else name="arrow-down" @click="showArrow1" color="#000" size="12" style="padding-bottom: 3px;" />
         </div>
-        <div v-if="showView === false" class="bottom">
+
+        <div class="bottom">
           <div class="make">
               <span class="span1">Year</span>
-              <span class="span2" @click="year1">—</span>
+              <span v-if="showYear" @click="showyear(1)" class="span2">—</span>
+              <span v-else @click="showyear(2)" style="font-size: 25px;">+</span>
           </div>
-          <van-slider v-model="year" range :max="maxYears" :min="minYears" @change="onChangeYear(year)" />
-          <div class="int">
-            <van-field v-model="minYear" />
-            <van-field v-model="maxYear" />
+          <van-slider v-model="year" range :max="maxYears" :min="minYears" @change="onChangeYear(year)" v-show="showYear"/>
+          <div class="int" v-show="showYear">
+            <van-field v-model="minYear" readonly/>
+            <van-field v-model="maxYear" readonly/>
           </div>
+          <div class="break" style="border-top: 1px solid #151515; margin-top: 20px;margin-bottom:30px;" />
           <div class="make">
               <span class="span1">Price</span>
-              <span class="span2" @click="price1">—</span>
+              <span v-if="showPrice" @click="showprice(1)" class="span2">—</span>
+              <span v-else @click="showprice(2)" style="font-size: 25px;">+</span>
           </div>
-          <van-slider v-model="price" range :max="maxPrices" :min="minPrices" @change="onChangePrice" />
-          <div class="int">
-            <van-field v-model="minPrice" />
-            <van-field v-model="maxPrice" />
+          <van-slider v-model="price" range :max="maxPrices" :min="minPrices" @change="onChangePrice" v-show="showPrice"/>
+          <div class="int" v-show="showPrice">
+            <van-field v-model="minPrice" readonly/>
+            <van-field v-model="maxPrice" readonly/>
           </div>
         </div>
-        <div class="select1">
-          <van-radio-group v-model="sort">
+
+        <div class="select1" style="padding-bottom: 50px;">
+          <van-radio-group v-model="sort" @change="changeFn">
             <div class="make">
               <span class="span1">Sort by</span>
               <span v-if="showSort" @click="sort1(1)" class="span2">—</span>
               <span v-else @click="sort1(2)" style="font-size: 25px;">+</span>
             </div>
             <div v-if="showSort">
-              <van-radio name="1" @click="sleSort()" shape="square">Price: low to high</van-radio>
-              <van-radio name="2" @click="sleSort1()" shape="square">Price: high to low</van-radio>
-              <van-radio name="3" @click="sleSort2()" shape="square">Date: high to low</van-radio>
-              <van-radio name="4" @click="sleSort3()" shape="square">Date: low to high</van-radio>
-              <van-radio name="5" @click="sleMaks()" shape="square">Not selected</van-radio>
+              <van-radio name="1" @click="sleSort()" >Price: Low to High</van-radio>
+              <van-radio name="2" @click="sleSort1()" >Price: High to Low</van-radio>
+              <van-radio name="3" @click="sleSort2()" >Date: High to Low</van-radio>
+              <van-radio name="4" @click="sleSort3()" >Date: Low to High</van-radio>
             </div>
           </van-radio-group>
         </div>
@@ -142,7 +129,7 @@
 </template>
 
 <script>
-import { car } from '@/api'
+import { car } from '@/api';
 export default {
   name: 'HomeView',
   components: {
@@ -152,8 +139,11 @@ export default {
      number: 0 ,
      showMake: true,
      showSort: true,
+     showYear: true,
+     showPrice: true,
      make: '',
      sort: '',
+     checkRadioFlag: false,
      showPopup: false, // 筛选页
      showView: false,
      makeList: [], // 筛选选项
@@ -170,7 +160,8 @@ export default {
      information: [],
      information1: [],
      orderByPrice: 1,
-     orderByYear: 1
+     orderByYear: 1,
+     checked: this.makeList
     }
   },
   created() {
@@ -201,6 +192,20 @@ export default {
         this.showSort = false
       } else if(val===2) {
         this.showSort = true
+      }
+    },
+    showyear(val) {
+      if(val===1) {
+        this.showYear = false
+      } else if(val===2) {
+        this.showYear = true
+      }
+    },
+    showprice(val) {
+      if(val===1) {
+        this.showPrice = false
+      } else if(val===2) {
+        this.showPrice = true
       }
     },
     // 查询全部
@@ -296,6 +301,10 @@ export default {
     },
     sleSort() {
       this.orderByPrice = 2
+      if(this.checkRadioFlag) {
+          this.sort = '';
+        }
+        this.checkRadioFlag = true;
       car({
         current: '1',
         pageSize: '500',
@@ -332,6 +341,10 @@ export default {
     },
     sleSort1() {
       this.orderByPrice = 1
+      if(this.checkRadioFlag) {
+          this.sort = '';
+        }
+        this.checkRadioFlag = true;
       car({
         current: '1',
         pageSize: '500',
@@ -369,6 +382,10 @@ export default {
     },
     sleSort2() {
       this.orderByYear = 1
+      if(this.checkRadioFlag) {
+          this.sort = '';
+        }
+        this.checkRadioFlag = true;
       car({
         current: '1',
         pageSize: '500',
@@ -406,6 +423,10 @@ export default {
     },
     sleSort3() {
       this.orderByYear = 2
+      if(this.checkRadioFlag) {
+          this.sort = '';
+        }
+        this.checkRadioFlag = true;
       car({
         current: '1',
         pageSize: '500',
@@ -441,6 +462,9 @@ export default {
         })
 
     },
+    changeFn() {
+        this.checkRadioFlag = false;
+      },
     sleMak(item) {
       car({
         current: '1',
@@ -830,14 +854,15 @@ export default {
 .popup-top {
   // margin-top: 45px;
   margin: 45px 20px 0;
-  border-top: 2px solid #000;
   .select1 {
     .make {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: 20px;
+      padding-top: 30px;
       margin-bottom: 15px;
+      border-top: 1px solid #151515;
       .span1 {
         // width: 34px;
         // height: 60px;
@@ -858,7 +883,9 @@ export default {
   .view {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    border-bottom: 1px solid #151515;
+    padding-bottom: 20px;
+    padding-top: 10px;
     .span {
       width: 60px;
       // height: 130px;
@@ -867,12 +894,12 @@ export default {
       font-family: DINCondensed-Bold, DINCondensed;
       font-weight: bold;
       color: #151515;
+      white-space: nowrap;
       // line-height: 130px;
     }
   }
   .bottom {
     margin-top: 25px;
-    border-top:2px solid #000;
     .make {
       display: flex;
       justify-content: space-between;
@@ -926,6 +953,13 @@ export default {
 }
 /deep/.van-slider {
   margin: 34px 0;
+}
+/deep/  .van-slider__button {
+    height: 20px;
+    width: 20px;
+    background-color:#151515;
+    border: 3px solid #FFFFFF;
+    box-shadow:2px 2px 10px #909090;
 }
 /deep/.van-field__body {
   background-color: #f4f6f8;
