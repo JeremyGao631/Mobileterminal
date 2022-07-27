@@ -35,7 +35,7 @@
                 <div class="right">
                     <img class="imgright" src="../../assets/images/sellyourcar/3.png" />
                     <div class="middletext">
-                        <span class="middletexttitle">Get cash payment</span>
+                        <span class="middletexttitle">Get instant payment</span>
                         <br />
                         <span class="middletextinfo">we will pay cash or electronic transfer on the same day on completion of vehicle transfer.</span>
                     </div>

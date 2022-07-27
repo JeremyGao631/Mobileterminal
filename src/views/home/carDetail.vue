@@ -63,16 +63,20 @@
         </div>
         <div class="contact">
             <div class="contact-title">BOOK INSPECTION</div>
-            <div class="contact-input">
-                <div class="name">Name</div>
+            <div class="inputtitle">Name</div>
+            <van-cell-group>
                 <van-field v-model="form.name" />
-                <div class="name">Phone</div>
+            </van-cell-group>
+            <div class="inputtitle">Phone</div>
+            <van-cell-group>
                 <van-field maxlength="10" v-model="form.phone" />
-                <div class="name">Time</div>
+            </van-cell-group>
+            <div class="inputtitle">Time</div>
+            <van-cell-group>
                 <van-field v-model="form.time" readonly @click="showTime = true" />
-                <!-- <van-cell class :value="date" @click="show = true" /> -->
                 <van-calendar v-model="showTime" confirm-text="sure" @confirm="onConfirm" />
-            </div>
+            </van-cell-group>
+                <!-- <van-cell class :value="date" @click="show = true" /> -->
             <div class="submit">
                 <van-button @click="submit()">SUBMIT</van-button>
                 <!-- <img class="imgs" src="../../assets/images/home/right.png" alt=""> 甲方要求删除 -->
@@ -91,7 +95,7 @@
                         <span class="contentcard-info">Excl . Gov's Charges</span>
                     </div>
                     <div class="detailcard" >
-                        <span >{{item.odometer}}</span>
+                        <span >{{item.odometer}}kms</span>
                         <!-- <span >{{item.body}}</span> -->
                         <span>{{item.fueltype.substring(0,6)}}</span>
                         <span >{{item.geartype}}</span>
@@ -490,28 +494,49 @@ export default {
             line-height: 80px;
             margin-left: 8px;
         }
-        .contact-input {
-            .name {
-                width: 47px;
-                font-size: 13px;
-                font-family: PingFangSC-Regular, PingFang SC;
-                font-weight: 400;
-                color: #000;
-                text-align: left;
-                margin-left: 8px;
+        // .contact-input {
+        //     .name {
+        //         width: 47px;
+        //         font-size: 13px;
+        //         font-family: PingFangSC-Regular, PingFang SC;
+        //         font-weight: 400;
+        //         color: #000;
+        //         text-align: left;
+        //         margin-left: 8px;
+        //     }
+        //     .message {
+        //         width: 93%;
+        //         margin-left: -12px;
+        //         margin-top: 10px;
+        //         height: 198px;
+        //         font-size: 14px;
+        //         color: #000;
+        //         border: 1px solid #151515;
+        //     }
+        //     /deep/ .van-cell {
+        //         padding: 5px 8px 20px 20px;
+        //     }
+        // }
+        .inputtitle {
+            width: 100px;
+            height: 30px;
+            font-size: 13px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            line-height: 30px;
+            text-align: left;
+            padding-left: 10px;
+        }
+        .van-cell-group {
+            border: 02px solid #151515;
+            margin-bottom: 20px;
+            img {
+                width: 11px;
+                height: 13px;
             }
-            .message {
-                width: 93%;
-                margin-left: -12px;
-                margin-top: 10px;
-                height: 198px;
-                font-size: 14px;
-                color: #000;
-                border: 1px solid #151515;
-            }
-            /deep/ .van-cell {
-                padding: 5px 8px 20px 20px;
-            }
+        }
+        /deep/ .van-field__body {
+            border: 0;
         }
         .submit {
             .van-button--normal {
@@ -564,12 +589,12 @@ export default {
             .year {
                 width: 154px;
                 text-align: left;
-                font-size: 14px;
+                font-size: 10px;
                 margin-bottom:-12px;
                 font-family: DINCondensed-Bold, DINCondensed;
                 font-weight: bold;
                 color: #212020;
-                line-height: 16px;
+                line-height: 10px;
             }
 
             .contentcard {
@@ -578,20 +603,20 @@ export default {
                 align-items: center;
                 justify-content: space-between;
             .contentcard-price {
-                height: 14px;
-                font-size: 14px;
+                height: 10px;
+                font-size: 10px;
                 font-family: DINCondensed-Bold, DINCondensed;
                 font-weight: bold;
                 color: #151515;
                 line-height: 17px;
             }
             .contentcard-info {
-                height: 9px;
-                font-size: 9px;
+                height: 8px;
+                font-size: 8px;
                 font-family: DINCondensed-Bold, DINCondensed;
                 font-weight: bold;
                 color: #909090;
-                line-height: 11px;
+                line-height: 16px;
             }
           }
           .break {
