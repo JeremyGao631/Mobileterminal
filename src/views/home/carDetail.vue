@@ -9,7 +9,7 @@
             <img :src="informations.photo[5]" />
             <img :src="informations.photo[6]" /> -->
             <van-swipe :width="65" :autoplay="200000000" loop :show-indicators= false>
-                <van-swipe-item v-for="(item,idx) in photos" :key="idx">
+                <van-swipe-item v-for="(item,idx) in photos" :key="idx" v-lazy="item.img">
                     <img :src="item.img" alt="" @click="choosePhoto(item)">
                 </van-swipe-item>
             </van-swipe>
@@ -89,7 +89,7 @@
                 <div class="textcontent">
                 <div class="textcard">
                     <img class="img" :src="item.photo[0]" />
-                    <div class="year">{{item.year}} {{item.make}} {{item.model}}</div><br />
+                    <div class="year">{{item.year}} {{item.make}}{{item.model}}</div><br />
                     <div class="contentcard">
                         <span class="contentcard-price">${{item.price}}</span>
                         <span class="contentcard-info">Excl . Gov's Charges</span>

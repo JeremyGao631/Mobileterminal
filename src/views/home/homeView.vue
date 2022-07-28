@@ -47,7 +47,7 @@
               <img :src="item.photo[0]" />
             </div>
             <div class="titlecard" >
-              <span >{{item.year}} {{item.make}} {{item.model}}</span>
+              <span >{{item.year}} {{item.make}}{{item.model}}</span>
             </div>
             <div class="contentcard">
               <span class="contentcard-price">${{item.price}}</span>
@@ -55,7 +55,7 @@
             </div>
             <div class="break" ></div>
             <div class="detailcard" >
-              <span >{{item.odometer}}kms</span>
+              <span >{{item.odometer}}  kms</span>
               <!-- <span >{{item.body}}</span> -->
               <span>{{item.fueltype.substring(0,6)}}</span>
               <span >{{item.geartype}}</span>
@@ -314,8 +314,8 @@ export default {
   font-family: DINCondensed-Bold, DINCondensed;
   // font-weight: bold;
   color: #151515;
-  padding-top: 45px;
-  padding-bottom: 13px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   margin-left: 20px;
   text-align: left;
 }
@@ -363,6 +363,7 @@ export default {
     }
   }
   .break {
+    margin-top: -1px;
     border-bottom: 2px solid #12100f;
   }
   .textinfo {
@@ -402,8 +403,7 @@ export default {
         margin-top: 5px;
         span {
           font-family: DINCondensed-Bold;
-          font-weight:bold;
-          font-size: 14px;
+          font-size: 16px;
           color: #212020;
           line-height: 16px;
         }
@@ -416,18 +416,16 @@ export default {
         justify-content: space-between;
         .contentcard-price {
           font-family:DINCondensed-Bold;
-          font-weight:bold;
-          font-size: 14px;
+          font-size: 16px;
           color: #212020;
           line-height: 16px;
         }
         .contentcard-info {
           height: 11px;
-          font-size: 9px;
+          font-size: 11px;
           color: #909090;
-          line-height: 11px;
+          line-height: 13px;
           font-family:DINCondensed-Bold;
-          font-weight: bold;
         }
       }
       .break {
@@ -445,7 +443,7 @@ export default {
           font-size: 11px;
           font-family:PingFangSC-Regular;
           color: #909090;
-          line-height: 10px;
+          line-height: 16px;
           white-space: nowrap;
         }
       }

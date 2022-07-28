@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <img class="top-img" src="../../assets/images/about/our-story.jpg" alt="">
+        <img class="top-img" src="../../assets/images/about/JVS00341-4.jpg" alt="">
         <div class="top-title">
             <div class="title">OUR MISSION</div>
             <!-- <div class="offer">Offer our customers exceptional quality and excellent value with our integrity and enthusiasm.</div> -->
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <img class="top-img" src="../../assets/images/about/OurStory.png" alt="">
+        <img class="top-img" src="../../assets/images/about/our-story.jpg" alt="">
         <div class="ourStory">
             <div class="title">Our Story</div>
             <div class="story">Autohome Australia were established in 2019 and our focus is to provide a solution for all sellers and buyers. Through word of mouth and referrals from satisfied clients, our reputation has allowed us to attract both local and interstate clients. Our area of specialty is luxury and prestigious vehicles.</div>

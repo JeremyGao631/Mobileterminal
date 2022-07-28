@@ -38,7 +38,7 @@
               <img :src="item.photo[0]" />
             </div>
             <div class="titlecard" >
-              <span >{{item.year}} {{item.make}} {{item.model}}</span>
+              <span >{{item.year}}  {{item.make}}{{item.model}}</span>
             </div>
             <div class="contentcard">
               <span class="contentcard-price">${{item.price}}</span>
@@ -55,7 +55,7 @@
         </div>
       </div>
     </div>
-    <van-popup v-model="showPopup" position="left" closeable :style="{ height: '100%', width: '80%'}">
+    <van-popup v-model="showPopup" position="left" closeable :style="{ height: '100%', width: '85%'}">
       <div class="popup-top">
         <div class="select1">
           <!-- <van-checkbox-group v-model="make"> -->
@@ -65,14 +65,14 @@
               <span v-else @click="make1(2)" style="font-size: 25px;">+</span>
             </div>
             <div v-if="showMake">
-              <van-checkbox-group v-for="(item, idx) in makeList.slice(0,3)" v-model= "checked" :key="idx">
-                <van-checkbox :name="idx" @click="sleMak(item)">{{ item.mak }}</van-checkbox><br />
+              <van-checkbox-group v-for="(item, idx) in makeList.slice(0,3)" v-model= "checked" :key="idx" >
+                <van-checkbox shape="square" :name="idx" @click="sleMak(item)">{{ item.mak }}</van-checkbox>
               </van-checkbox-group>
               <!-- <van-radio :name="makeList.length" @click="sleMaks()" shape="square">Not selected</van-radio> -->
             </div>
             <div v-if="showMake && showView">
               <van-checkbox-group v-for="(item, idx) in makeList.slice(3)" v-model= "checked1" :key="idx">
-                <van-checkbox :name="idx" @click="sleMak(item)">{{ item.mak }}</van-checkbox><br />
+                <van-checkbox shape="square" :name="idx" @click="sleMak(item)">{{ item.mak }}</van-checkbox>
               </van-checkbox-group>
               <!-- <van-radio :name="makeList.length" @click="sleMaks()" shape="square">Not selected</van-radio> -->
             </div>
@@ -793,9 +793,7 @@ export default {
         margin-top: 5px;
         span {
           font-family: DINCondensed-Bold;
-          // margin-left: 3px;
-          font-weight:bold;
-          font-size: 14px;
+          font-size: 16px;
           color: #212020;
           line-height: 16px;
         }
@@ -808,19 +806,17 @@ export default {
         justify-content: space-between;
         .contentcard-price {
           font-family:DINCondensed-Bold;
-          font-weight:bold;
-          font-size: 14px;
+          font-size: 16px;
           color: #212020;
           line-height: 16px;
         }
         .contentcard-info {
           // width: 80px;
           height: 11px;
-          font-size: 9px;
+          font-size: 11px;
           color: #909090;
-          line-height: 11px;
+          line-height: 13px;
           font-family:DINCondensed-Bold;
-          font-weight: bold;
         }
       }
       .break {
@@ -835,10 +831,10 @@ export default {
         align-items: center;
         justify-content: space-between;
         span {
-          font-size: 10px;
+          font-size: 11px;
           font-family:PingFangSC-Regular;
           color: #909090;
-          line-height: 10px;
+          line-height: 16px;
           white-space: nowrap;
         }
       }
@@ -948,11 +944,26 @@ export default {
 /deep/ .van-radio__label {
   margin-left: 20px;
 }
+/deep/ .van-radio__icon--round .van-icon {
+  border-radius: 0;
+}
+
+/deep/ .van-checkbox {
+  font-size: 14px;
+  font-family: PingFangSC-Light, PingFang SC;
+  color: #151515;
+  margin: 20px 0 ;
+}
+/deep/ .van-checkbox__label {
+  margin-left: 20px;
+}
 /deep/.van-slider__bar {
   background-color: #000;
+  width: 80%;
 }
 /deep/.van-slider {
-  margin: 34px 0;
+  margin: 34px auto;
+  width: 200px;
 }
 /deep/  .van-slider__button {
     height: 20px;
@@ -971,5 +982,18 @@ export default {
   font-family: PingFangSC-Light, PingFang SC;
   text-align: center;
   font-size: 14px;
+}
+
+/deep/ .van-checkbox__icon--checked .van-icon {
+    color: black;
+    background-color: transparent;
+    border-color: #c8c9cc;
+    font-weight: bold;
+}
+/deep/ .van-radio__icon--checked .van-icon{
+    color: black;
+    background-color: transparent;
+    border-color: #c8c9cc;
+    font-weight: bold;
 }
 </style>
