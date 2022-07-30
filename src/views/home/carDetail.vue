@@ -161,6 +161,17 @@ export default {
             }
             console.log(this.photos, '1212')
         },
+        setPhotos(item) {
+            this.photo = item.photo
+            this.photos = []
+            for(var i = 0; i<=this.photo.length; i++ ) {
+                const img = {
+                    img: this.photo[i]
+                }
+                this.photos.push(img)
+            }
+            console.log(this.photos, '1212')
+        },
         // 图片点击事件
         choosePhoto(item){
             this.firstPhoto = item.img
@@ -199,8 +210,20 @@ export default {
                 ]
         },
         jumpcardetail(item) {
-            this.$router.push({path:'/carDetail', query: {item: item}})
-            // this.informations = item
+            this.price = item.price
+            this.informations = item
+            this.init()
+            this.allCar()
+            this.setPhotos(item)
+            this.firstPhoto = item.photo[0]
+            console.log('123')
+            // 回到顶部
+            window.scrollTo(
+                {
+                    top: 0,
+                    behavior:"smooth"
+                }        
+            )
         },
         allCar() {
             car({

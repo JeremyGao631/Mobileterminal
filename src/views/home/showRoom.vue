@@ -58,21 +58,21 @@
     <van-popup v-model="showPopup" position="left" closeable :style="{ height: '100%', width: '85%'}">
       <div class="popup-top">
         <div class="select1">
-          <!-- <van-checkbox-group v-model="make"> -->
+          <!-- make筛选-->
             <div class="make">
               <span class="span1">Make</span>
               <span v-if="showMake" @click="make1(1)" class="span2">—</span>
               <span v-else @click="make1(2)" style="font-size: 25px;">+</span>
             </div>
             <div v-if="showMake">
-              <van-checkbox-group v-for="(item, idx) in makeList.slice(0,3)" v-model= "checked" :key="idx" >
-                <van-checkbox shape="square" :name="idx" @click="sleMak(item)">{{ item.mak }}</van-checkbox>
+              <van-checkbox-group v-for="(item, idx) in makeList.slice(0,3)" v-model= "makeSelect" :key="idx" >
+                <van-checkbox shape="square" :name="item.mak" @click="sleMak(makeSelect)">{{ item.mak }}</van-checkbox>
               </van-checkbox-group>
               <!-- <van-radio :name="makeList.length" @click="sleMaks()" shape="square">Not selected</van-radio> -->
             </div>
             <div v-if="showMake && showView">
-              <van-checkbox-group v-for="(item, idx) in makeList.slice(3)" v-model= "checked1" :key="idx">
-                <van-checkbox shape="square" :name="idx" @click="sleMak(item)">{{ item.mak }}</van-checkbox>
+              <van-checkbox-group v-for="(item, idx) in makeList.slice(3)" v-model= "makeSelect" :key="idx">
+                <van-checkbox shape="square" :name="item.mak" @click="sleMak(makeSelect)">{{ item.mak }}</van-checkbox>
               </van-checkbox-group>
               <!-- <van-radio :name="makeList.length" @click="sleMaks()" shape="square">Not selected</van-radio> -->
             </div>
@@ -83,7 +83,7 @@
           <van-icon v-if="showView" @click="showArrow" name="arrow-up" color="#000" size="12" style="padding-bottom: 3px;" />
           <van-icon v-else name="arrow-down" @click="showArrow1" color="#000" size="12" style="padding-bottom: 3px;" />
         </div>
-
+          <!-- year筛选 -->
         <div class="bottom">
           <div class="make">
               <span class="span1">Year</span>
@@ -95,6 +95,7 @@
             <van-field v-model="minYear" readonly/>
             <van-field v-model="maxYear" readonly/>
           </div>
+          <!-- price筛选-->
           <div class="break" style="border-top: 1px solid #151515; margin-top: 20px;margin-bottom:30px;" />
           <div class="make">
               <span class="span1">Price</span>
@@ -102,12 +103,12 @@
               <span v-else @click="showprice(2)" style="font-size: 25px;">+</span>
           </div>
           <van-slider v-model="price" range :max="maxPrices" :min="minPrices" @change="onChangePrice" v-show="showPrice"/>
-          <div class="int" v-show="showPrice">
-            <van-field v-model="minPrice" readonly/>
-            <van-field v-model="maxPrice" readonly/>
+          <div class="ints" v-show="showPrice">
+            <div class="minprice">${{minPrice}}</div>
+            <div class="maxprice">${{maxPrice}}</div>
           </div>
         </div>
-
+          <!-- sort by筛选-->
         <div class="select1" style="padding-bottom: 50px;">
           <van-radio-group v-model="sort" @change="changeFn">
             <div class="make">
@@ -147,6 +148,7 @@ export default {
      showPopup: false, // 筛选页
      showView: false,
      makeList: [], // 筛选选项
+     makeSelect: [], //选中项
      minYear: '',
      maxYear: '',
      minYears: '', // 筛选时
@@ -223,7 +225,7 @@ export default {
       }).then(car => {
         this.information = car.data.records
         this.maxPrice = car.data.records[0].price
-        this.minPrice = car.data.records[car.data.records.length-1].price
+        this.minPrice = car.data.records[car.data.records.length-1].price 
         this.maxPrices = car.data.records[0].price
         this.minPrices = car.data.records[car.data.records.length-1].price
         this.price = [this.minPrice,this.maxPrice]
@@ -299,6 +301,7 @@ export default {
     showArrow1() {
       this.showView = true
     },
+    // sort筛选
     sleSort() {
       this.orderByPrice = 2
       if(this.checkRadioFlag) {
@@ -308,7 +311,7 @@ export default {
       car({
         current: '1',
         pageSize: '500',
-        make: '',
+        make: this.makeSelect.toString(),
         yearStart: this.minYear,
         yearEnd: this.maxYear,
         priceStart: this.minPrice,
@@ -348,7 +351,7 @@ export default {
       car({
         current: '1',
         pageSize: '500',
-        make: '',
+        make: this.makeSelect.toString(),
         yearStart: this.minYear,
         yearEnd: this.maxYear,
         priceStart: this.minPrice,
@@ -389,7 +392,7 @@ export default {
       car({
         current: '1',
         pageSize: '500',
-        make: '',
+        make: this.makeSelect.toString(),
         yearStart: this.minYear,
         yearEnd: this.maxYear,
         priceStart: this.minPrice,
@@ -430,7 +433,7 @@ export default {
       car({
         current: '1',
         pageSize: '500',
-        make: '',
+        make: this.makeSelect.toString(),
         yearStart: this.minYear,
         yearEnd: this.maxYear,
         priceStart: this.minPrice,
@@ -465,11 +468,13 @@ export default {
     changeFn() {
         this.checkRadioFlag = false;
       },
-    sleMak(item) {
+      // make筛选
+    sleMak(makeSelect) {
+      console.log('1', makeSelect.toString())
       car({
         current: '1',
         pageSize: '1000',
-        make: item.mak,
+        make: makeSelect.toString(),
         yearStart: this.minYear,
         yearEnd: this.maxYear,
         priceStart: this.minPrice,
@@ -506,12 +511,12 @@ export default {
          
       })
     },
-    // 查询
+    // 选中日期或者价格时
     selects() {
       car({
         current: '1',
         pageSize: '1000',
-        make: '',
+        make: this.makeSelect.toString(),
         yearStart: this.minYear,
         yearEnd: this.maxYear,
         priceStart: this.minPrice,
@@ -539,29 +544,6 @@ export default {
             }
             this.information.push(item)
           })
-        // this.maxPrice = car.data.records[0].price
-        // this.makeList = []
-        // this.minPrice = car.data.records[car.data.records.length-1].price
-        // this.price = [this.minPrice,this.maxPrice]
-        // console.log(this.information, 'car')
-        // const makesList = []
-        // car.data.records.forEach(ele => {
-        //   const makes = ele.make
-        //   if(makesList.indexOf(makes) === -1) {
-        //     makesList.push(makes)
-        //     // this.makeList.push(item)
-        //   }
-        // })
-        // const lengths = makesList.length
-        // for(i === lengths,)
-          // console.log('1',makesList)
-          // for(var i = 0; i < makesList.length; i++) {
-          //   const item = {
-          //     mak: makesList[i]
-          //   }
-          //   this.makeList.push(item)
-          //   console.log('5',this.makeList)
-          // }
       })
 
     },
@@ -929,6 +911,37 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
+      }
+    .ints {
+        margin:10px 10px 100px 10px;
+        position: relative;
+        .minprice {
+          line-height: 48px;
+          position: absolute;
+          left: 0;
+          width: 110px;
+          height: 48px;
+          background-color: #F4F6F8;
+          font-size: 16px;
+          font-family: PingFangSC-Light;
+          font-weight: 300;
+          color: #151515;
+        }
+        .maxprice {
+          line-height: 48px;
+          position: absolute;
+          right: 0;
+          width: 110px;
+          height: 48px;
+          background-color: #F4F6F8;
+          font-size: 16px;
+          font-family: PingFangSC-Light;
+          font-weight: 400;
+          color: #151515;
+      }
+    }
+    .showprice {
+      position: relative;
     }
   }
 }
