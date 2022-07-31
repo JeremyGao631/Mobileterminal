@@ -38,7 +38,7 @@
               <img :src="item.photo[0]" />
             </div>
             <div class="titlecard" >
-              <span >{{item.year}}  {{item.make}}{{item.model}}</span>
+              <span >{{item.year}} {{item.make}} {{item.model}}</span>
             </div>
             <div class="contentcard">
               <span class="contentcard-price">${{item.price}}</span>
@@ -131,6 +131,7 @@
 
 <script>
 import { car } from '@/api';
+import loading from '@/components/Loading/main.js'
 export default {
   name: 'HomeView',
   components: {
@@ -257,6 +258,8 @@ export default {
                 make: ele.make,
                 price: ele.priceDesc,
                 odometer: ele.odometer,
+                advTitle: ele.advTitle,
+                advbody: ele.advbody,
                 drive: ele.drive,
                 body: ele.body,
                 model: ele.model,
@@ -308,7 +311,14 @@ export default {
       if(this.checkRadioFlag) {
           this.sort = '';
         }
-        this.checkRadioFlag = true;
+      this.checkRadioFlag = true;
+      if(!car.disableLoading) {
+        loading({
+          title: 'Requesting',
+          size: 30,
+          textSize: 18
+        })
+      }
       car({
         current: '1',
         pageSize: '500',
@@ -321,6 +331,11 @@ export default {
         // orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
+        if (car.code !== 0 ) {
+          setTimeout(() => loading.close(), 1000)
+        } else {
+          setTimeout(() => loading.close(), 1000)
+        }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -330,6 +345,8 @@ export default {
                 price: ele.priceDesc,
                 odometer: ele.odometer,
                 body: ele.body,
+                advbody: ele.advbody,
+                advTitle: ele.advTitle,
                 drive: ele.drive,
                 model: ele.model,
                 geartype: ele.geartype,
@@ -349,7 +366,14 @@ export default {
       if(this.checkRadioFlag) {
           this.sort = '';
         }
-        this.checkRadioFlag = true;
+      this.checkRadioFlag = true;
+      if(!car.disableLoading) {
+        loading({
+          title: 'Requesting',
+          size: 30,
+          textSize: 18
+        })
+      }
       car({
         current: '1',
         pageSize: '500',
@@ -362,6 +386,11 @@ export default {
         // orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
+        if (car.code !== 0 ) {
+          setTimeout(() => loading.close(), 1000)
+        } else {
+          setTimeout(() => loading.close(), 1000)
+        }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -370,6 +399,8 @@ export default {
                 make: ele.make,
                 price: ele.priceDesc,
                 odometer: ele.odometer,
+                advbody: ele.advbody,
+                advTitle: ele.advTitle,
                 drive: ele.drive,
                 body: ele.body,
                 model: ele.model,
@@ -391,7 +422,14 @@ export default {
       if(this.checkRadioFlag) {
           this.sort = '';
         }
-        this.checkRadioFlag = true;
+      this.checkRadioFlag = true;
+      if(!car.disableLoading) {
+        loading({
+          title: 'Requesting',
+          size: 30,
+          textSize: 18
+        })
+      }
       car({
         current: '1',
         pageSize: '500',
@@ -404,6 +442,11 @@ export default {
         orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
+        if (car.code !== 0 ) {
+          setTimeout(() => loading.close(), 1000)
+        } else {
+          setTimeout(() => loading.close(), 1000)
+        }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -413,6 +456,8 @@ export default {
                 price: ele.priceDesc,
                 odometer: ele.odometer,
                 body: ele.body,
+                advbody: ele.advbody,
+                advTitle: ele.advTitle,
                 drive: ele.drive,
                 model: ele.model,
                 geartype: ele.geartype,
@@ -433,7 +478,14 @@ export default {
       if(this.checkRadioFlag) {
           this.sort = '';
         }
-        this.checkRadioFlag = true;
+      this.checkRadioFlag = true;
+      if(!car.disableLoading) {
+        loading({
+          title: 'Requesting',
+          size: 30,
+          textSize: 18
+        })
+      }
       car({
         current: '1',
         pageSize: '500',
@@ -446,6 +498,11 @@ export default {
         orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
+        if (car.code !== 0 ) {
+          setTimeout(() => loading.close(), 1000)
+        } else {
+          setTimeout(() => loading.close(), 1000)
+        }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -455,6 +512,8 @@ export default {
                 price: ele.priceDesc,
                 odometer: ele.odometer,
                 drive: ele.drive,
+                advbody: ele.advbody,
+                advTitle: ele.advTitle,
                 body: ele.body,
                 model: ele.model,
                 geartype: ele.geartype,
@@ -476,6 +535,13 @@ export default {
       // make筛选
     sleMak(makeSelect) {
       console.log('1', makeSelect.toString())
+      if(!car.disableLoading) {
+        loading({
+          title: 'Requesting',
+          size: 30,
+          textSize: 18
+        })
+      }
       car({
         current: '1',
         pageSize: '1000',
@@ -488,6 +554,11 @@ export default {
         orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
+        if (car.code !== 0 ) {
+          setTimeout(() => loading.close(), 1000)
+        } else {
+          setTimeout(() => loading.close(), 1000)
+        }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -498,6 +569,8 @@ export default {
                 odometer: ele.odometer,
                 drive: ele.drive,
                 body: ele.body,
+                advbody: ele.advbody,
+                advTitle: ele.advTitle,
                 model: ele.model,
                 geartype: ele.geartype,
                 enginesize: ele.enginesize,
@@ -519,6 +592,13 @@ export default {
     },
     // 选中日期或者价格时
     selects() {
+      if(!car.disableLoading) {
+        loading({
+          title: 'Requesting',
+          size: 30,
+          textSize: 18
+        })
+      }
       car({
         current: '1',
         pageSize: '1000',
@@ -531,6 +611,11 @@ export default {
         orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
+        if (car.code !== 0 ) {
+          setTimeout(() => loading.close(), 1000)
+        } else {
+          setTimeout(() => loading.close(), 1000)
+        }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -539,6 +624,8 @@ export default {
                 make: ele.make,
                 price: ele.priceDesc,
                 odometer: ele.odometer,
+                advbody: ele.advbody,
+                advTitle: ele.advTitle,
                 drive: ele.drive,
                 body: ele.body,
                 model: ele.model,

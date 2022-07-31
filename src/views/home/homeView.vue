@@ -47,7 +47,7 @@
               <img :src="item.photo[0]" />
             </div>
             <div class="titlecard" >
-              <span >{{item.year}} {{item.make}}{{item.model}}</span>
+              <span >{{item.year}} {{item.make}} {{item.model}}</span>
             </div>
             <div class="contentcard">
               <span class="contentcard-price">${{item.price}}</span>
@@ -149,6 +149,8 @@ export default {
                 make: ele.make,
                 price: ele.priceDesc,
                 odometer: ele.odometer,
+                advbody: ele.advbody,
+                advTitle: ele.advTitle,
                 drive: ele.drive,
                 body: ele.body,
                 model: ele.model,

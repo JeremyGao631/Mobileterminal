@@ -57,8 +57,8 @@
                 <div style="clear:both;"></div>
             </div>
             <div class="comment">
-                <div class="comment-title">DEALER COMMENTS</div>
-                <div class="comment-span">The team at Autohome AU make selling your car as easy and convenient as possible.Simply send us your vehicle details using the form below and let our team take care of the rest. Contact us now.</div>
+                <div class="comment-title">{{informations.advTitle}}</div>
+                <div v-html="advbody" class="comment-span"/>
             </div>
         </div>
         <div class="contact">
@@ -89,7 +89,7 @@
                 <div class="textcontent">
                 <div class="textcard">
                     <img class="img" :src="item.photo[0]" />
-                    <div class="year">{{item.year}} {{item.make}}{{item.model}}</div><br />
+                    <div class="year">{{item.year}} {{item.make}} {{item.model}}</div><br />
                     <div class="contentcard">
                         <span class="contentcard-price">${{item.price}}</span>
                         <span class="contentcard-info">Excl . Gov's Charges</span>
@@ -122,6 +122,8 @@ export default {
         return {
             showTime: false, // 时间控件
             price: '',
+            advTitle: '',
+            advbody: '',
             // informations: {},
             form: {
                 name: '',
@@ -141,6 +143,10 @@ export default {
     },
     created() {
         this.informations = this.$route.query.item
+        this.advTitle = this.informations.advTitle
+        this.advbody = this.informations.advbody
+        console.log('advTitle', this.advbody)
+        console.log('informations', this.informations)
         console.log(this.information,"1111111111111")
         this.price = this.informations.price
         this.firstPhoto = this.$route.query.item.photo[0]
@@ -212,6 +218,8 @@ export default {
         jumpcardetail(item) {
             this.price = item.price
             this.informations = item
+            this.advTitle = item.advTitle
+            this.advbody = item.advbody
             this.init()
             this.allCar()
             this.setPhotos(item)
@@ -248,6 +256,8 @@ export default {
                         odometer: ele.odometer,
                         body: ele.body,
                         drive: ele.drive,
+                        advbody: ele.advbody,
+                        advTitle: ele.advTitle,
                         model: ele.model,
                         geartype: ele.geartype,
                         enginesize: ele.enginesize,
@@ -388,6 +398,8 @@ export default {
           display: flex;
           align-items: center;
           justify-content: center;
+          position: relative;
+          top: 1px;
           .showleft {
             height: 25px;
             img {
@@ -449,7 +461,7 @@ export default {
                 text-align: left;
                 padding-top:24px;
                 padding-bottom:10px;
-                font-size: 16px;
+                font-size: 17px;
                 font-family: DINCondensed-Bold, DINCondensed;
                 font-weight: bold;
                 color: #151515;
@@ -457,7 +469,7 @@ export default {
             }
             .comment-span{
                 // width: 336px;
-                height: 72px;
+                // height: 72px;
                 font-size: 13px;
                 text-align: left;
                 font-family: PingFangSC-Light, PingFang SC;
@@ -613,9 +625,9 @@ export default {
             .year {
                 width: 154px;
                 text-align: left;
-                font-size: 10px;
+                font-size: 14px;
                 margin-bottom:-12px;
-                font-family: DINCondensed-Bold, DINCondensed;
+                font-family: DINCondensed-Bold;
                 font-weight: bold;
                 color: #212020;
                 line-height: 10px;
@@ -627,17 +639,17 @@ export default {
                 align-items: center;
                 justify-content: space-between;
             .contentcard-price {
-                height: 10px;
-                font-size: 10px;
-                font-family: DINCondensed-Bold, DINCondensed;
+                height: 12px;
+                font-size: 12px;
+                font-family:DINCondensed-Bold;
                 font-weight: bold;
                 color: #151515;
                 line-height: 17px;
             }
             .contentcard-info {
                 height: 8px;
-                font-size: 8px;
-                font-family: DINCondensed-Bold, DINCondensed;
+                font-size: 9px;
+                font-family: DINCondensed-Bold;
                 font-weight: bold;
                 color: #909090;
                 line-height: 16px;
@@ -657,9 +669,8 @@ export default {
             align-items: center;
             justify-content: space-between;
             span {
-                font-size: 6px;
-                font-family: PingFangSC-Regular, PingFang SC;
-                font-weight: 400;
+                font-size: 5px;
+                font-family:PingFangSC-Regular;
                 color: #909090;
                 line-height: 13px;
                 white-space: nowrap;

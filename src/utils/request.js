@@ -1,5 +1,5 @@
 import axios from 'axios'
-import loading from '@/components/Loading/main.js'
+// import loading from '@/components/Loading/main.js'
 // import router from '@/router'
 
 // create an axios instance
@@ -13,11 +13,11 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     if (!config.disableLoading) {
-      loading({
-        title: 'Requesting',
-        size: 30,
-        textSize: 18
-      })
+      // loading({
+      //   title: 'Requesting',
+      //   size: 30,
+      //   textSize: 18
+      // })
     }
     if (config.method === 'post')
 
@@ -41,9 +41,9 @@ service.interceptors.response.use(
     const res = response.data
     // // errorCode 请求错误码
     if (res.code !== 0) {
-      setTimeout(() => loading.close(), 1500)
+    //   setTimeout(() => loading.close(), 1500)
     } else {
-      setTimeout(() => loading.close(), 1500)
+    //   setTimeout(() => loading.close(), 1500)
       return res
     }
   },
