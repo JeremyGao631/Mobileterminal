@@ -58,7 +58,7 @@
               <span >{{item.odometer}}  kms</span>
               <!-- <span >{{item.body}}</span> -->
               <span>{{item.fueltype.substring(0,6)}}</span>
-              <span >{{item.geartype}}</span>
+              <span >{{item.geartype.slice(0,4)}}</span>
             </div>
           </div>
         </div>
