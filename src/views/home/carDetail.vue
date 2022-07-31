@@ -247,6 +247,7 @@ export default {
                         price: ele.priceDesc,
                         odometer: ele.odometer,
                         body: ele.body,
+                        drive: ele.drive,
                         model: ele.model,
                         geartype: ele.geartype,
                         enginesize: ele.enginesize,
