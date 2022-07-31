@@ -1,4 +1,5 @@
 import axios from 'axios'
+import loading from '@/components/Loading/main.js'
 // import router from '@/router'
 
 // create an axios instance
@@ -11,7 +12,13 @@ const service = axios.create({
 
 service.interceptors.request.use(
   config => {
-    if (!config.disableLoading)
+    if (!config.disableLoading) {
+      loading({
+        title: 'Requesting',
+        size: 30,
+        textSize: 18
+      })
+    }
     if (config.method === 'post')
 
     return config
@@ -31,24 +38,13 @@ service.interceptors.response.use(
    * You can also judge the status by HTTP Status errcode
    */
   response => {
-    const { data } = response
-    if (data.code === 0) {
-      return data
-    } else if (process.env.VUE_APP_MODE === 'per') {
-
-      return {
-        ...data,
-        _Return: '000000',
-        _TaskId: '999999999999999999999999999'
-      }
-    } else if (data.code && data.code === -9) {
-      return
+    const res = response.data
+    // // errorCode 请求错误码
+    if (res.code !== 0) {
+      setTimeout(() => loading.close(), 1500)
     } else {
-      if (data.code) {
-        return data
-      } else {
-        return response
-      }
+      setTimeout(() => loading.close(), 1500)
+      return res
     }
   },
   error => {
