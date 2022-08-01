@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="span-img">
-            <img class="bottom-img" src="../../assets/images/home/JVS00366-Edit-3-copy.jpg" alt="">
+            <img class="bottom-img" src="../../assets/images/home/JVS00366-Edit-3-copy.png" alt="">
             <div class="bottom-title">
                 <div class="title">VISIT OUR SHOWROOM</div>
                 <div class="offer">Please visit our showroom in Burwood to inspect our range of vehicles and discuss your needs. Our Sales team speak English and Chinese, and we look forward to helping you with your next car sale or purchase.</div>
