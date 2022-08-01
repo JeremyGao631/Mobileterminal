@@ -95,7 +95,7 @@
                         <span class="contentcard-info">Excl . Gov's Charges</span>
                     </div>
                     <div class="detailcard" >
-                        <span >{{item.odometer}}kms</span>
+                        <span >{{item.odometer}} kms</span>
                         <!-- <span >{{item.body}}</span> -->
                         <span>{{item.fueltype.substring(0,6)}}</span>
                         <span >{{item.geartype.slice(0,4)}}</span>
@@ -352,7 +352,6 @@ export default {
                 font-size: 30px;
                 text-align: left;
                 font-family: DINCondensed-Bold, DINCondensed;
-                font-weight: bold;
                 color: #151515;
                 line-height: 24px;
                 letter-spacing: 1px;
@@ -367,7 +366,6 @@ export default {
                 font-size: 11px;
                 margin-left:7px;
                 font-family: DINCondensed-Bold, DINCondensed;
-                font-weight: bold;
                 color: #909090;
                 line-height: 13px;
             }
@@ -445,10 +443,10 @@ export default {
             }
           }
           .showleft:nth-child(1) {
-            margin:0 60px 0 0;
+            margin:0 55px 0 0;
           }
           .showleft:nth-child(2) {
-            margin:0 60px 0 0;
+            margin:0 55px 0 0;
           }
         //   .showleft:nth-child(3) {
         //     margin:0 0px 0 0;
@@ -619,16 +617,17 @@ export default {
                 height: 89px;
                 width: 154px;
                 object-fit: cover;
-                margin-bottom: 10px;
+                margin-bottom: 5px;
             }
             .year {
-                width: 154px;
                 text-align: left;
-                font-size: 14px;
+                font-size: 16px;
                 margin-bottom:-12px;
                 font-family: DINCondensed-Bold;
                 color: #212020;
-                line-height: 10px;
+                line-height: 14px;
+                display: block;
+                height: 25px;
             }
 
             .contentcard {
@@ -638,17 +637,17 @@ export default {
                 justify-content: space-between;
             .contentcard-price {
                 height: 12px;
-                font-size: 12px;
+                font-size: 14px;
                 font-family:DINCondensed-Bold;
                 color: #151515;
                 line-height: 17px;
             }
             .contentcard-info {
                 height: 8px;
-                font-size: 9px;
+                font-size: 10px;
                 font-family: DINCondensed-Bold;
                 color: #909090;
-                line-height: 16px;
+                line-height: 12px;
             }
           }
           .break {
@@ -665,14 +664,14 @@ export default {
             align-items: center;
             justify-content: space-between;
             span {
-                font-size: 5px;
+                font-size: 10px;
                 font-family:PingFangSC-Regular;
                 color: #909090;
                 line-height: 13px;
                 white-space: nowrap;
             }
             .span1 {
-                font-size: 9px;
+                font-size: 10px;
                 padding-left: 12px;
                 padding-right:7px;
                 font-family: PingFangSC-Regular, PingFang SC;

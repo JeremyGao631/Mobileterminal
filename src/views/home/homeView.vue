@@ -409,6 +409,8 @@ export default {
           font-size: 16px;
           color: #212020;
           line-height: 16px;
+          display: block;
+          height: 25px;
         }
       }
       .contentcard {
