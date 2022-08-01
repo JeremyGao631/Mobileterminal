@@ -131,7 +131,7 @@
 
 <script>
 import { car } from '@/api';
-import loading from '@/components/Loading/main.js'
+// import loading from '@/components/Loading/main.js'
 export default {
   name: 'HomeView',
   components: {
@@ -312,13 +312,13 @@ export default {
           this.sort = '';
         }
       this.checkRadioFlag = true;
-      if(!car.disableLoading) {
-        loading({
-          title: 'Requesting',
-          size: 30,
-          textSize: 18
-        })
-      }
+      // if(!car.disableLoading) {
+      //   loading({
+      //     title: 'Requesting',
+      //     size: 30,
+      //     textSize: 18
+      //   })
+      // }
       car({
         current: '1',
         pageSize: '500',
@@ -331,11 +331,12 @@ export default {
         // orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
-        if (car.code !== 0 ) {
-          setTimeout(() => loading.close(), 1000)
-        } else {
-          setTimeout(() => loading.close(), 1000)
-        }
+
+        // if (car.code !== 0 ) {
+        //   setTimeout(() => loading.close(), 1000)
+        // } else {
+        //   setTimeout(() => loading.close(), 1000)
+        // }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -367,13 +368,13 @@ export default {
           this.sort = '';
         }
       this.checkRadioFlag = true;
-      if(!car.disableLoading) {
-        loading({
-          title: 'Requesting',
-          size: 30,
-          textSize: 18
-        })
-      }
+      // if(!car.disableLoading) {
+      //   loading({
+      //     title: 'Requesting',
+      //     size: 30,
+      //     textSize: 18
+      //   })
+      // }
       car({
         current: '1',
         pageSize: '500',
@@ -386,11 +387,12 @@ export default {
         // orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
-        if (car.code !== 0 ) {
-          setTimeout(() => loading.close(), 1000)
-        } else {
-          setTimeout(() => loading.close(), 1000)
-        }
+
+        // if (car.code !== 0 ) {
+        //   setTimeout(() => loading.close(), 1000)
+        // } else {
+        //   setTimeout(() => loading.close(), 1000)
+        // }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -423,13 +425,13 @@ export default {
           this.sort = '';
         }
       this.checkRadioFlag = true;
-      if(!car.disableLoading) {
-        loading({
-          title: 'Requesting',
-          size: 30,
-          textSize: 18
-        })
-      }
+      // if(!car.disableLoading) {
+      //   loading({
+      //     title: 'Requesting',
+      //     size: 30,
+      //     textSize: 18
+      //   })
+      // }
       car({
         current: '1',
         pageSize: '500',
@@ -442,11 +444,12 @@ export default {
         orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
-        if (car.code !== 0 ) {
-          setTimeout(() => loading.close(), 1000)
-        } else {
-          setTimeout(() => loading.close(), 1000)
-        }
+
+        // if (car.code !== 0 ) {
+        //   setTimeout(() => loading.close(), 1000)
+        // } else {
+        //   setTimeout(() => loading.close(), 1000)
+        // }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -479,13 +482,13 @@ export default {
           this.sort = '';
         }
       this.checkRadioFlag = true;
-      if(!car.disableLoading) {
-        loading({
-          title: 'Requesting',
-          size: 30,
-          textSize: 18
-        })
-      }
+      // if(!car.disableLoading) {
+      //   loading({
+      //     title: 'Requesting',
+      //     size: 30,
+      //     textSize: 18
+      //   })
+      // }
       car({
         current: '1',
         pageSize: '500',
@@ -498,11 +501,12 @@ export default {
         orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
-        if (car.code !== 0 ) {
-          setTimeout(() => loading.close(), 1000)
-        } else {
-          setTimeout(() => loading.close(), 1000)
-        }
+
+        // if (car.code !== 0 ) {
+        //   setTimeout(() => loading.close(), 1000)
+        // } else {
+        //   setTimeout(() => loading.close(), 1000)
+        // }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -535,13 +539,13 @@ export default {
       // make筛选
     sleMak(makeSelect) {
       console.log('1', makeSelect.toString())
-      if(!car.disableLoading) {
-        loading({
-          title: 'Requesting',
-          size: 30,
-          textSize: 18
-        })
-      }
+      // if(!car.disableLoading) {
+      //   loading({
+      //     title: 'Requesting',
+      //     size: 30,
+      //     textSize: 18
+      //   })
+      // }
       car({
         current: '1',
         pageSize: '1000',
@@ -554,11 +558,12 @@ export default {
         orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
-        if (car.code !== 0 ) {
-          setTimeout(() => loading.close(), 1000)
-        } else {
-          setTimeout(() => loading.close(), 1000)
-        }
+
+        // if (car.code !== 0 ) {
+        //   setTimeout(() => loading.close(), 1000)
+        // } else {
+        //   setTimeout(() => loading.close(), 1000)
+        // }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {
@@ -592,13 +597,13 @@ export default {
     },
     // 选中日期或者价格时
     selects() {
-      if(!car.disableLoading) {
-        loading({
-          title: 'Requesting',
-          size: 30,
-          textSize: 18
-        })
-      }
+      // if(!car.disableLoading) {
+      //   loading({
+      //     title: 'Requesting',
+      //     size: 30,
+      //     textSize: 18
+      //   })
+      // }
       car({
         current: '1',
         pageSize: '1000',
@@ -611,11 +616,12 @@ export default {
         orderByYear: this.orderByYear
       }).then(car => {
         // this.information = car.data.records
-        if (car.code !== 0 ) {
-          setTimeout(() => loading.close(), 1000)
-        } else {
-          setTimeout(() => loading.close(), 1000)
-        }
+
+        // if (car.code !== 0 ) {
+        //   setTimeout(() => loading.close(), 1000)
+        // } else {
+        //   setTimeout(() => loading.close(), 1000)
+        // }
         this.information = []
           car.data.records.forEach(ele => {
             const item = {

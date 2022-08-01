@@ -392,14 +392,15 @@ export default {
         .littleshow {
           background-color: white;
           width:100%;
-          padding:0 -2px;
+        //   padding:0 -2px;
           height:80px;
           margin-top: 10px;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: left;
           position: relative;
           top: 1px;
+          padding-left: 10px;
           .showleft {
             height: 25px;
             img {
@@ -410,17 +411,16 @@ export default {
               padding:5px;
             }
             .showlefttext {
-              float:left;
               position: relative;
-              top:-37px;
-              left:35px;
+              top:-35px;
+              left: 35px;
               height:100%;
               text-align: left;
-              letter-spacing: 1px;
+            //   letter-spacing: 1px;
               .texttop {
-                width: 51px;
-                height: 19px;
-                font-size: 15.8px;
+                // width: 51px;
+                // height: 19px;
+                font-size: 18px;
                 font-family: DINAlternate-Bold, DINAlternate;
                 font-weight: bold;
                 color: #151515;
@@ -445,14 +445,14 @@ export default {
             }
           }
           .showleft:nth-child(1) {
-            margin:0 15px 0 10px;
+            margin:0 60px 0 0;
           }
           .showleft:nth-child(2) {
-            margin:0 10px 0 10px;
+            margin:0 60px 0 0;
           }
-          .showleft:nth-child(3) {
-            margin:0 15px 0 15px;
-          }
+        //   .showleft:nth-child(3) {
+        //     margin:0 0px 0 0;
+        //   }
         }
         .comment {
             padding-bottom: 23px;
@@ -602,7 +602,6 @@ export default {
             text-align: left;
             font-size: 24px;
             font-family: DINCondensed-Bold, DINCondensed;
-            font-weight: bold;
             color: #151515;
             line-height: 60px;
             margin-left: 8px;
@@ -628,7 +627,6 @@ export default {
                 font-size: 14px;
                 margin-bottom:-12px;
                 font-family: DINCondensed-Bold;
-                font-weight: bold;
                 color: #212020;
                 line-height: 10px;
             }
@@ -642,7 +640,6 @@ export default {
                 height: 12px;
                 font-size: 12px;
                 font-family:DINCondensed-Bold;
-                font-weight: bold;
                 color: #151515;
                 line-height: 17px;
             }
@@ -650,7 +647,6 @@ export default {
                 height: 8px;
                 font-size: 9px;
                 font-family: DINCondensed-Bold;
-                font-weight: bold;
                 color: #909090;
                 line-height: 16px;
             }

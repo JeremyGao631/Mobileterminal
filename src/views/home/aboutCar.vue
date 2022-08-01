@@ -2,7 +2,7 @@
     <div class="page">
         <img class="top-img" src="../../assets/images/about/JVS00341-4.jpg" alt="">
         <div class="top-title">
-            <div class="title">OUR MISSION</div>
+            <div class="title">About Autohome</div>
             <!-- <div class="offer">Offer our customers exceptional quality and excellent value with our integrity and enthusiasm.</div> -->
         </div>
         <div class="page-grid">
