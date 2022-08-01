@@ -57,7 +57,8 @@
                 <div style="clear:both;"></div>
             </div>
             <div class="comment">
-                <div class="comment-title">{{informations.advTitle}}</div>
+                <div class="comment-title">DEALER COMMENTS</div>
+                <div v-html="advTitle" class="comment-span"/>
                 <div v-html="advbody" class="comment-span"/>
             </div>
         </div>
