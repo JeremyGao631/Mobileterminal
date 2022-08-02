@@ -317,7 +317,7 @@ export default {
   font-family: DINCondensed-Bold, DINCondensed;
   // font-weight: bold;
   color: #151515;
-  padding-top: 25px;
+  padding-top: 28px;
   padding-bottom: 25px;
   margin-left: 20px;
   text-align: left;
@@ -390,7 +390,7 @@ export default {
     .textcard {
       float:left;
       width: calc(50% - 15px);
-      padding-bottom: 30px;
+      padding-bottom: 25px;
       .imgcard {
         width: 100%;
         height: 98px;
@@ -403,7 +403,7 @@ export default {
       .titlecard {
         text-align:left;
         padding-bottom: 16px;
-        margin-top: 5px;
+        margin-top: 10px;
         span {
           font-family: DINCondensed-Bold;
           font-size: 16px;
@@ -414,7 +414,7 @@ export default {
         }
       }
       .contentcard {
-        padding-bottom: 10px;
+        padding-bottom: 5px;
         padding-right: 3px;
         display: flex;
         align-items: center;
@@ -439,7 +439,7 @@ export default {
         margin-right: 7px;
       }
       .detailcard {
-        padding-top: 10px;
+        padding-top: 5px;
         padding-right: 3px;
         display: flex;
         align-items: center;
@@ -473,7 +473,6 @@ export default {
 
 .card img{
   width: 100%;
-  height: 200px;
   object-fit: cover;
 }
 

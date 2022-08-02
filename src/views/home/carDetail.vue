@@ -1,6 +1,10 @@
 <template>
     <div class="page">
-        <img class="top-img" :src="firstPhoto" alt="">
+        <el-carousel ref="carousel" @change="changebigimg()" arrow="always" indicator-position="none" :interval="3000" height="265px">
+            <el-carousel-item v-for="(bigitem,index) in photos" :key="index" >
+                <img class="top-img" :src="bigitem.img" alt="">
+            </el-carousel-item>
+        </el-carousel>
         <div class="smallimg">
             <!-- <img :src="informations.photo[1]" />
             <img :src="informations.photo[2]" />
@@ -8,9 +12,9 @@
             <img :src="informations.photo[4]" />
             <img :src="informations.photo[5]" />
             <img :src="informations.photo[6]" /> -->
-            <van-swipe :width="65" :autoplay="3000" loop :show-indicators= false>
-                <van-swipe-item v-for="(item,idx) in photos" :key="idx" v-lazy="item.img">
-                    <img :src="item.img" alt="" @click="choosePhoto(item)">
+            <van-swipe :width="65" :autoplay="3000" :loop="true" :show-indicators= false>
+                <van-swipe-item v-for="(item,idx) in photos" :key="idx" >
+                    <img :src="item.img" alt="" :class="index === imgActiveIndex" @click="choosePhoto(idx)">
                 </van-swipe-item>
             </van-swipe>
         </div>
@@ -137,8 +141,9 @@ export default {
             ],
             photo: {}, // 前一页面的图片参数
             photos: [],
-            firstPhoto: '', // 第一张图片
-            informations: []
+            // firstPhoto: '', // 第一张图片
+            informations: [],
+            imgActiveIndex: 0,
 
         }
     },
@@ -156,7 +161,98 @@ export default {
         this.allCar()
         this.setPhoto()
     },
+    mounted() {
+    this.slideBanner()/*轮播手滑切换*/
+    },
     methods: {
+    changebigimg(){
+      var idx = this.$refs.carousel.activeIndex
+      console.log("changebigimg",idx)
+      this.imgActiveIndex = idx
+    },
+        /*轮播手滑切换*/
+    startAuto() {
+      if (this.autoplay == false) {
+        this.autoplay = true;
+      }
+    },
+    stopAuto() {
+      if (this.autoplay == true) {
+        this.autoplay = false;
+      }
+    },
+    slideBanner() {
+      let that = this
+      //选中item的盒子
+      var box = document.querySelector('.el-carousel__container');
+      //手指起点X坐标
+      var startPoint = 0;
+      //手指滑动重点X坐标
+      var stopPoint = 0;
+ 
+      //重置坐标
+      var resetPoint = function () {
+        startPoint = 0;
+        stopPoint = 0;
+      }
+ 
+      //手指按下
+      box.addEventListener("touchstart", function (e) {
+        //手指按下的时候停止自动轮播
+        that.stopAuto();
+        //手指点击位置的X坐标
+        startPoint = e.changedTouches[0].pageX;
+      });
+      //手指滑动
+      box.addEventListener("touchmove", function (e) {
+        //手指滑动后终点位置X的坐标
+        stopPoint = e.changedTouches[0].pageX;
+      });
+      //当手指抬起的时候，判断图片滚动离左右的距离
+      box.addEventListener("touchend", function () {
+        console.log("1：" + startPoint);
+        console.log("2：" + stopPoint);
+        if (stopPoint == 0 || startPoint - stopPoint == 0) {
+          resetPoint();
+          return;
+        }
+        if (startPoint - stopPoint > 0) {
+          resetPoint();
+          that.$refs.carousel.next();
+          return;
+        }
+        if (startPoint - stopPoint < 0) {
+          resetPoint();
+          that.$refs.carousel.prev();
+          return;
+        }
+      });
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         setPhoto() {
             this.photo = this.$route.query.item.photo
             this.photos = []
@@ -180,8 +276,10 @@ export default {
             console.log(this.photos, '1212')
         },
         // 图片点击事件
-        choosePhoto(item){
-            this.firstPhoto = item.img
+        choosePhoto(idx){
+            // console.log(item,'1111111234567')
+            // this.firstPhoto = item.img
+            this.$refs.carousel.setActiveItem(idx)
         },
         init() {
             this.List = [
@@ -319,7 +417,8 @@ export default {
     background-color: #f4f6f8;
     .top-img {
         width: 100%;
-        height: 207px;
+        height: 100%;
+        object-fit: cover;
     }
     .smallimg {
         height: 60px;
@@ -685,5 +784,9 @@ export default {
         }
       }
     }
+}
+
+/deep/ .el-carousel__arrow {
+    border: 1px solid #fff;
 }
 </style>
