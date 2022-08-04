@@ -1,9 +1,24 @@
 const { defineConfig } = require('@vue/cli-service')
+
+const webpack = require("webpack");
 module.exports = defineConfig({
   transpileDependencies: true,
   publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
+
+  configureWebpack: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "windows.jQuery": "jquery",
+      }),
+    ],
+  },
+
+
+
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
