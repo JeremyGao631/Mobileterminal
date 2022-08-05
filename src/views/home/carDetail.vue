@@ -250,71 +250,6 @@ jssor_1_slider_init : function() {
 
 
 
-    changebigimg(){
-      var idx = this.$refs.carousel.activeIndex
-      console.log("changebigimg",idx)
-      this.imgActiveIndex = idx
-    },
-        /*轮播手滑切换*/
-    startAuto() {
-      if (this.autoplay == false) {
-        this.autoplay = true;
-      }
-    },
-    stopAuto() {
-      if (this.autoplay == true) {
-        this.autoplay = false;
-      }
-    },
-    slideBanner() {
-      let that = this
-      //选中item的盒子
-      var box = document.querySelector('.el-carousel__container');
-      //手指起点X坐标
-      var startPoint = 0;
-      //手指滑动重点X坐标
-      var stopPoint = 0;
- 
-      //重置坐标
-      var resetPoint = function () {
-        startPoint = 0;
-        stopPoint = 0;
-      }
- 
-      //手指按下
-      box.addEventListener("touchstart", function (e) {
-        //手指按下的时候停止自动轮播
-        that.stopAuto();
-        //手指点击位置的X坐标
-        startPoint = e.changedTouches[0].pageX;
-      });
-      //手指滑动
-      box.addEventListener("touchmove", function (e) {
-        //手指滑动后终点位置X的坐标
-        stopPoint = e.changedTouches[0].pageX;
-      });
-      //当手指抬起的时候，判断图片滚动离左右的距离
-      box.addEventListener("touchend", function () {
-        console.log("1：" + startPoint);
-        console.log("2：" + stopPoint);
-        if (stopPoint == 0 || startPoint - stopPoint == 0) {
-          resetPoint();
-          return;
-        }
-        if (startPoint - stopPoint > 0) {
-          resetPoint();
-          that.$refs.carousel.next();
-          return;
-        }
-        if (startPoint - stopPoint < 0) {
-          resetPoint();
-          that.$refs.carousel.prev();
-          return;
-        }
-      });
-    },
-
-
 
 
 
@@ -507,7 +442,7 @@ jssor_1_slider_init : function() {
             top: 0;
             left: 0;
             width: 54px;
-            height: 54px;
+            height: 40px;
         }
         
         .jssort01 .t {
@@ -531,31 +466,31 @@ jssor_1_slider_init : function() {
             position: absolute;
             top: 0px;
             left: 0px;
-            width: 50px;
-            height: 50px;
-            border: #000 2px solid;
+            // width: 50px;
+            // height: 36px;
+            // border: #000 2px solid;
+            width: 52px;
+            height: 38px;
+            border: #fff 1px solid;
             box-sizing: content-box;
             _background: none;
         }
         
         .jssort01 .pav .c {
-            top: 2px;
-            _top: 0px;
-            left: 2px;
-            _left: 0px;
-            width: 68px;
-            height: 68px;
-            border: #000 0px solid;
-            _border: #fff 2px solid;
-            background-position: 50% 50%;
+            width: 50px;
+            height: 36px;
+            border: #000 2px solid;
         }
         
         .jssort01 .p:hover .c {
             top: 0px;
             left: 0px;
-            width: 70px;
-            height: 70px;
-            border: #fff 1px solid;
+            // width: 70px;
+            // height: 70px;
+            // border: #fff 1px solid;
+            width: 50px;
+            height: 36px;
+            border: #000 2px solid;
             background-position: 50% 50%;
         }
         
