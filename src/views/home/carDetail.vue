@@ -1,17 +1,17 @@
 <template>
     <div class="page">
         <div id="jssor_1" style="position: relative; top: 0px; left: 0px; width: 300px; height: 330px; overflow: hidden;">
-          <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+          <!-- <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
               <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
               <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
-          </div>
-          <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 300px; height: 230px; overflow: hidden;">
+          </div> -->
+          <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 300px; height: 180px; overflow: hidden;">
               <div data-p="144.50" style="display: none;" v-for="(item,index) in photos" :key="index">
                   <img data-u="image" :src="item.img" />
                   <img data-u="thumb" :src="item.img" />
               </div>
           </div>
-          <div data-u="thumbnavigator" class="jssort01" style="position:absolute;left:0px;bottom:0px;width:300px;height:115px;" data-autocenter="1">
+          <div data-u="thumbnavigator" class="jssort01" style="position:absolute;left:0px;bottom:0px;width:300px;height:230px;" data-autocenter="1">
               
               <div data-u="slides" style="cursor: default;">
                   <div data-u="prototype" class="p">
@@ -22,8 +22,8 @@
                   </div>
               </div>
           </div>
-          <span data-u="arrowleft" class="jssora05l" style="top:100px;left:0px;width:45px;height:45px;"></span>
-          <span data-u="arrowright" class="jssora05r" style="top:100px;right:0px;width:45px;height:45px;"></span>
+          <span data-u="arrowleft" class="jssora05l" style="top:60px;left:0px;width:45px;height:45px;"></span>
+          <span data-u="arrowright" class="jssora05r" style="top:60px;right:0px;width:45px;height:45px;"></span>
         </div>
         <div class="title">
             <div class="title-top">
@@ -561,7 +561,7 @@ jssor_1_slider_init : function() {
             }
         }
     .title {
-        margin:-15px 10px 10px 10px;
+        margin:-100px 10px 10px 10px;
         background-color: #fff;
         padding-top: 21px;
         .title-top {
