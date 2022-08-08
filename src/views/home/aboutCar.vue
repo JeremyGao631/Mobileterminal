@@ -17,8 +17,8 @@
         </div>
         <img class="top-img" src="../../assets/images/about/our-story.jpg" alt="">
         <div class="ourStory">
-            <div class="title">Our Story</div>
-            <div class="story">Autohome Australia were established in 2019 and our focus is to provide a solution for all sellers and buyers. Through word of mouth and referrals from satisfied clients, our reputation has allowed us to attract both local and interstate clients. Our area of specialty is luxury and prestigious vehicles.</div>
+            <div class="title">OUR STORY</div>
+            <div class="story">Autohome Australia was established in 2019 and our focus is to provide a solution for all sellers and buyers. Through word of mouth and referrals from satisfied clients, our reputation has allowed us to attract both local and interstate clients. Our area of specialty is luxury and prestigious vehicles.Our core principle and belief is that ‘we sell quality.’ We provide a streamlined process that is simple, transparent and efficient. You can be reassured that all our vehicles undergo a comprehensive inspection by qualified expert mechanics to ensure safety and quality for peace of mind.</div>
         </div>
         <div class="page-grid">
             <div class="page-offer">WHY CHOOSE US</div>
@@ -108,7 +108,7 @@ export default {
         margin-bottom: -2px;
         .bottom-img {
             width: 100%;
-            height: 158px;
+            object-fit: cover;
             margin-bottom:-3px;
         }
         .bottom-title {
@@ -140,6 +140,7 @@ export default {
                 font-weight: 400;
                 color: #FFFFFF;
                 line-height: 14px;
+                margin-top: -5px;
             }
         }
     }
@@ -266,10 +267,11 @@ export default {
     .ourStory {
         background-color: #fff;
         margin: 15px 10px 15px 10px;
-        padding: 10px;
+        padding: 10px 10px 100px 10px;
         .title {
-            padding-top: 25px;
+            padding-top: 15px;
             padding-bottom: 15px;
+            padding-left: 8px;
             // width: 150px;
             text-align: left;
             font-size: 24px;
@@ -280,6 +282,8 @@ export default {
             // width:320px;
             height: 108px;
             padding-bottom:24px;
+            padding-left: 8px;
+            padding-right: 8px;
             text-align: left;
             font-size: 13px;
             font-family: PingFangSC-Light, PingFang SC;

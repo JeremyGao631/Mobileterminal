@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-    <div class="middletittle">OUR SERVICE</div>
+    <div class="middletittle">OUR SERVICES</div>
     <div class="swiper">
       <van-swipe :autoplay="5000" indicator-color="black">
         <van-swipe-item v-for="(item,index) in service" :key="index" @click="jumppage(index)">
@@ -317,7 +317,7 @@ export default {
   font-family: DINCondensed-Bold, DINCondensed;
   // font-weight: bold;
   color: #151515;
-  padding-top: 28px;
+  padding-top: 30px;
   padding-bottom: 25px;
   margin-left: 20px;
   text-align: left;
@@ -366,7 +366,7 @@ export default {
     }
   }
   .break {
-    margin-top: -1px;
+    margin-top: -2px;
     border-bottom: 2px solid #12100f;
   }
   .textinfo {

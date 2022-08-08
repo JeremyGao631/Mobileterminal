@@ -79,9 +79,10 @@
           <!-- </van-checkbox-group> -->
         </div>
         <div class="view">
-          <span class="span">VIEW ALL</span>
+          <span class="span" v-if="showView" @click="showArrow">VIEW ALL</span>
           <van-icon v-if="showView" @click="showArrow" name="arrow-up" color="#000" size="12" style="padding-bottom: 3px;" />
-          <van-icon v-else name="arrow-down" @click="showArrow1" color="#000" size="12" style="padding-bottom: 3px;" />
+          <span class="span" v-if="!showView" @click="showArrow1">VIEW ALL</span>
+          <van-icon v-if="!showView" name="arrow-down" @click="showArrow1" color="#000" size="12" style="padding-bottom: 3px;" />
         </div>
           <!-- year筛选 -->
         <div class="bottom">
@@ -1096,7 +1097,7 @@ export default {
   color: #151515;
   font-family: PingFangSC-Light, PingFang SC;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /deep/ .van-checkbox__icon--checked .van-icon {

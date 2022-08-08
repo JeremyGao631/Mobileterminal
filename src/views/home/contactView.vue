@@ -13,7 +13,7 @@
             <van-grid-item class="tableContent">
                 <img src="../../assets/images/contact/Phone.png" alt="" class="imgStyle">
                 <div class="table-title">Phone</div>
-                <div class="table-info">0498 698 000</div>
+                <div class="table-info">(02) 8386 3564</div>
             </van-grid-item>
             <van-grid-item class="tableContent">
                 <img src="../../assets/images/contact/Email.png" alt="" class="imgStyle">
