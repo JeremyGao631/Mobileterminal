@@ -18,7 +18,7 @@
         <img class="top-img" src="../../assets/images/about/our-story.jpg" alt="">
         <div class="ourStory">
             <div class="title">OUR STORY</div>
-            <div class="story">Autohome Australia was established in 2019 and our focus is to provide a solution for all sellers and buyers. Through word of mouth and referrals from satisfied clients, our reputation has allowed us to attract both local and interstate clients. Our area of specialty is luxury and prestigious vehicles.Our core principle and belief is that ‘we sell quality.’ We provide a streamlined process that is simple, transparent and efficient. You can be reassured that all our vehicles undergo a comprehensive inspection by qualified expert mechanics to ensure safety and quality for peace of mind.</div>
+            <div class="story">Autohome Australia was established in 2019 and our focus is to provide a solution for all sellers and buyers. Through word of mouth and referrals from satisfied clients, our reputation has allowed us to attract both local and interstate clients. Our area of specialty is luxury and prestigious vehicles. Our core principle and belief is that ‘we sell quality.’ We provide a streamlined process that is simple, transparent and efficient. You can be reassured that all our vehicles undergo a comprehensive inspection by qualified expert mechanics to ensure safety and quality for peace of mind.</div>
         </div>
         <div class="page-grid">
             <div class="page-offer">WHY CHOOSE US</div>

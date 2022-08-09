@@ -37,7 +37,7 @@
       </div>
       <div class="textinfo">
         <span>AVAILABLE</span>
-        <span class="textinfosepcial"> 55 </span>
+        <span class="textinfosepcial"> {{this.carLength + 1}} </span>
         <span>CARS</span>
       </div>
       <div class="textcontent">
@@ -112,13 +112,15 @@ export default {
      information: [
       ],
       service: [],
-      itemList: []
+      itemList: [],
+      carLength: '', //汽车总数
     }
   },
   created() {
     this.desc()
     this.services()
     this.allCar()
+    this.allCars()
   },
   methods: {
     jumpcontact() {
@@ -184,6 +186,21 @@ export default {
           console.log('0',this.makeList)
       })
     },
+allCars() {
+      car({
+        current: '1',
+         pageSize: '5000',
+ make: '',
+ yearStart: '',
+ yearEnd: '',
+  priceStart: '',
+ priceEnd: '',
+orderByYear: '1'
+}).then(car => {
+ this.carLength = car.data.records.length
+ console.log(this.carLength, "wewewewewewewewew")
+ })
+ },
     // 轮播图
     desc() {
       describtion({
