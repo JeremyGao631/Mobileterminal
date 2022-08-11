@@ -2,7 +2,7 @@
     <div class="page">
         <img class="top-img" src="../../assets/images/about/JVS00341-4.jpg" alt="">
         <div class="top-title">
-            <div class="title">About Autohome</div>
+            <div class="title">ABOUT AUTOHOME</div>
             <!-- <div class="offer">Offer our customers exceptional quality and excellent value with our integrity and enthusiasm.</div> -->
         </div>
         <div class="page-grid">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="span-img">
-            <img class="bottom-img" src="../../assets/images/home/JVS00366-Edit-3-copy.png" alt="">
+            <img class="bottom-img" src="../../assets/images/home/IMG_5148.png" alt="">
             <div class="bottom-title">
                 <div class="title">VISIT OUR SHOWROOM</div>
                 <div class="offer">Please visit our showroom in Burwood to inspect our range of vehicles and discuss your needs. Our Sales team speak English and Chinese, and we look forward to helping you with your next car sale or purchase.</div>
@@ -118,7 +118,7 @@ export default {
             // height: 150px;
             // margin-bottom:-3px;
             position: absolute;
-            top:-5px;
+            top:30px;
             left:5px;
             .title {
                 height: 45px;
@@ -147,13 +147,22 @@ export default {
     .top-title {
         text-align: center;
         .title {
-            font-size: 30px;
+            // font-size: 30px;
+            // font-family: DINCondensed-Bold, DINCondensed;
+            // color: #151515;
+            // padding-top: 40px;
+            // padding-bottom: 20px;
+            // text-align: center;
+            // margin: 0 auto;
+            width: 300px;
+            font-size: 24px;
             font-family: DINCondensed-Bold, DINCondensed;
+            // font-weight: bold;
             color: #151515;
-            padding-top: 40px;
-            padding-bottom: 20px;
-            text-align: center;
-            margin: 0 auto;
+            padding-top: 30px;
+            padding-bottom: 25px;
+            margin-left: 20px;
+            text-align: left;
         }
         .offer {
             margin: 5px 0 15px 40px ;
@@ -167,7 +176,7 @@ export default {
         }
     }
     .page-grid {
-        margin:15px 10px 0 10px;
+        margin:0px 10px 0 10px;
         padding-left:8px;
         background-color: #fff;
         .page-offer {
@@ -213,12 +222,11 @@ export default {
                     width: 153px;
                     height: 99px;
                     text-align: justify;
-                    font-size: 9px;
                     margin-bottom: 10px;
-                    font-family: PingFangSC-Regular, PingFang SC;
-                    font-weight: 400;
-                    color: #4A4A4A;
                     line-height: 15px;
+                    color: #909090;
+                    font-size: 12px;
+                    font-family:PingFangSC-Regular;
                 }
             }
         }
@@ -255,10 +263,9 @@ export default {
                     width: 144px;
                     height: 99px;
                     text-align: left;
-                    font-size: 9px;
-                    font-family: PingFangSC-Regular, PingFang SC;
-                    font-weight: 400;
-                    color: #4A4A4A;
+                    color: #909090;
+                    font-size: 12px;
+                    font-family:PingFangSC-Regular;
                     line-height: 15px;
                 }
             }
@@ -285,10 +292,9 @@ export default {
             padding-left: 8px;
             padding-right: 8px;
             text-align: left;
-            font-size: 13px;
-            font-family: PingFangSC-Light, PingFang SC;
-            font-weight: 300;
-            color: #4A4A4A;
+            color: #909090;
+            font-size: 12px;
+            font-family:PingFangSC-Regular;
             line-height: 18px;
             // display: inline-block;
             text-align: justify;
