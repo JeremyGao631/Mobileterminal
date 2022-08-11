@@ -528,7 +528,7 @@ width: 300px;
         .van-cell-group {
             border: 1px solid #151515;
             margin-bottom: 20px;
-            .van-cell{
+            /deep/ .van-cell{
                 padding: 5px auto;
             }
             img {

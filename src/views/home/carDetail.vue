@@ -758,7 +758,7 @@ jssor_1_slider_init : function() {
         .van-cell-group {
             border: 1px solid #151515;
             margin-bottom: 20px;
-            .van-cell {
+            /deep/ .van-cell {
                 padding: 5px auto;
             }
         }

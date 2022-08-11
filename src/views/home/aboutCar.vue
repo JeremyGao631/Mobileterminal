@@ -118,7 +118,7 @@ export default {
             // height: 150px;
             // margin-bottom:-3px;
             position: absolute;
-            top:-5px;
+            top:30px;
             left:5px;
             .title {
                 height: 45px;
