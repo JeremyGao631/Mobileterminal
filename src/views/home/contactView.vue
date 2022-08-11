@@ -176,7 +176,7 @@ export default{
                     if(res) {
                         Toast('Your information has been submitted!')
                     } else {
-                        Toast('the phone is already in used, please change your phone!')
+                        Toast('The phone is already in used, please cshange your phone!')
                     }
                 })
             }
