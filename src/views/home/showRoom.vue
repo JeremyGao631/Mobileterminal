@@ -725,14 +725,23 @@ export default {
   }
 }
 .tittle {
-  font-size: 30px;
+  // font-size: 30px;
+  // font-family: DINCondensed-Bold, DINCondensed;
+  // color: #151515;
+  // padding-top: 40px;
+  // padding-bottom: 20px;
+  // text-align: center;
+  // margin: 0 auto;
+  // white-space: nowrap;
+  width: 300px;
+  font-size: 24px;
   font-family: DINCondensed-Bold, DINCondensed;
+  // font-weight: bold;
   color: #151515;
-  padding-top: 40px;
-  padding-bottom: 20px;
-  text-align: center;
-  margin: 0 auto;
-  white-space: nowrap;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  margin-left: 20px;
+  text-align: left;
 }
 
 .middlebtn {
@@ -949,7 +958,6 @@ export default {
         // height: 60px;
         font-size: 20px;
         font-family: DINCondensed-Bold, DINCondensed;
-        font-weight: bold;
         color: #151515;
         // line-height: 60px;
       }
@@ -970,10 +978,9 @@ export default {
     .span {
       width: 60px;
       // height: 130px;
-      font-size: 18px;
+      font-size: 20px;
       margin-right: 10px;
       font-family: DINCondensed-Bold, DINCondensed;
-      font-weight: bold;
       color: #151515;
       white-space: nowrap;
       // line-height: 130px;
@@ -992,7 +999,6 @@ export default {
         // height: 60px;
         font-size: 20px;
         font-family: DINCondensed-Bold, DINCondensed;
-        font-weight: bold;
         color: #151515;
         // line-height: 60px;
       }
@@ -1023,11 +1029,10 @@ export default {
           position: absolute;
           left: 0;
           width: 110px;
-          height: 48px;
+          height: 43px;
           background-color: #F4F6F8;
-          font-size: 16px;
-          font-family: PingFangSC-Light;
-          font-weight: 300;
+          font-size: 14px;
+          font-family: PingFangSC-Light, PingFang SC;
           color: #151515;
         }
         .maxprice {
@@ -1035,11 +1040,10 @@ export default {
           position: absolute;
           right: 0;
           width: 110px;
-          height: 48px;
+          height: 43px;
           background-color: #F4F6F8;
-          font-size: 16px;
-          font-family: PingFangSC-Light;
-          font-weight: 400;
+          font-size: 14px;
+          font-family: PingFangSC-Light, PingFang SC;
           color: #151515;
       }
     }
@@ -1094,10 +1098,11 @@ export default {
   height: 40px;
 }
 /deep/.van-field__control {
-  color: #151515;
+  font-size: 14px;
   font-family: PingFangSC-Light, PingFang SC;
+  color: #151515;
   text-align: center;
-  font-size: 16px;
+  
 }
 
 /deep/ .van-checkbox__icon--checked .van-icon {

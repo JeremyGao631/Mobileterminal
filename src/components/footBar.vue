@@ -248,7 +248,7 @@
         font-size: 16px;
         text-align: left;
         font-family: DINCondensed-Bold, DINCondensed;
-        font-weight: bold;
+        // font-weight: bold;
         color: #909090;
         line-height: 24px;
         }
@@ -260,7 +260,7 @@
         font-size: 16px;
         text-align: left;
         font-family: DINCondensed-Bold, DINCondensed;
-        font-weight: bold;
+        // font-weight: bold;
         color: rgba(144, 144, 144, 1);
         line-height: 19px;
         opacity: 0.5;
@@ -295,7 +295,7 @@
                         height: 16px;
                         font-size: 16px;
                         font-family: DINCondensed-Bold, DINCondensed;
-                        font-weight: bold;
+                        // font-weight: bold;
                         color: #909090;
                         line-height: 19px;
                         display: block;

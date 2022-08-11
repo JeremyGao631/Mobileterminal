@@ -339,13 +339,22 @@ export default {
   }
 }
 .tittle {
-  font-size: 30px;
+//   font-size: 30px;
+//   font-family: DINCondensed-Bold, DINCondensed;
+//   color: #151515;
+//   padding-top: 40px;
+//   padding-bottom: 20px;
+//   text-align: center;
+//   margin: 0 auto;
+width: 300px;
+  font-size: 24px;
   font-family: DINCondensed-Bold, DINCondensed;
+  // font-weight: bold;
   color: #151515;
-  padding-top: 40px;
-  padding-bottom: 20px;
-  text-align: center;
-  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  margin-left: 20px;
+  text-align: left;
 }
 
 .titletext {
@@ -391,7 +400,7 @@ export default {
                 }
                 .middletextinfo {
                     font-size: 12px;
-                    font-family: PingFangSC-Regular, PingFang SC;
+                    font-family:PingFangSC-Regular;
                     font-weight: 400;
                     color: #909090;
                     line-height: 17px;
@@ -448,10 +457,9 @@ export default {
         width: 100%;
         margin-top:2px;
         margin-bottom:8px;
-        font-family: PingFangSC-Light, PingFang SC;
-        font-weight: 300;
+        font-family: 'DINCondensed-Bold';
+        font-size: 16px;
         min-width: 0;
-        font-size: 14px;
         color: #323233;
         line-height: inherit;
         text-align: left;
@@ -480,8 +488,8 @@ export default {
         .contentinfo {
             // width: 336px;
             height: 90px;
-            font-size: 13px;
-            font-family: PingFangSC-Light, PingFang SC;
+            font-size: 12px;
+            font-family:PingFangSC-Regular;
             font-weight: 300;
             color: #909090;
             line-height: 18px;
@@ -496,7 +504,7 @@ export default {
             margin-top: 10px;
             font-size: 20px;
             font-family: DINCondensed-Bold, DINCondensed;
-            font-weight: bold;
+            // font-weight: bold;
         }
         .smalltitle1 {
             width:158px;
@@ -507,7 +515,7 @@ export default {
             margin-top: 30px;
             font-size: 20px;
             font-family: DINCondensed-Bold, DINCondensed;
-            font-weight: bold;
+            // font-weight: bold;
         }
         .inputtitle {
             width: 100px;
@@ -518,8 +526,11 @@ export default {
             line-height: 30px;
         }
         .van-cell-group {
-            border: 2px solid #151515;
+            border: 1px solid #151515;
             margin-bottom: 20px;
+            .van-cell{
+                padding: 5px auto;
+            }
             img {
                 width: 11px;
                 height: 13px;
@@ -556,10 +567,10 @@ export default {
         }
         .privacyinfo {
             // width: 315px;
-            font-size: 13px;
-            font-family: PingFangSC-Light, PingFang SC;
-            font-weight: 300;
-            color: #4A4A4A;
+            font-size: 12px;
+            font-family:PingFangSC-Regular;
+            font-weight: 400;
+            color: #909090;
             line-height: 18px;
             display: inline-block;
             text-align: justify;
@@ -571,6 +582,11 @@ export default {
             color: black;
         }
     }
+}
+
+/deep/ .van-field__control  {
+    font-family: 'DINCondensed-Bold';
+    font-size: 16px;
 }
 
 </style>

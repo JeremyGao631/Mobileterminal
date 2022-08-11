@@ -281,13 +281,22 @@ export default{
         margin-top: 100px;
     }
     .top-title {
-        font-size: 30px;
-        font-family: DINCondensed-Bold, DINCondensed;
-        color: #151515;
-        padding-top: 40px;
-        padding-bottom: 20px;
-        text-align: center;
-        margin: 0 auto;
+        // font-size: 30px;
+        // font-family: DINCondensed-Bold, DINCondensed;
+        // color: #151515;
+        // padding-top: 40px;
+        // padding-bottom: 20px;
+        // text-align: center;
+        // margin: 0 auto;
+        width: 300px;
+  font-size: 24px;
+  font-family: DINCondensed-Bold, DINCondensed;
+  // font-weight: bold;
+  color: #151515;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  margin-left: 20px;
+  text-align: left;
     }
     // .location {
     // position: relative;
@@ -322,7 +331,7 @@ export default{
     .contact {
         background-color: #fff;
         margin: 15px;
-        padding: 0 5px;
+        padding: 0 10px;
         margin-bottom: -85px;
         .contact-title {
             font-size: 24px;
@@ -332,7 +341,7 @@ export default{
             font-family: DINCondensed-Bold, DINCondensed;
             color: #151515;
             line-height: 90px;
-            margin-left: 8px;
+            // margin-left: 8px;
         }
         .contact-input {
             .name {
@@ -352,11 +361,14 @@ export default{
             font-weight: 400;
             line-height: 30px;
             text-align: left;
-            padding-left: 10px;
+            // padding-left: 10px;
             }
             .van-cell-group {
-                border: 2px solid #151515;
+                border: 1px solid #151515;
                 margin-bottom: 20px;
+                .van-cell{
+                    padding: 5px auto;
+                }
                 img {
                     width: 11px;
                     height: 13px;
@@ -389,6 +401,11 @@ export default{
             }
         } 
     }
+}
+
+/deep/ .van-field__control  {
+    font-family: 'DINCondensed-Bold';
+    font-size: 16px;
 }
 
 </style>

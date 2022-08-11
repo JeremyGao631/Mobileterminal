@@ -85,7 +85,7 @@ export default {
     height: 20px;
     font-size: 20px;
     font-family: DINCondensed-Bold, DINCondensed;
-    font-weight: bold;
+    // font-weight: bold;
     color: #151515;
     line-height: 24px;
     letter-spacing: 1px;
