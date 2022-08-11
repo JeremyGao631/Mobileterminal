@@ -163,12 +163,9 @@ export default {
         this.informations = this.$route.query.item
         this.advTitle = this.informations.advTitle
         this.advbody = this.informations.advbody
-        console.log('advTitle', this.advbody)
-        console.log('informations', this.informations)
-        console.log(this.information,"1111111111111")
         this.price = this.informations.price
         this.firstPhoto = this.$route.query.item.photo[0]
-        console.log('123', this.price)
+        console.log('123', this.informations)
         this.init()
         this.allCar()
         this.setPhoto()
@@ -385,8 +382,10 @@ jssor_1_slider_init : function() {
                         time: this.form.time,
             }).then( res => {
                 console.log(res, '提交成功')
-                if (res.code === 0) {
+                if (res) {
                     Toast('Your information has been submitted!')
+                }else {
+                    Toast('the phone is already in used, please change your phone!')
                 }
             })
             }
@@ -781,11 +780,13 @@ jssor_1_slider_init : function() {
             font-weight: 400;
             line-height: 30px;
             text-align: left;
-            padding-left: 10px;
+            padding-left: 3%;
         }
         .van-cell-group {
             border: 02px solid #151515;
             margin-bottom: 20px;
+            width: 93%;
+            margin-left: 3%;
             img {
                 width: 11px;
                 height: 13px;

@@ -173,8 +173,10 @@ export default{
                         address:this.form.address
                 }).then( res => {
                     console.log(res, '提交成功')
-                    if(res.code === 0) {
+                    if(res) {
                         Toast('Your information has been submitted!')
+                    } else {
+                        Toast('the phone is already in used, please change your phone!')
                     }
                 })
             }
@@ -345,18 +347,20 @@ export default{
                 margin-left: 8px;
             }
             .inputtitle {
-            width: 100px;
-            height: 30px;
-            font-size: 13px;
-            font-family: PingFangSC-Regular, PingFang SC;
-            font-weight: 400;
-            line-height: 30px;
-            text-align: left;
-            padding-left: 10px;
+                width: 100px;
+                height: 30px;
+                font-size: 13px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                line-height: 30px;
+                text-align: left;
+                padding-left: 3%;
             }
             .van-cell-group {
                 border: 2px solid #151515;
                 margin-bottom: 20px;
+                width: 93%;
+                margin-left: 3%;
                 img {
                     width: 11px;
                     height: 13px;
