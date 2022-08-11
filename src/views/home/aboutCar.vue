@@ -126,7 +126,7 @@ export default {
                 font-size: 24px;
                 text-align: center;
                 font-family: DINCondensed-Bold, DINCondensed;
-                font-weight: bold;
+                // font-weight: bold;
                 color: #FFFFFF;
                 line-height: 50px;
             }
@@ -147,22 +147,22 @@ export default {
     .top-title {
         text-align: center;
         .title {
-            // font-size: 30px;
-            // font-family: DINCondensed-Bold, DINCondensed;
-            // color: #151515;
-            // padding-top: 40px;
-            // padding-bottom: 20px;
-            // text-align: center;
-            // margin: 0 auto;
-            width: 300px;
-            font-size: 24px;
+            font-size: 30px;
             font-family: DINCondensed-Bold, DINCondensed;
-            // font-weight: bold;
             color: #151515;
             padding-top: 30px;
-            padding-bottom: 25px;
-            margin-left: 20px;
-            text-align: left;
+            padding-bottom: 20px;
+            text-align: center;
+            margin: 0 auto;
+            // width: 300px;
+            // font-size: 24px;
+            // font-family: DINCondensed-Bold, DINCondensed;
+            // // font-weight: bold;
+            // color: #151515;
+            // padding-top: 30px;
+            // padding-bottom: 25px;
+            // margin-left: 20px;
+            // text-align: left;
         }
         .offer {
             margin: 5px 0 15px 40px ;
