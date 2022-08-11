@@ -521,13 +521,17 @@ export default {
             width: 100px;
             height: 30px;
             font-size: 13px;
+            margin-left: 3%;
             font-family: PingFangSC-Regular, PingFang SC;
             font-weight: 400;
             line-height: 30px;
+            margin-left: 3%;
         }
         .van-cell-group {
             border: 1px solid #151515;
             margin-bottom: 20px;
+            width: 93%;
+            margin-left: 3%;
             /deep/ .van-cell{
                 padding: 5px auto;
             }
@@ -538,6 +542,7 @@ export default {
         }
         .van-uploader {
             margin-bottom: 36px;
+            margin-left:3%
         }
         .special {
             /deep/ .van-field__control {

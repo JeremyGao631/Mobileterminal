@@ -11,7 +11,7 @@
                   <img data-u="thumb" :src="item.img" />
               </div>
           </div>
-          <div data-u="thumbnavigator" class="jssort01" style="position:absolute;left:0px;bottom:0px;width:300px;height:245px;" data-autocenter="1">
+          <div data-u="thumbnavigator" class="jssort01" style="position:absolute;left:0px;bottom:0px;width:300px;height:230px;" data-autocenter="1">
               
               <div data-u="slides" style="cursor: default;">
                   <div data-u="prototype" class="p">
@@ -22,8 +22,8 @@
                   </div>
               </div>
           </div>
-          <span data-u="arrowleft" class="jssora05l" style="top:60px;left:0px;width:35px;height:45px;"></span>
-          <span data-u="arrowright" class="jssora05r" style="top:60px;right:0px;width:27px;height:45px;"></span>
+          <span data-u="arrowleft" class="jssora05l" style="top:60px;left:0px;width:45px;height:45px;"></span>
+          <span data-u="arrowright" class="jssora05r" style="top:60px;right:0px;width:45px;height:45px;"></span>
         </div>
         <div class="title">
             <div class="title-top">
@@ -163,12 +163,9 @@ export default {
         this.informations = this.$route.query.item
         this.advTitle = this.informations.advTitle
         this.advbody = this.informations.advbody
-        console.log('advTitle', this.advbody)
-        console.log('informations', this.informations)
-        console.log(this.information,"1111111111111")
         this.price = this.informations.price
         this.firstPhoto = this.$route.query.item.photo[0]
-        console.log('123', this.price)
+        console.log('123', this.informations)
         this.init()
         this.allCar()
         this.setPhoto()
@@ -220,8 +217,8 @@ jssor_1_slider_init : function() {
               $ThumbnailNavigatorOptions: {
                 $Class: $JssorThumbnailNavigator$,
                 $Cols: 10,
-                $SpacingX: 5,
-                $SpacingY: 5,
+                $SpacingX: 8,
+                $SpacingY: 8,
                 $Align: 360
               }
             };
@@ -258,7 +255,7 @@ jssor_1_slider_init : function() {
         setPhoto() {
             this.photo = this.$route.query.item.photo
             this.photos = []
-            for(var i = 0; i<this.photo.length; i++ ) {
+            for(var i = 0; i<=this.photo.length; i++ ) {
                 const img = {
                     img: this.photo[i]
                 }
@@ -385,8 +382,10 @@ jssor_1_slider_init : function() {
                         time: this.form.time,
             }).then( res => {
                 console.log(res, '提交成功')
-                if (res.code === 0) {
+                if (res) {
                     Toast('Your information has been submitted!')
+                }else {
+                    Toast('the phone is already in used, please change your phone!')
                 }
             })
             }
@@ -421,11 +420,14 @@ jssor_1_slider_init : function() {
             height: 40px;
             cursor: pointer;
             background: url('../../assets/a17.png') no-repeat;
-            background-size: 200px 45px ;
             overflow: hidden;
         }
-        .jssora05l { background-position: 0px 0px; }
-        .jssora05r { background-position: -35px 0px; }
+        .jssora05l { background-position: -5px -35px; }
+        .jssora05r { background-position: -65px -35px; }
+        .jssora05l:hover { background-position: -10px -35px; }
+        .jssora05r:hover { background-position: -65px -35px; }
+        .jssora05l.jssora05ldn { background-position: -250px -40px; }
+        .jssora05r.jssora05rdn { background-position: -310px -40px; }
 
         /* jssor slider thumbnail navigator skin 01 css */
         /*
@@ -525,11 +527,12 @@ jssor_1_slider_init : function() {
 /deep/.van-calendar__popup.van-popup--bottom, .van-calendar__popup.van-popup--top {
     height: 64%;
 }
-// /deep/.van-field__body {
-//     border: 1px solid #151515;
-//     height: 35px;
-//     padding: 0 3px;
-// }
+/deep/.van-field__body {
+    border: 1px solid #151515;
+    margin-left: -13px;
+    height: 35px;
+    padding: 0 3px;
+}
 .page {
     width: 100%;
     background-color: #f4f6f8;
@@ -679,16 +682,17 @@ jssor_1_slider_init : function() {
                 padding-bottom:10px;
                 font-size: 17px;
                 font-family: DINCondensed-Bold, DINCondensed;
-                // font-weight: bold;
+                font-weight: bold;
                 color: #151515;
                 margin-left: 8px;
             }
             .comment-span{
                 // width: 336px;
                 // height: 72px;
-                font-size: 12px;
+                font-size: 13px;
                 text-align: left;
                 font-family: PingFangSC-Light, PingFang SC;
+                font-weight: 300;
                 color: #909090;
                 line-height: 18px;
                 margin-left: 8px;
@@ -732,7 +736,7 @@ jssor_1_slider_init : function() {
     .contact {
         background-color: #fff;
         margin: 10px;
-        padding: 0 10px;
+        padding: 0 5px;
         // margin-bottom: -85px;BOOK
         .contact-title {
             // width: 135px;
@@ -740,11 +744,34 @@ jssor_1_slider_init : function() {
             height: 70px;
             font-size: 24px;
             font-family: DINCondensed-Bold, DINCondensed;
-            // font-weight: bold;
+            font-weight: bold;
             color: #151515;
             line-height: 80px;
-            // margin-left: 8px;
+            margin-left: 8px;
         }
+        // .contact-input {
+        //     .name {
+        //         width: 47px;
+        //         font-size: 13px;
+        //         font-family: PingFangSC-Regular, PingFang SC;
+        //         font-weight: 400;
+        //         color: #000;
+        //         text-align: left;
+        //         margin-left: 8px;
+        //     }
+        //     .message {
+        //         width: 93%;
+        //         margin-left: -12px;
+        //         margin-top: 10px;
+        //         height: 198px;
+        //         font-size: 14px;
+        //         color: #000;
+        //         border: 1px solid #151515;
+        //     }
+        //     /deep/ .van-cell {
+        //         padding: 5px 8px 20px 20px;
+        //     }
+        // }
         .inputtitle {
             width: 100px;
             height: 30px;
@@ -753,13 +780,19 @@ jssor_1_slider_init : function() {
             font-weight: 400;
             line-height: 30px;
             text-align: left;
-            // padding-left: 10px;
+            padding-left: 3%;
         }
         .van-cell-group {
             border: 1px solid #151515;
             margin-bottom: 20px;
-            /deep/ .van-cell {
+            width: 93%;
+            margin-left: 3%;
+            /deep/ .van-cell{
                 padding: 5px auto;
+            }
+            img {
+                width: 11px;
+                height: 13px;
             }
         }
         /deep/ .van-field__body {
@@ -881,9 +914,5 @@ jssor_1_slider_init : function() {
 
 /deep/ .el-carousel__arrow {
     border: 1px solid #fff;
-}
-/deep/ .van-field__control  {
-    font-family: 'DINCondensed-Bold';
-    font-size: 16px;
 }
 </style>
