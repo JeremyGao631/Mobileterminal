@@ -38,7 +38,7 @@
               <img :src="item.photo[0]" />
             </div>
             <div class="titlecard" >
-              <span >{{item.year}} {{item.make}} {{item.model}}</span>
+              <span >{{item.year}} {{item.make}} {{item.model}} {{item.badge}}</span>
             </div>
             <div class="contentcard">
               <span class="contentcard-price">${{item.price}}</span>
@@ -259,6 +259,7 @@ export default {
                 make: ele.make,
                 price: ele.priceDesc,
                 odometer: ele.odometer,
+                badge: ele.badge,
                 advTitle: ele.advTitle,
                 advbody: ele.advbody,
                 drive: ele.drive,
@@ -343,6 +344,7 @@ export default {
             const item = {
                 year: ele.year,
                 fueltype: ele.fueltype,
+                badge: ele.badge,
                 make: ele.make,
                 price: ele.priceDesc,
                 odometer: ele.odometer,
@@ -403,6 +405,7 @@ export default {
                 price: ele.priceDesc,
                 odometer: ele.odometer,
                 advbody: ele.advbody,
+                badge: ele.badge,
                 advTitle: ele.advTitle,
                 drive: ele.drive,
                 body: ele.body,
@@ -457,6 +460,7 @@ export default {
                 year: ele.year,
                 fueltype: ele.fueltype,
                 make: ele.make,
+                badge: ele.badge,
                 price: ele.priceDesc,
                 odometer: ele.odometer,
                 body: ele.body,
@@ -515,6 +519,7 @@ export default {
                 fueltype: ele.fueltype,
                 make: ele.make,
                 price: ele.priceDesc,
+                badge: ele.badge,
                 odometer: ele.odometer,
                 drive: ele.drive,
                 advbody: ele.advbody,
@@ -573,6 +578,7 @@ export default {
                 make: ele.make,
                 price: ele.priceDesc,
                 odometer: ele.odometer,
+                badge: ele.badge,
                 drive: ele.drive,
                 body: ele.body,
                 advbody: ele.advbody,
@@ -631,6 +637,7 @@ export default {
                 make: ele.make,
                 price: ele.priceDesc,
                 odometer: ele.odometer,
+                badge: ele.badge,
                 advbody: ele.advbody,
                 advTitle: ele.advTitle,
                 drive: ele.drive,

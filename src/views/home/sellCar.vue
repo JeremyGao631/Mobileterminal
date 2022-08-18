@@ -126,7 +126,7 @@
                     <van-dropdown-item v-model="logbook" :options="option1" />
                 </van-dropdown-menu> -->
                 <div class="inputtitle">Photo Upload</div>
-                <van-uploader v-model="file"  multiple />
+                <van-uploader v-model="file"  multiple :max-count="1" />
                 <div class="smalltitle">
                     COMMENTS
                 </div>
@@ -244,7 +244,9 @@ export default {
             }).then( res => {
                 console.log(res, '提交成功')
                 if(res.code === 0) {
-                    Toast('Your information has been submitted!')
+                    Toast('Submission successfull')
+                } else if(res.code !== 0 || !res) {
+                    Toast('Submission failed, please try again later')
                 }
             })
         }

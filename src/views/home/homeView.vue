@@ -47,7 +47,7 @@
               <img :src="item.photo[0]" />
             </div>
             <div class="titlecard" >
-              <span >{{item.year}} {{item.make}} {{item.model}}</span>
+              <span >{{item.year}} {{item.make}} {{item.model}} {{item.badge}}</span>
             </div>
             <div class="contentcard">
               <span class="contentcard-price">${{item.price}}</span>
@@ -149,6 +149,7 @@ export default {
                 year: ele.year,
                 fueltype: ele.fueltype,
                 make: ele.make,
+                badge: ele.badge,
                 price: ele.priceDesc,
                 odometer: ele.odometer,
                 advbody: ele.advbody,
@@ -189,13 +190,13 @@ export default {
 allCars() {
       car({
         current: '1',
-         pageSize: '5000',
- make: '',
- yearStart: '',
- yearEnd: '',
-  priceStart: '',
- priceEnd: '',
-orderByYear: '1'
+        pageSize: '5000',
+        make: '',
+        yearStart: '',
+        yearEnd: '',
+        priceStart: '',
+        priceEnd: '',
+        orderByYear: '1'
 }).then(car => {
  this.carLength = car.data.records.length
  console.log(this.carLength, "wewewewewewewewew")

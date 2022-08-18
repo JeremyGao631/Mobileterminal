@@ -30,7 +30,7 @@
                 <div class="price"><span class="span1">$</span>{{ price }}</div>
                 <span class="info">Excl . Gov's Charges</span>
             </div>
-            <div class="title-bottom">{{ informations.year }} {{ informations.make }} {{ informations.model }}</div>
+            <div class="title-bottom">{{ informations.year }} {{ informations.make }} {{ informations.model }} {{informations.badge}}</div>
         </div>
         <div class="detail">
             <div class="littleshow">
@@ -288,26 +288,33 @@ jssor_1_slider_init : function() {
                 },
                 {
                     name: 'Model',
-                    result: this.informations.model
-                },{
+                    result: `${this.informations.model} ${this.informations.badge}`
+                },
+                {
                     name: 'Body Type',
                     result: this.informations.geartype
-                },{
+                },
+                {
                     name: 'Color',
                     result: this.informations.color
-                },{
+                },
+                {
                     name: 'Engine Size',
                     result: (this.informations.enginesize / 1000).toFixed(1)
-                },{
+                },
+                {
                     name: 'Fuel Type',
                     result: this.informations.fueltype
-                },{
+                },
+                {
                     name: 'Cylinders',
                     result: this.informations.cylinders
-                },{
+                },
+                {
                     name: 'Doors',
                     result: this.informations.doornum
-                },{
+                },
+                {
                     name: 'Drive',
                     result: this.informations.drive
                 },
@@ -350,6 +357,7 @@ jssor_1_slider_init : function() {
                         year: ele.year,
                         fueltype: ele.fueltype,
                         make: ele.make,
+                        badge: ele.badge,
                         price: ele.priceDesc,
                         odometer: ele.odometer,
                         body: ele.body,
@@ -382,10 +390,10 @@ jssor_1_slider_init : function() {
                         time: this.form.time,
             }).then( res => {
                 console.log(res, '提交成功')
-                if (res) {
+                if (res.code === 0) {
                     Toast('Your information has been submitted!')
-                }else {
-                    Toast('the phone is already in used, please change your phone!')
+                }else if (!res || res.code !== 0) {
+                    Toast('Submission failed, please try again later')
                 }
             })
             }
