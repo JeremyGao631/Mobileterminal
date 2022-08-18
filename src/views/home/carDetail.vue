@@ -425,10 +425,10 @@ jssor_1_slider_init : function() {
         }
         .jssora05l { background-position: 0px 0px; }
         .jssora05r { background-position: -35px 0px; }
-        .jssora05l:hover { background-position: -10px -35px; }
-        .jssora05r:hover { background-position: -65px -35px; }
-        .jssora05l.jssora05ldn { background-position: -250px -40px; }
-        .jssora05r.jssora05rdn { background-position: -310px -40px; }
+        // .jssora05l:hover { background-position: -10px -35px; }
+        // .jssora05r:hover { background-position: -65px -35px; }
+        // .jssora05l.jssora05ldn { background-position: -250px -40px; }
+        // .jssora05r.jssora05rdn { background-position: -310px -40px; }
 
         /* jssor slider thumbnail navigator skin 01 css */
         /*
