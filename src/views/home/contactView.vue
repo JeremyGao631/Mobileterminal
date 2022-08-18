@@ -173,10 +173,10 @@ export default{
                         address:this.form.address
                 }).then( res => {
                     console.log(res, '提交成功')
-                    if(res) {
+                    if(res.code === 0) {
                         Toast('Your information has been submitted!')
-                    } else {
-                        Toast('The phone is already in used, please cshange your phone!')
+                    } else if(res.code !== 0 || !res) {
+                        Toast('Submission failed, please try again later')
                     }
                 })
             }
