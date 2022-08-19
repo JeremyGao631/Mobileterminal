@@ -73,11 +73,11 @@
                 <van-cell-group>
                     <van-field v-model="year"   />
                 </van-cell-group>
-                <div class="inputtitle">Make</div>
+                <div class="inputtitle">Make *</div>
                 <van-cell-group>
                     <van-field v-model="make" />
                 </van-cell-group>
-                <div class="inputtitle">Model</div>
+                <div class="inputtitle">Model *</div>
                 <van-cell-group>
                     <van-field v-model="model" />
                 </van-cell-group>
@@ -222,8 +222,8 @@ export default {
   },
   methods: {
     submit() {
-        if (this.name === '' || this.mobile === '' || this.Year === '' || this.transmission === '' || this.odometer === '') {
-            Toast('Please check whether the page information is complete!')
+        if (this.name === '' || this.mobile === '' || this.Year === '' || this.make === '' || this.model === '' || this.transmission === '' || this.odometer === '') {
+            Toast('Missing field\nOne of the required field is empty or contains invaild data; please check your input')
             return
         } else {
             vehicle({

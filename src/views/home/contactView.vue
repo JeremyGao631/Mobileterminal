@@ -107,7 +107,7 @@
                 <div class="tips">388 Parramatta Road，Burwood, NSW 2134</div>
             </div>
         </div> -->
-        <img class="bottom-img" src="../../assets/images/contact/ditu.png" alt="">
+        <img class="bottom-img" src="../../assets/images/contact/ditu2.png" alt="">
     </div>
 </template>
 <script>

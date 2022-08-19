@@ -286,7 +286,7 @@ allCars() {
     text-align:left;
     position: absolute;
     top: -17px;
-    padding:38px 0 0 42px;
+    padding:38px 0 0 32px;
     .lunbotexttitle {
       width: 160px;
       height: 60px;
