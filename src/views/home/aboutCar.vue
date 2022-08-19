@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <img class="top-img" src="../../assets/images/about/JVS00341-4.jpg" alt="">
+        <img class="top-img" :src="topImg" alt="">
         <div class="top-title">
             <div class="title">ABOUT AUTOHOME</div>
             <!-- <div class="offer">Offer our customers exceptional quality and excellent value with our integrity and enthusiasm.</div> -->
@@ -46,6 +46,7 @@ export default {
     name: 'aboutCar',
     data() {
         return {
+            topImg: '', // 顶部图
             information: [],
             information1: [
                 {
@@ -82,12 +83,16 @@ export default {
                 title: 'ABOUT'
             }).then(res => {
                 res.data.records.forEach(ele => {
-                    const item = {
-                    targeUrl: ele.targeUrl,
-                    secondtitle: ele.secondtitle,
-                    describtion: ele.describtion
+                    if(ele.secondtitle !== 'ABOUT AUTOHOME') {
+                        const item = {
+                            targeUrl: ele.targeUrl,
+                            secondtitle: ele.secondtitle,
+                            describtion: ele.describtion
+                        }
+                        this.information.push(item)
+                    } else {
+                        this.topImg = ele.targeUrl
                     }
-                this.information.push(item)
                 })
             })
         }

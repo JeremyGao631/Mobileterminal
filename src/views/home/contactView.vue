@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <img class="top-img" src="../../assets/images/contact/JVS00138-Edit-4.jpg" alt="">
+        <img class="top-img" :src="topImg" alt="">
         <div class="top-title">CONTACT US NOW</div>
         <!-- <div class="item">
             <div v-for="(item, idx) in information" :key="idx" class="tab">
@@ -113,10 +113,11 @@
 <script>
 
 import { Toast } from 'vant'
-import { fetch } from '@/api'
+import { fetch,describtion } from '@/api'
 export default{
     data(){
         return {
+            topImg: '', //顶部图
             form: {
                 name: '',
                 phone: '',
@@ -160,6 +161,10 @@ export default{
             show1: false,
         }
     },
+    created() {
+        this.contactData()
+
+    },
     methods: {
         submit() {
             if (this.form.name === '' || this.form.phone === '' || this.form.email === '' || this.form.message === '') {
@@ -181,6 +186,15 @@ export default{
                 })
             }
 
+        },
+        contactData() {
+            describtion({
+                current: '1',
+                pageSize: '10',
+                title: 'Contact'
+            }).then(res => {
+                this.topImg = res.data.records[0].targeUrl
+            })
         },
         emails() {
             var emailText = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
