@@ -118,10 +118,10 @@
               <span v-else @click="sort1(2)" style="font-size: 25px;">+</span>
             </div>
             <div v-if="showSort">
-              <van-radio name="1" @click="sleSort()" >Price: Low to High</van-radio>
-              <van-radio name="2" @click="sleSort1()" >Price: High to Low</van-radio>
-              <van-radio name="3" @click="sleSort2()" >Date: High to Low</van-radio>
-              <van-radio name="4" @click="sleSort3()" >Date: Low to High</van-radio>
+              <van-radio name="1" @click="sleSort2()" >Year: High to Low</van-radio>
+              <van-radio name="2" @click="sleSort3()" >Year: Low to High</van-radio>
+              <van-radio name="3" @click="sleSort1()" >Price: High to Low</van-radio>
+              <van-radio name="4" @click="sleSort()" >Price: Low to High</van-radio>
             </div>
           </van-radio-group>
         </div>
