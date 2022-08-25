@@ -191,7 +191,7 @@ export default{
             describtion({
                 current: '1',
                 pageSize: '10',
-                title: 'Contact'
+                title: 'OtherPages'
             }).then(res => {
                 this.topImg = res.data.records[0].targeUrl
             })

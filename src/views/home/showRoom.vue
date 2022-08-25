@@ -1,6 +1,6 @@
 <template>
   <div class="showroom">
-    <div class="lunbo" />
+    <img class="lunbo" :src="topImg" />
     <div class="tittle">ONLINE SHOWROOM</div>
     <!-- <button class="middlebtn" @click="jumpcontact()">
         <span>BOOK SERVICE</span>
@@ -132,6 +132,7 @@
 
 <script>
 import { car } from '@/api';
+import { describtion } from '@/api'
 // import loading from '@/components/Loading/main.js'
 export default {
   name: 'HomeView',
@@ -165,14 +166,25 @@ export default {
      information1: [],
      orderByPrice: 1,
      orderByYear: 1,
-     checked: this.makeList
+     checked: this.makeList,
+     topImg: '', //顶部图
     }
   },
   created() {
+    this.contactData()
     this.allCar()
     // console.log(this.minYear,this.maxYear, '12')
   },
   methods: {
+    contactData() {
+        describtion({
+            current: '1',
+            pageSize: '10',
+            title: 'OtherPages'
+        }).then(res => {
+            this.topImg = res.data.records[1].targeUrl
+        })
+    },
     // jumpcontact() {
     //   this.$router.push('/contact')
     // },

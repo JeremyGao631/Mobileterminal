@@ -1,6 +1,6 @@
 <template>
     <div class="sellcar" >
-        <div class="lunbo" />
+        <img class="lunbo" :src="topImg" />
         <div class="tittle">SELL YOUR CAR</div>
         <!-- <div class="titletext">The easiest way to sell your car,
     hassle free and stress free
@@ -159,6 +159,7 @@ your personal information to third parties to check whether and how, your vehicl
 <script>
 import {Toast} from 'vant'
 import { vehicle } from '@/api'
+import { describtion } from '@/api'
 export default {
   name: 'HomeView',
   components: {
@@ -215,12 +216,28 @@ export default {
               }
             ],
       comments: '',
+      topImg: '', //顶部图
 
     }
   },
   watch: {
   },
+  created() {
+    this.contactData()
+
+},
   methods: {
+
+    contactData() {
+        describtion({
+            current: '1',
+            pageSize: '10',
+            title: 'OtherPages'
+        }).then(res => {
+            this.topImg = res.data.records[2].targeUrl
+        })
+    },
+
     submit() {
         if (this.name === '' || this.mobile === '' || this.Year === '' || this.make === '' || this.model === '' || this.transmission === '' || this.odometer === '') {
             Toast('Missing field\nOne of the required field is empty or contains invaild data; please check your input')
@@ -293,7 +310,6 @@ export default {
 .lunbo {
   height: 207px;
   width: 100%;
-  background-image: url(../../assets/images/sellyourcar/JVS00048-5.jpg);
   background-size:cover;
   margin-top: -20px;
   .lunbotext {
