@@ -6,7 +6,7 @@
               <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
           </div> -->
           <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 300px; height: 180px; overflow: hidden;">
-              <div data-p="144.50" style="display: none;" v-for="(item,index) in photos" :key="index">
+              <div data-p="144.50" v-for="(item,index) in photos" :key="index">
                   <img data-u="image" :src="item.img" />
                   <img data-u="thumb" :src="item.img" />
               </div>
@@ -16,7 +16,7 @@
               <div data-u="slides" style="cursor: default;">
                   <div data-u="prototype" class="p">
                       <div class="w">
-                          <div data-u="thumbnailtemplate" class="t"></div>
+                          <div data-u="thumbnailtemplate" class="t" style="height: 44px;width: 58px"></div>
                       </div>
                       <div class="c"></div>
                   </div>
@@ -131,12 +131,13 @@ import enUS from 'vant/es/locale/lang/en-US';
 import $ from 'jquery'
 
 window.jQuery = $ 
-require('@/assets/jssor.slider.mini')
+require('@/assets/jssor.slider.min')
 
 Locale.use('en-US', enUS);
 export default {
     data() {
         return {
+            jssor_1_slider: null,
             showTime: false, // 时间控件
             price: '',
             advTitle: '',
@@ -219,22 +220,24 @@ jssor_1_slider_init : function() {
                 $Cols: 10,
                 $SpacingX: 5,
                 $SpacingY: 5,
-                $Align: 360
+                $Align: 100
               }
             };
             
-            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+            this.jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
             
             //responsive code begin
             //you can remove responsive code if you don't want the slider scales while window resizing
+            let that = this ;
             function ScaleSlider() {
-                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-                if (refSize) {
-                    refSize = Math.min(refSize, 800);
-                    jssor_1_slider.$ScaleWidth(refSize);
-                }
-                else {
-                    window.setTimeout(ScaleSlider, 30);
+                var containerElement = that.jssor_1_slider.$Elmt.parentNode;
+                var containerWidth = containerElement.clientWidth;
+                if (containerWidth) {
+                var expectedWidth = Math.min(containerWidth, containerWidth);
+
+                that.jssor_1_slider.$ScaleWidth(expectedWidth);
+                } else {
+                window.setTimeout(ScaleSlider, 30);
                 }
             }
             ScaleSlider();
@@ -328,9 +331,16 @@ jssor_1_slider_init : function() {
             this.init()
             this.allCar()
             this.setPhotos(item)
-            this.firstPhoto = item.photo[0]
-            console.log('123')
+            this.imgUrlList = item.photo
+            console.log(this.imgUrlList,'更新后')
             // 回到顶部
+            this.urlList = this.imgUrlList
+            let slidesHtml = '';
+            for(let url of this.urlList){
+                slidesHtml += '<div><img data-u="image" src="'+url+'"  /> ' +
+                    ' <img data-u="thumb" src="'+url+'" /></div> ';
+            }
+            this.jssor_1_slider.$ReloadSlides(slidesHtml)
             window.scrollTo(
                 {
                     top: 0,
