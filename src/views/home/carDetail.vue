@@ -1,11 +1,11 @@
 <template>
     <div class="page">
-        <div id="jssor_1" style="position: relative; top: 0px; left: 0px; width: 300px; height: 330px; overflow: hidden;">
+        <div id="jssor_1" style="position: relative; top: 0px; left: 0px; width: 300px; height: 350px; overflow: hidden;">
           <!-- <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
               <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
               <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
           </div> -->
-          <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 300px; height: 180px; overflow: hidden;">
+          <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 300px; height: 200px; overflow: hidden;">
               <div data-p="144.50" v-for="(item,index) in photos" :key="index">
                   <img data-u="image" :src="item.img" />
                   <img data-u="thumb" :src="item.img" />
@@ -16,7 +16,7 @@
               <div data-u="slides" style="cursor: default;">
                   <div data-u="prototype" class="p">
                       <div class="w">
-                          <div data-u="thumbnailtemplate" class="t" style="height: 44px;width: 58px"></div>
+                          <div data-u="thumbnailtemplate" class="t" style="width: 58px"></div>
                       </div>
                       <div class="c"></div>
                   </div>
@@ -161,11 +161,31 @@ export default {
         }
     },
     created() {
-        this.informations = this.$route.query.item
+        const item = {
+advTitle:this.$route.query.advTitle,
+advbody:this.$route.query.advbody,
+badge:this.$route.query.badge,
+body:this.$route.query.body,
+color:this.$route.query.color,
+cylinders:this.$route.query.cylinders,
+doornum:this.$route.query.doornum,
+drive:this.$route.query.drive,
+enginesize:this.$route.query.enginesize,
+fueltype:this.$route.query.fueltype,
+geartype:this.$route.query.geartype,
+make:this.$route.query.make,
+model:this.$route.query.model,
+odometer:this.$route.query.odometer,
+photo:this.$route.query.photo,
+price:this.$route.query.price,
+year:this.$route.query.year,
+}
+this.informations = item
+        // this.informations = this.$route.query.item
         this.advTitle = this.informations.advTitle
         this.advbody = this.informations.advbody
         this.price = this.informations.price
-        this.firstPhoto = this.$route.query.item.photo[0]
+        this.firstPhoto = this.informations.photo[0]
         console.log('123', this.informations)
         this.init()
         this.allCar()
@@ -256,7 +276,7 @@ jssor_1_slider_init : function() {
 
 
         setPhoto() {
-            this.photo = this.$route.query.item.photo
+            this.photo = this.informations.photo
             this.photos = []
             for(var i = 0; i<this.photo.length; i++ ) {
                 const img = {
@@ -357,8 +377,8 @@ jssor_1_slider_init : function() {
                 yearEnd: '',
                 priceStart: '',
                 priceEnd: '',
-                orderByPrice: '1',
-                orderByYear: '1'
+                orderByPrice: '',
+                orderByYear: ''
             }).then(car => {
                 // this.information1 = car.data.records
                 this.information1 = []
@@ -481,42 +501,39 @@ jssor_1_slider_init : function() {
         }
         
         .jssort01 .c {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            // width: 50px;
-            // height: 36px;
-            // border: #000 2px solid;
-            width: 52px;
-            height: 38px;
-            border: #fff 1px solid;
-            box-sizing: content-box;
-            _background: none;
+            // position: absolute;
+            // top: 0px;
+            // left: 0px;
+            // width: 58px;
+            // height: 44px;
+            // border: red 1px solid;
+            // box-sizing: content-box;
+            // _background: none;
         }
         
         .jssort01 .pav .c {
-            width: 50px;
-            height: 36px;
-            border: #000 2px solid;
+            // width: 60px;
+            // height: 46px;
+            // border: #000 2px solid;
         }
         
         .jssort01 .p:hover .c {
-            top: 0px;
-            left: 0px;
-            // width: 70px;
-            // height: 70px;
-            // border: #fff 1px solid;
-            width: 50px;
-            height: 36px;
-            border: #000 2px solid;
-            background-position: 50% 50%;
+            // top: 0px;
+            // left: 0px;
+            // // width: 70px;
+            // // height: 70px;
+            // // border: #fff 1px solid;
+            // width: 58px;
+            // height: 44px;
+            // border: #000 2px solid;
+            // background-position: 50% 50%;
         }
         
         .jssort01 .p.pdn .c {
-            background-position: 50% 50%;
-            width: 68px;
-            height: 68px;
-            border: #000 2px solid;
+            // background-position: 50% 50%;
+            // width: 58px;
+            // height: 44px;
+            // border: #000 2px solid;
         }
         
         * html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {

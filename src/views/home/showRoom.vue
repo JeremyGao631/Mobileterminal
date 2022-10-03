@@ -164,8 +164,8 @@ export default {
      price: [],
      information: [],
      information1: [],
-     orderByPrice: 1,
-     orderByYear: 1,
+     orderByPrice: '',
+     orderByYear: '',
      checked: this.makeList,
      topImg: '', //顶部图
     }
@@ -192,7 +192,25 @@ export default {
             this.number = item; //重要处
           },
     jumpcardetail(item) {
-      this.$router.push({path:'/carDetail', query: {item: item}})
+      this.$router.push({path:'/carDetail', query: {
+                    advTitle:item.advTitle,
+                    advbody:item.advbody,
+                    badge:item.badge, 
+                    body:item.body,
+                    color:item.color, 
+                    cylinders:item.cylinders,
+                    doornum:item.doornum,
+                    drive:item.drive,
+                    enginesize:item.enginesize,
+                    fueltype:item.fueltype,
+                    geartype:item.geartype,
+                    make:item.make,
+                    model:item.model,
+                    odometer:item.odometer,
+                    photo:item.photo,
+                    price:item.price,
+                    year:item.year,
+                    }})
     },
     // make
     make1(val) {
@@ -237,13 +255,13 @@ export default {
         orderByPrice: this.orderByPrice,
         orderByYear: this.orderByYear
       }).then(car => {
-        this.information = car.data.records
-        this.maxPrice = car.data.records[0].price
-        this.minPrice = car.data.records[car.data.records.length-1].price 
-        this.maxPrices = car.data.records[0].price
-        this.minPrices = car.data.records[car.data.records.length-1].price
-        this.price = [this.minPrice,this.maxPrice]
-        console.log(this.information, 'car')
+        // this.information = car.data.records
+        // this.maxPrice = car.data.records[0].price
+        // this.minPrice = car.data.records[car.data.records.length-1].price 
+        // this.maxPrices = car.data.records[0].price
+        // this.minPrices = car.data.records[car.data.records.length-1].price
+        // this.price = [this.minPrice,this.maxPrice]
+        // console.log(this.information, 'car')
         this.makeList = []
         const makesList = []
         car.data.records.forEach(ele => {
@@ -287,6 +305,25 @@ export default {
             this.information.push(item)
           })
       })
+      car({
+        current: '1',
+        pageSize: '500',
+        make: '',
+        yearStart: '',
+        yearEnd: '',
+        priceStart: '',
+        priceEnd: '',
+        orderByPrice: '1',
+        // orderByYear: '1'
+        }).then(res => {
+        console.log('res', res)
+        this.maxPrice = car.data.records[0].price
+        this.minPrice = car.data.records[car.data.records.length - 1].price
+        this.maxPrices = car.data.records[0].price
+        this.minPrices = car.data.records[car.data.records.length - 1].price
+        this.price = [this.minPrice, this.maxPrice]
+        this.carLength = car.data.records.length
+        })
       car({
         current: '1',
         pageSize: '500',

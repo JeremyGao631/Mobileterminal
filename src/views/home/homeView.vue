@@ -37,7 +37,7 @@
       </div>
       <div class="textinfo">
         <span>AVAILABLE</span>
-        <span class="textinfosepcial"> {{this.carLength + 1}} </span>
+        <span class="textinfosepcial"> {{this.carLength}} </span>
         <span>CARS</span>
       </div>
       <div class="textcontent">
@@ -127,7 +127,26 @@ export default {
       this.$router.push('/contact')
     },
     jumpcardetail(item) {
-      this.$router.push({path:'/carDetail', query: {item: item}})
+       this.$router.push({path:'/carDetail', query: {
+                    advTitle:item.advTitle,
+                    advbody:item.advbody,
+                    badge:item.badge, 
+                    body:item.body,
+                    color:item.color, 
+                    cylinders:item.cylinders,
+                    doornum:item.doornum,
+                    drive:item.drive,
+                    enginesize:item.enginesize,
+                    fueltype:item.fueltype,
+                    geartype:item.geartype,
+                    make:item.make,
+                    model:item.model,
+                    odometer:item.odometer,
+                    photo:item.photo,
+                    price:item.price,
+                    year:item.year,
+       }})
+                    
     },
     // 车辆信息
     allCar() {
@@ -139,8 +158,8 @@ export default {
         yearEnd: '',
         priceStart: '',
         priceEnd: '',
-        orderByPrice: '1',
-        orderByYear: '1'
+        orderByPrice: '',
+        orderByYear: ''
       }).then(car => {
         // this.information = car.data.records
         this.information = []
