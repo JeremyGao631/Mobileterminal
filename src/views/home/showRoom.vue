@@ -242,7 +242,7 @@ export default {
         this.showPrice = true
       }
     },
-    // 查询全部
+    // 查询全部（按系统更新的排序）
     allCar() {
       car({
         current: '1',
@@ -305,6 +305,7 @@ export default {
             this.information.push(item)
           })
       })
+        // 获取按钮的最高和最低价格
       car({
         current: '1',
         pageSize: '500',
@@ -317,13 +318,13 @@ export default {
         // orderByYear: '1'
         }).then(res => {
         console.log('res', res)
-        this.maxPrice = car.data.records[0].price
-        this.minPrice = car.data.records[car.data.records.length - 1].price
-        this.maxPrices = car.data.records[0].price
-        this.minPrices = car.data.records[car.data.records.length - 1].price
+        this.maxPrice = res.data.records[0].price
+        this.minPrice = res.data.records[res.data.records.length - 1].price
+        this.maxPrices = res.data.records[0].price
+        this.minPrices = res.data.records[res.data.records.length - 1].price
         this.price = [this.minPrice, this.maxPrice]
-        this.carLength = car.data.records.length
         })
+        // 获取按钮的最高年份和最低年份
       car({
         current: '1',
         pageSize: '500',
